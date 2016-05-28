@@ -1,10 +1,10 @@
+;;; my-misc.el
 
 (load-theme 'monokai t)
 
 (add-to-list 'default-frame-alist '(height . 43))
 (add-to-list 'default-frame-alist '(width . 132))
 
-(my-install-if-needed 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 
@@ -34,7 +34,9 @@
       ediff-window-setup-function 'ediff-setup-windows-plain
       oddmuse-directory (concat my-emacs-d-dir "oddmuse")
       xterm-mouse-mode t
-      save-place-file (concat my-emacs-d-dir "places"))
+      save-place-file (concat my-emacs-d-dir "places")
+      annals-active-directory (concat my-emacs-d-dir "annals")
+      annals-archive-directory (concat my-emacs-d-dir "annals/archive"))
 
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
@@ -42,9 +44,7 @@
 (powerline-center-theme)
 (setq powerline-default-separator 'wave)
 
-(require 'auto-complete)
 (global-auto-complete-mode)
-(require 'auto-complete-config)
 (ac-config-default)
 (setq ac-use-quick-help t)
 
@@ -54,21 +54,28 @@
 
 (global-undo-tree-mode)
 
-(desktop-save-mode 1)
-
 (auto-compression-mode t)
 
 (recentf-mode 1)
 
 (show-paren-mode 1)
 
-(when (> emacs-major-version 21)
-  (ido-mode t)
-  (setq ido-enable-prefix nil
-        ido-enable-flex-matching t
-        ido-create-new-buffer 'always
-        ido-use-filename-at-point t
-        ido-max-prospects 10))
+(ido-mode t)
+(setq ido-enable-prefix nil
+      ido-enable-flex-matching t
+      ido-create-new-buffer 'always
+      ido-use-filename-at-point t
+      ido-max-prospects 10)
+
+;;(desktop-save-mode 1)
+
+(setq nameses-ido-mode nil)
+(global-set-key (kbd "<f9>")     'nameses-load)
+(global-set-key (kbd "C-<f9>")   'nameses-prev)
+(global-set-key (kbd "C-S-<f9>") 'nameses-save)
+
+(global-set-key [f6] (quote annals-task))
+(global-set-key [C-f6] (quote annals-buffer-name-create))
 
 ;;(set-default 'indent-tabs-mode nil)
 (set-default 'indicate-empty-lines t)
@@ -105,4 +112,4 @@
 (eval-after-load 'diff-mode
   '(progn
      (set-face-foreground 'diff-added "green4")
-     (set-face-foreground 'diff-removed "red3"))) 
+     (set-face-foreground 'diff-removed "red3")))

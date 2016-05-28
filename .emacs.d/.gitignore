@@ -16,6 +16,7 @@ projectile-bookmarks.eld
 recentf
 
 ## directories
+annals/*
 backups/*
 thumbs/*
 oddmuse/*
@@ -55,4 +56,3 @@ scratch
 secret.org
 .emacs.desktop*
 .*~
-

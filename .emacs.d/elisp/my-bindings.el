@@ -1,3 +1,4 @@
+;;; my-bindings.el
 
 (global-set-key (kbd "C-M-h") 'backward-kill-word)
 
@@ -59,4 +60,3 @@
 ;;(define-key yas-minor-mode-map (kbd "C-c k") 'yas-expand)
 
 ;;(define-key global-map (kbd "C-c k") 'iedit-mode)
-

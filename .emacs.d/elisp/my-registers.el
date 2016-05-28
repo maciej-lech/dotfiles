@@ -1,3 +1,4 @@
+;;; my-registers.el
 
 (dolist
     (r `((?i (file . ,(concat my-emacs-d-dir "init.el")))
@@ -10,5 +11,5 @@
                          ((file-exists-p el)  el)
                          (t dir)))))
          (?m (file . ,(concat my-emacs-d-elisp-dir "main.el")))
-         (?r (file . ,(concat my-emacs-d-elisp-dir "registers.el")))))
+         (?r (file . ,(concat my-emacs-d-elisp-dir "my-registers.el")))))
   (set-register (car r) (cadr r)))

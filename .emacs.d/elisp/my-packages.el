@@ -1,5 +1,30 @@
 ;;; my-packages.el
 
+(let ((elisp-dir (expand-file-name "auto" my-emacs-d-elisp-dir)))
+  ;; add the auto directory to the load path
+  (add-to-list 'load-path elisp-dir)
+  ;; load specific files
+  (when (file-exists-p elisp-dir)
+    (let ((default-directory elisp-dir))
+      (normal-top-level-add-subdirs-to-load-path))))
+
+(setq autoload-file (concat my-emacs-d-dir "loaddefs.el"))
+(setq package-user-dir (concat my-emacs-d-dir "elpa"))
+
+(require 'cl)
+(require 'cl-lib)
+(require 'saveplace)
+(require 'ffap)
+(require 'uniquify)
+(require 'ansi-color)
+(require 'recentf)
+(require 'auto-complete)
+(require 'auto-complete-config)
+(require 'ido)
+(require 'desktop)
+(require 'nameses)
+(require 'annals)
+
 (setq package-archives
       '(("gnu"         . "http://elpa.gnu.org/packages/")
         ("org"         . "http://orgmode.org/elpa/")
@@ -8,7 +33,8 @@
 (package-initialize)
 
 (defvar my-packages
-  '(smex
+  '(magit
+    smex
     auto-complete
     nlinum
     autopair
