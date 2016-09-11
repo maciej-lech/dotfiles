@@ -44,8 +44,11 @@ alias es='emacs-snapshot -mm'
 
 # Misc
 alias xo='xdg-open'
-#alias icons='gconftool-2 --type bool --set /apps/nautilus/preferences/show_desktop 1'
-#alias iconh='gconftool-2 --type bool --set /apps/nautilus/preferences/show_desktop 0'
+alias icons='gsettings set org.gnome.desktop.background show-desktop-icons true'
+alias iconh='gsettings set org.gnome.desktop.background show-desktop-icons false'
 alias synchtime='sudo ntpdate pl.pool.ntp.org'
 alias sdh='sudo shutdown -h'
 alias ppt2pdf='libreoffice --headless --invisible --convert-to pdf'
+
+alias pi='libreoffice --nologo --show ~/praca_inz/prezentacja.odp'
+

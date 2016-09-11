@@ -5,11 +5,8 @@
 (add-to-list 'default-frame-alist '(height . 43))
 (add-to-list 'default-frame-alist '(width . 132))
 
-(global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
-
 (when window-system
-  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
+  (setq frame-title-format (list '(buffer-file-name "%f" ("%b"))))
   (blink-cursor-mode -1)
   (tool-bar-mode -1)
   (when (require 'mwheel nil 'no-error) (mouse-wheel-mode t)))
@@ -69,13 +66,7 @@
 
 ;;(desktop-save-mode 1)
 
-(setq nameses-ido-mode nil)
-(global-set-key (kbd "<f9>")     'nameses-load)
-(global-set-key (kbd "C-<f9>")   'nameses-prev)
-(global-set-key (kbd "C-S-<f9>") 'nameses-save)
-
-(global-set-key [f6] (quote annals-task))
-(global-set-key [C-f6] (quote annals-buffer-name-create))
+(setq nameses-ido-mode 1)
 
 ;;(set-default 'indent-tabs-mode nil)
 (set-default 'indicate-empty-lines t)

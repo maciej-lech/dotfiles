@@ -1,5 +1,8 @@
 ;;; my-bindings.el
 
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+
 (global-set-key (kbd "C-M-h") 'backward-kill-word)
 
 (global-set-key (kbd "C-x \\") 'align-regexp)
@@ -56,6 +59,15 @@
 (define-key global-map "\C-cl" 'org-store-link)
 
 (define-key global-map "\C-x\C-r" 'rgrep)
+
+(global-set-key (kbd "<f9>")     'nameses-load)
+(global-set-key (kbd "C-<f9>")   'nameses-prev)
+(global-set-key (kbd "C-S-<f9>") 'nameses-save)
+
+(global-set-key [f6] (quote annals-task))
+(global-set-key [C-f6] (quote annals-buffer-name-create))
+
+
 
 ;;(define-key yas-minor-mode-map (kbd "C-c k") 'yas-expand)
 
