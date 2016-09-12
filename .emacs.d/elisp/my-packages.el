@@ -1,29 +1,6 @@
 ;;; my-packages.el
 
-(let ((elisp-dir (expand-file-name "auto" my-emacs-d-elisp-dir)))
-  ;; add the auto directory to the load path
-  (add-to-list 'load-path elisp-dir)
-  ;; load specific files
-  (when (file-exists-p elisp-dir)
-    (let ((default-directory elisp-dir))
-      (normal-top-level-add-subdirs-to-load-path))))
-
-(setq autoload-file (concat my-emacs-d-dir "loaddefs.el"))
-(setq package-user-dir (concat my-emacs-d-dir "elpa"))
-
-(require 'cl)
-(require 'cl-lib)
-(require 'saveplace)
-(require 'ffap)
-(require 'uniquify)
-(require 'ansi-color)
-(require 'recentf)
-(require 'auto-complete)
-(require 'auto-complete-config)
-(require 'ido)
-(require 'desktop)
-(require 'nameses)
-(require 'annals)
+(setq package-user-dir (expand-file-name "elpa" user-emacs-directory))
 
 (setq package-archives
       '(("gnu"         . "http://elpa.gnu.org/packages/")
@@ -49,7 +26,7 @@
     elpy
     pep8
     rope-read-mode)
-  "Libraries that should be installed by default (currently none).")
+  "Packages that should be installed by default.")
 
 (defun my-loadable-p (package)
   "Check if PACKAGE is loadable from a directory in `load-path'."
@@ -70,7 +47,7 @@
                   (package-installed-p package))
         (package-install package)))))
 
-(defun my-load (file &optional header-or-tag)
+(defun my-load-org (file &optional header-or-tag)
   "Load configuration from other my-*.org files.
 If the optional argument is the id of a subtree then only
 configuration from within that subtree will be loaded.  If it is
@@ -78,16 +55,16 @@ not an id then it will be interpreted as a tag, and only subtrees
 marked with the given tag will be loaded.
 
 For example, to load all of my-lisp.org simply
-add (my-load \"lisp\") to your configuration.
+add (my-load-org \"lisp\") to your configuration.
 
 To load only the 'window-system' config from
 my-misc-recommended.org add
- (my-load \"misc-recommended\" \"window-system\")
+ (my-load-org \"misc-recommended\" \"window-system\")
 to your configuration."
   (let ((file (expand-file-name (if (string-match "my-.+\.org" file)
                                     file
                                   (format "my-%s.org" file))
-                                my-emacs-d-dir)))
+                                user-emacs-directory)))
     (org-babel-load-file
      (if header-or-tag
          (let* ((base (file-name-nondirectory file))
@@ -121,3 +98,5 @@ to your configuration."
 
 ;; install packages if needed
 (apply 'my-install-if-needed my-packages)
+
+(provide 'my-packages)

@@ -2,7 +2,7 @@
 
 ;; load user/system specific files
 (cl-flet ((sk-load (base)
-         (let* ((path          (expand-file-name base my-emacs-d-dir))
+         (let* ((path          (expand-file-name base user-emacs-directory))
                 (literate      (concat path ".org"))
                 (encrypted-org (concat path ".org.gpg"))
                 (plain         (concat path ".el"))
@@ -15,7 +15,7 @@
        (remove-extension (name)
          (string-match "\\(.*?\\)\.\\(org\\(\\.el\\)?\\|el\\)\\(\\.gpg\\)?$" name)
          (match-string 1 name)))
-  (let ((user-dir (expand-file-name user-login-name my-emacs-d-dir)))
+  (let ((user-dir (expand-file-name user-login-name user-emacs-directory)))
     ;; load system-specific config
     (sk-load system-name)
     ;; load user-specific config
@@ -30,5 +30,5 @@
              :test #'string=)))))
 
 ;;; load custom
-(setq custom-file (concat my-emacs-d-dir "custom.el"))
+(setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file 'noerror)

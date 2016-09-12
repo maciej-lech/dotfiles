@@ -29,11 +29,11 @@
                                   indentation space-after-tab)
       whitespace-line-column 100
       ediff-window-setup-function 'ediff-setup-windows-plain
-      oddmuse-directory (concat my-emacs-d-dir "oddmuse")
+      oddmuse-directory (concat user-emacs-directory "oddmuse")
       xterm-mouse-mode t
-      save-place-file (concat my-emacs-d-dir "places")
-      annals-active-directory (concat my-emacs-d-dir "annals")
-      annals-archive-directory (concat my-emacs-d-dir "annals/archive"))
+      save-place-file (concat user-emacs-directory "places")
+      annals-active-directory (concat user-emacs-directory "annals")
+      annals-archive-directory (concat user-emacs-directory "annals/archive"))
 
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
@@ -96,7 +96,7 @@
   (delete 'try-expand-list hippie-expand-try-functions-list))
 
 (setq backup-directory-alist `(("." . ,(expand-file-name
-                                        (concat my-emacs-d-dir "backups")))))
+                                        (concat user-emacs-directory "backups")))))
 
 (setq diff-switches "-u")
 

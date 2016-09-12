@@ -1,30 +1,43 @@
 ;;; init.el --- Where all the magic begins
-;;
-;; Originally based on https://github.com/eschulte/emacs24-my
 
 (package-initialize)
 
-;; load Org-mode from source when the ORG_HOME environment variable is set
-(when (getenv "ORG_HOME")
-  (let ((org-lisp-dir (expand-file-name "lisp" (getenv "ORG_HOME"))))
-    (when (file-directory-p org-lisp-dir)
-      (add-to-list 'load-path org-lisp-dir)
-      (require 'org))))
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
-;; load the rest of the configuration in `after-init-hook'
-(add-hook 'after-init-hook
- `(lambda ()
-    ;; remember this directory
-    (setq my-emacs-d-dir
-          ,(file-name-directory (or load-file-name (buffer-file-name))))
-    ;; remember elisp directory
-    (setq my-emacs-d-elisp-dir
-	  (expand-file-name "elisp" my-emacs-d-dir))
-    (add-to-list 'load-path my-emacs-d-elisp-dir)
-    ;; only load org-mode later if we didn't load it just now
-    ,(unless (and (getenv "ORG_HOME")
-                  (file-directory-p (expand-file-name "lisp"
-                                                      (getenv "ORG_HOME"))))
-       '(require 'org))
-    ;; load up the starter kit
-    (load "main")))
+(setq user-emacs-elisp-directory (expand-file-name "elisp" user-emacs-directory))
+(add-to-list 'load-path user-emacs-elisp-directory)
+
+(let ((elisp-auto-dir (expand-file-name "auto" user-emacs-elisp-directory)))
+  ;; add the auto directory to the load path
+  (add-to-list 'load-path elisp-auto-dir)
+  ;; load specific files
+  (when (file-exists-p elisp-auto-dir)
+    (let ((default-directory elisp-auto-dir))
+      (normal-top-level-add-subdirs-to-load-path))))
+
+(require 'my-packages)
+
+(load custom-file)
+
+(require 'cl)
+(require 'cl-lib)
+(require 'saveplace)
+(require 'ffap)
+(require 'uniquify)
+(require 'ansi-color)
+(require 'recentf)
+(require 'auto-complete)
+(require 'auto-complete-config)
+(require 'ido)
+(require 'desktop)
+(require 'nameses)
+(require 'annals)
+
+(load "my-defuns.el")
+(load "my-misc.el")
+(load "my-hooks.el")
+(load "my-registers.el")
+(load "my-python-mode.el")
+(load "my-eshell-mode.el")
+(load "my-bindings.el")
+(load "my-custom.el")

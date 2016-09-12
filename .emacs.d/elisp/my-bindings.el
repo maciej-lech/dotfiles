@@ -1,9 +1,8 @@
 ;;; my-bindings.el
 
+;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
-
-(global-set-key (kbd "C-M-h") 'backward-kill-word)
 
 (global-set-key (kbd "C-x \\") 'align-regexp)
 
@@ -13,11 +12,13 @@
 
 (global-set-key [f1] 'menu-bar-mode)
 
+;; font size simple way to change
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
 
+;; make regex-search default
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "\C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
@@ -39,7 +40,7 @@
 
 (global-set-key (kbd "C-h a") 'apropos)
 
-(global-set-key (kbd "M-<insert>") (lambda () (interactive) (load-file (concat my-emacs-d-dir "init.el"))))
+(global-set-key (kbd "M-<insert>") (lambda () (interactive) (load-file (concat user-emacs-directory "init.el"))))
 
 (global-set-key (kbd "M-x") 'smex)
 
