@@ -4,36 +4,39 @@
 alias s='sudo'
 alias c='clear'
 alias e='exit'
-alias t='tmux'
-alias g='gedit'
 
+# Change and list dir
 alias '..'='cd ..'
 alias 'cd..'='cd ..'
 alias 'cd...'='cd ../..'
 alias 'cd....'='cd ../../..'
 alias 'll'='ls -la'
-alias 'lr'='ls -lr'
+alias 'lr'='ls -lar'
 
-# Bash
+# Shells
 alias rcreload='. ~/.bashrc'
+alias t='tmux'
 
-# Grep
+# Grep and find
 alias greph='history | grep'
+alias grepi='grep -i'
+alias grepr='grep -r'
+alias grepir='grep -ir'
+alias findf='find . -name'
 
 # Apt
-alias aptupd='sudo apt-get update'
-alias aptupg='sudo apt-get upgrade'
-alias aptfupg='sudo apt-get dist-upgrade'
-alias aptins='sudo apt-get install'
-alias aptrei='sudo apt-get reinstall'
-alias aptpur='sudo apt-get purge --purge'
-alias aptsch='apt-cache search'
-alias aptsho='apt-cache show'
-alias aptpol='apt-cache policy'
+alias aptupd='sudo apt update'
+alias aptupg='sudo apt upgrade'
+alias aptfupg='sudo apt dist-upgrade'
+alias aptins='sudo apt install'
+alias aptrei='sudo apt reinstall'
+alias aptpur='sudo apt purge --purge'
+alias aptsch='apt search'
+alias aptsho='apt show'
+alias aptpol='apt policy'
 
-#alias applist='dpkg -l | grep ^ii | cut -d ' ' -f3 | tr '\n' ' ''
+#alias aptlist='dpkg -l | grep ^ii | cut -d ' ' -f3 | tr '\n' ' ''
 alias aptman="comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)"
-
 
 # Yaourt
 #alias ysyn='yaourt -Sy'
@@ -44,9 +47,12 @@ alias aptman="comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/inst
 #alias ysch='yaourt -Ss'
 #alias yinf='yaourt -Si'
 
-# Emacs
-alias e='emacs -mm'
-alias es='emacs-snapshot -mm'
+# Editors
+alias g='gedit'
+#alias e='emacs-snapshot -mm'
+#alias ec='emacsclient-snapshot -mm'
+#alias es='emacs-snapshot -mm --daemon'
+alias lf='leafpad'
 
 # Misc
 alias xo='xdg-open'
@@ -56,3 +62,14 @@ alias synchtime='sudo ntpdate pl.pool.ntp.org'
 alias sdh='sudo shutdown -h'
 alias ppt2pdf='libreoffice --headless --invisible --convert-to pdf'
 
+## WORK
+# IDEs
+alias eclipse='~/opt/eclipse/eclipse &'
+alias clion='~/opt/clion-2016.3.3/bin/clion.sh &'
+alias pycharm='~/opt/pycharm-2016.3.2/bin/pycharm.sh &'
+
+# Grep
+alias a=ack-grep
+
+# Gerrit
+alias gerrit='ssh -p 29418 maciek@192.168.123.131 gerrit'
