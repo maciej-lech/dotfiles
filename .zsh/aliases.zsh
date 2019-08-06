@@ -22,6 +22,9 @@ alias grepr='grep -r'
 alias grepir='grep -ir'
 alias findf='find . -name'
 
+# Git
+alias g='git'
+
 # Apt
 alias aptupd='sudo apt update'
 alias aptupg='sudo apt upgrade'
@@ -44,11 +47,8 @@ alias synchtime='sudo ntpdate pl.pool.ntp.org'
 alias sdh='sudo shutdown -h'
 alias ppt2pdf='libreoffice --headless --invisible --convert-to pdf'
 
-## WORK
-# IDEs
-alias eclipse='~/opt/eclipse/eclipse &'
-alias clion='~/opt/clion-2016.3.3/bin/clion.sh &'
-alias pycharm='~/opt/pycharm-2016.3.2/bin/pycharm.sh &'
+# Editors
+alias st=sublime_text
 
 # Grep
 alias a=ack-grep

@@ -1,4 +1,4 @@
-export PATH=/usr/lib/ccache:$HOME/bin:$HOME/.local/bin:$PATH
+export PATH=/usr/lib/ccache:$HOME/.local/bin:$PATH
 export ZSH="/home/maciek/.antigen/bundles/robbyrussell/oh-my-zsh/"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -12,7 +12,7 @@ CASE_SENSITIVE="true"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=14
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -21,7 +21,7 @@ export UPDATE_ZSH_DAYS=13
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -54,12 +54,18 @@ source $ZSH_CUSTOM/antigen/antigen.zsh
 
 # for debian plugin
 apt_pref='apt'
+
 # for jira plugin
 JIRA_URL='https://ssgsoftware.atlassian.net'
 JIRA_DEFAULT_ACTION=dashboard
 
+# for git (my custom modification)
+ZSH_GIT_NOALIASES=1
+
+# use ohmyz
 antigen use oh-my-zsh
 
+# bundle plugins
 antigen bundles <<EOBUNDLES
 common-aliases
 command-not-found
@@ -83,18 +89,20 @@ endaaman/lxd-completion-zsh
 owenstranathan/pipenv.zsh
 EOBUNDLES
 
+# set theme and apply
 antigen theme robbyrussell
 antigen apply
 
 # OMZ
 . $ZSH/oh-my-zsh.sh
 
-# User configuration
-
 # PyEnv
 export PATH="/home/maciek/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# VirtualenvWrapper
+. "$(which virtualenvwrapper.sh)"
 
 # Powerline
 . /usr/share/powerline/bindings/zsh/powerline.zsh
