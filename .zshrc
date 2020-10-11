@@ -1,5 +1,5 @@
 export PATH=/usr/lib/ccache:$HOME/.local/bin:$PATH
-export ZSH="/home/maciek/.antigen/bundles/robbyrussell/oh-my-zsh/"
+export ZSH="$HOME/.antigen/bundles/robbyrussell/oh-my-zsh/"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -49,14 +49,13 @@ plugins=(
 )
 
 # Antigen plugins manager
-
 source $ZSH_CUSTOM/antigen/antigen.zsh
 
 # for debian plugin
 apt_pref='apt'
 
 # for jira plugin
-JIRA_URL='https://ssgsoftware.atlassian.net'
+JIRA_URL='https://xxx.atlassian.net'
 JIRA_DEFAULT_ACTION=dashboard
 
 # for git (my custom modification)
@@ -67,26 +66,27 @@ antigen use oh-my-zsh
 
 # bundle plugins
 antigen bundles <<EOBUNDLES
-common-aliases
-command-not-found
-colored-man-pages
-dircycle
-debian
-django
-docker
-git
-history
-jira
-pip
-pyenv
-python
-sudo
-tmux
-zsh-users/zsh-autosuggestions
-zsh-users/zsh-completions
-zsh-users/zsh-syntax-highlighting
-endaaman/lxd-completion-zsh
-owenstranathan/pipenv.zsh
+    common-aliases
+    command-not-found
+    colored-man-pages
+    dircycle
+    debian
+    django
+    docker
+    dotenv
+    git
+    history
+    jira
+    pip
+    pyenv
+    python
+    sudo
+    tmux
+    zsh-users/zsh-autosuggestions
+    zsh-users/zsh-completions
+    zsh-users/zsh-syntax-highlighting
+    endaaman/lxd-completion-zsh
+    greymd/tmux-xpanes
 EOBUNDLES
 
 # set theme and apply
@@ -97,15 +97,36 @@ antigen apply
 . $ZSH/oh-my-zsh.sh
 
 # PyEnv
-export PATH="/home/maciek/.pyenv/bin:$PATH"
+export PATH="${HOME}/.pyenv/bin:$PATH"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # VirtualenvWrapper
-. "$(which virtualenvwrapper.sh)"
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+# . "$(which virtualenvwrapper.sh)"
+
+# Direnv
+# eval "$(direnv hook zsh)"
 
 # Powerline
-. /usr/share/powerline/bindings/zsh/powerline.zsh
+if [ -f /usr/share/powerline/bindings/zsh/powerline.zsh ]; then
+    . /usr/share/powerline/bindings/zsh/powerline.zsh
+fi
+
+# Perl setup
+if [ -d /home/maciek/perl5/bin ]; then
+    PATH="/home/maciek/perl5/bin${PATH:+:${PATH}}"; export PATH;
+    PERL5LIB="/home/maciek/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+    PERL_LOCAL_LIB_ROOT="/home/maciek/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+    PERL_MB_OPT="--install_base \"/home/maciek/perl5\""; export PERL_MB_OPT;
+    PERL_MM_OPT="INSTALL_BASE=/home/maciek/perl5"; export PERL_MM_OPT;
+fi
+
+# Keychain
+if [ -f /usr/bin/keychain ]; then
+    eval "$(keychain -q --eval reef)"
+fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -122,4 +143,3 @@ eval "$(pyenv virtualenv-init -)"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
-

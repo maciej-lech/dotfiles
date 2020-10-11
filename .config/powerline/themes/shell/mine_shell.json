@@ -7,7 +7,7 @@
 			},
 			{
 				"function": "powerline.segments.shell.cwd",
-				"prshelliority": 10,
+				"priority": 10,
 				"args": {
 					"dir_limit_depth": 4,
 					"use_path_separator": true
