@@ -1,5 +1,24 @@
-export PATH=/usr/lib/ccache:$HOME/.local/bin:$PATH
+## ZSH configuration
+
+# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.antigen/bundles/robbyrussell/oh-my-zsh/"
+
+# Append history
+setopt incappendhistory
+
+## OMZSH configuration
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# ZSH_THEME="robbyrussell"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -11,8 +30,14 @@ CASE_SENSITIVE="true"
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=14
+UPDATE_ZSH_DAYS=7
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -37,7 +62,7 @@ export UPDATE_ZSH_DAYS=14
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd.mm.yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM="/home/maciek/.zsh"
@@ -50,51 +75,12 @@ plugins=(
 
 # Antigen plugins manager
 source $ZSH_CUSTOM/antigen/antigen.zsh
-
-# for debian plugin
-apt_pref='apt'
-
-# for jira plugin
-JIRA_URL='https://xxx.atlassian.net'
-JIRA_DEFAULT_ACTION=dashboard
-
-# for git (my custom modification)
-ZSH_GIT_NOALIASES=1
-
-# use ohmyz
-antigen use oh-my-zsh
-
-# bundle plugins
-antigen bundles <<EOBUNDLES
-    common-aliases
-    command-not-found
-    colored-man-pages
-    dircycle
-    debian
-    django
-    docker
-    dotenv
-    git
-    history
-    jira
-    pip
-    pyenv
-    python
-    sudo
-    tmux
-    zsh-users/zsh-autosuggestions
-    zsh-users/zsh-completions
-    zsh-users/zsh-syntax-highlighting
-    endaaman/lxd-completion-zsh
-    greymd/tmux-xpanes
-EOBUNDLES
-
-# set theme and apply
-antigen theme robbyrussell
-antigen apply
+antigen init ~/.antigenrc
 
 # OMZ
-. $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
+
+## User configuration
 
 # PyEnv
 export PATH="${HOME}/.pyenv/bin:$PATH"
@@ -104,23 +90,35 @@ eval "$(pyenv virtualenv-init -)"
 
 # VirtualenvWrapper
 # export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-# . "$(which virtualenvwrapper.sh)"
+# source "$(which virtualenvwrapper.sh)"
 
 # Direnv
-# eval "$(direnv hook zsh)"
+# if [ -f /usr/bin/direnv ]; then
+#     eval "$(direnv hook zsh)"
+# fi
 
 # Powerline
 if [ -f /usr/share/powerline/bindings/zsh/powerline.zsh ]; then
-    . /usr/share/powerline/bindings/zsh/powerline.zsh
+    source /usr/share/powerline/bindings/zsh/powerline.zsh
 fi
 
-# Perl setup
-if [ -d /home/maciek/perl5/bin ]; then
-    PATH="/home/maciek/perl5/bin${PATH:+:${PATH}}"; export PATH;
-    PERL5LIB="/home/maciek/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-    PERL_LOCAL_LIB_ROOT="/home/maciek/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-    PERL_MB_OPT="--install_base \"/home/maciek/perl5\""; export PERL_MB_OPT;
-    PERL_MM_OPT="INSTALL_BASE=/home/maciek/perl5"; export PERL_MM_OPT;
+# Golang
+if [ -d "${HOME}/go/bin" ]; then
+    PATH="${HOME}/go/bin${PATH:+:${PATH}}"; export PATH;
+    # export GOROOT="${HOME}/go"
+    export GOPATH="${HOME}/go"
+    export GOBIN="${GOPATH}/bin"
+    export GOARCH=amd64
+    export GOOS=linux
+fi
+
+# Perl
+if [ -d "${HOME}/perl5/bin" ]; then
+    PATH="${HOME}/perl5/bin${PATH:+:${PATH}}"; export PATH;
+    PERL5LIB="${HOME}/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+    PERL_LOCAL_LIB_ROOT="${HOME}/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+    PERL_MB_OPT="--install_base \"${HOME}/perl5\""; export PERL_MB_OPT;
+    PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"; export PERL_MM_OPT;
 fi
 
 # Keychain
@@ -143,3 +141,7 @@ fi
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Upgrade $PATH.
+export PATH=$HOME/.local/bin:$PATH
+# export PATH=/usr/lib/ccache:$HOME/.local/bin:$PATH

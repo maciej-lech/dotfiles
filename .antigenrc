@@ -1,0 +1,38 @@
+## Antigen configuration
+
+# for debian plugin
+apt_pref='apt'
+
+# for git (my custom modification)
+ZSH_GIT_NOALIASES=1
+
+# tmux
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOQUIT=false
+
+antigen use oh-my-zsh
+
+antigen bundles <<EOBUNDLES
+    command-not-found
+    common-aliases
+    colored-man-pages
+    dircycle
+    debian
+    django
+    docker
+    docker-compose
+    dotenv
+    git
+    pip
+    pyenv
+    python
+    sudo
+    tmux
+    zsh-users/zsh-autosuggestions
+    zsh-users/zsh-completions
+    zsh-users/zsh-syntax-highlighting
+    greymd/tmux-xpanes
+EOBUNDLES
+
+antigen theme robbyrussell
+antigen apply
