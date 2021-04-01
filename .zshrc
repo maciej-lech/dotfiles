@@ -65,7 +65,7 @@ UPDATE_ZSH_DAYS=7
 HIST_STAMPS="dd.mm.yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM="/home/maciek/.zsh"
+ZSH_CUSTOM="$HOME/.zsh"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
