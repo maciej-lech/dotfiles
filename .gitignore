@@ -1,0 +1,5 @@
+/.idea
+/.nox
+*.py[cod]
+.env
+.python-version

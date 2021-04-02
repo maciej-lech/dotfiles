@@ -1,0 +1,62 @@
+[include]
+    path = ~/.gitconfig.local
+[core]
+    editor = nano
+    pager = less -rFX
+    whitespace = trailing-space,space-before-tab
+	attributesfile = ~/.gitattributes
+[color]
+    ui = always
+[diff]
+    tool = smerge
+[merge]
+    tool = smerge
+[alias]
+    alias = "!sh -c '[ $# = 2 ] && git config --global alias.\"$1\" \"$2\" && exit 0 || echo \"usage: git alias <new alias> <original command>\" >&2 && exit 1' -"
+    aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+    amend = commit --amend
+    delete = "!sh -c '[ $# = 1 ] && git branch -d \"$1\" && git push -d origin \"$1\" && exit 0 || echo \"usage: git delete <branch>\" >&2 && exit 1' -"
+    empty-tree-sha1 = hash-object -t tree /dev/null
+    head = rev-parse HEAD
+    who = shortlog -s --
+    lol = log --graph --decorate --oneline
+    lola = log --graph --decorate --oneline --all
+    lola2 = log --graph --pretty=tformat:'%C(auto)%h - %an - %ci - %s %d' --abbrev-commit --all
+    ad = add -A
+    ad-a = add -A
+    br = branch
+    co = commit
+    co-a = commit --amend
+    co-ane = commit --amend --no-edit
+    ch = checkout
+    ch-rec = "!sh -c 'git checkout $1 && git submodule update --recursive' -"
+    di = diff
+    di-c = diff --cached
+    fe = fetch
+    fp = fetch --prune
+    l = lol
+    la = lola
+    la2 = lola2
+    re = restore
+    sh = show
+    sh-s = show --pretty=fuller -s
+    st = status -s
+    sub = submodule
+    sub-rec = submodule update --init --recursive
+    sub-rem = submodule update --init --remote
+    sw = switch
+    dt = difftool
+    mt = mergetool
+[rebase]
+    autosquash = true
+[log]
+    decorate = short
+[rerere]
+    enabled = true
+[push]
+    default = simple
+    followTags = true
+[branch]
+    autosetuprebase = always
+[fetch]
+    prune = true

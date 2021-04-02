@@ -83,24 +83,17 @@ source $ZSH/oh-my-zsh.sh
 ## User configuration
 
 # PyEnv
-export PATH="${HOME}/.pyenv/bin:$PATH"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-# VirtualenvWrapper
-# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-# source "$(which virtualenvwrapper.sh)"
-
-# Direnv
-# if [ -f /usr/bin/direnv ]; then
-#     eval "$(direnv hook zsh)"
-# fi
-
-# Powerline
-if [ -f /usr/share/powerline/bindings/zsh/powerline.zsh ]; then
-    source /usr/share/powerline/bindings/zsh/powerline.zsh
+if (( $+commands[pyenv] )); then
+    export PATH="${HOME}/.pyenv/bin:$PATH"
+    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
 fi
+
+# # Powerline
+# if [ -f /usr/share/powerline/bindings/zsh/powerline.zsh ]; then
+#     source /usr/share/powerline/bindings/zsh/powerline.zsh
+# fi
 
 # Golang
 if [ -d "${HOME}/go/bin" ]; then
@@ -122,7 +115,7 @@ if [ -d "${HOME}/perl5/bin" ]; then
 fi
 
 # Keychain
-if [ -f /usr/bin/keychain ]; then
+if (( $+commands[keychain] )); then
     eval "$(keychain -q --eval reef)"
 fi
 
@@ -144,4 +137,3 @@ fi
 
 # Upgrade $PATH.
 export PATH=$HOME/.local/bin:$PATH
-# export PATH=/usr/lib/ccache:$HOME/.local/bin:$PATH
