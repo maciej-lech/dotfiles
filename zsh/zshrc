@@ -6,6 +6,11 @@ export ZSH="$HOME/.antigen/bundles/robbyrussell/oh-my-zsh/"
 # Append history
 setopt incappendhistory
 
+# Disable compfix on MacOS
+if [[ "$OSTYPE" =~ "darwin" ]]; then
+    ZSH_DISABLE_COMPFIX="true"
+fi
+
 ## OMZSH configuration
 
 # Set name of the theme to load --- if set to "random", it will
@@ -74,7 +79,15 @@ plugins=(
 )
 
 # Antigen plugins manager
-source $ZSH_CUSTOM/antigen/antigen.zsh
+case $OSTYPE in
+linux*)
+    source /usr/share/zsh-antigen/antigen.zsh
+    ;;
+darwin*)
+    source /usr/local/share/antigen/antigen.zsh
+    ;;
+esac
+
 antigen init ~/.antigenrc
 
 # OMZ
@@ -91,9 +104,9 @@ if (( $+commands[pyenv] )); then
 fi
 
 # # Powerline
-# if [ -f /usr/share/powerline/bindings/zsh/powerline.zsh ]; then
-#     source /usr/share/powerline/bindings/zsh/powerline.zsh
-# fi
+if [ -f  "${HOME}/.local/pipx/venvs/powerline-status/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh" ]; then
+    source ${HOME}/.local/pipx/venvs/powerline-status/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh
+fi
 
 # Golang
 if [ -d "${HOME}/go/bin" ]; then
@@ -116,7 +129,14 @@ fi
 
 # Keychain
 if (( $+commands[keychain] )); then
-    eval "$(keychain -q --eval reef)"
+    case $OSTYPE in
+    linux*)
+        eval "$(keychain -q --eval id_ed25519)"
+        ;;
+    darwin*)
+        eval "$(keychain -q --inherit any --eval id_ed25519)"
+        ;;
+    esac
 fi
 
 # You may need to manually set your language environment
