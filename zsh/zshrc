@@ -6,10 +6,19 @@ export ZSH="$HOME/.antigen/bundles/robbyrussell/oh-my-zsh/"
 # Append history
 setopt incappendhistory
 
-# Disable compfix on MacOS
-if [[ "$OSTYPE" =~ "darwin" ]]; then
+## OS-specific ZSH configuration
+
+case $OSTYPE in
+linux*)
+    ANTIGEN_ZSH="/usr/share/zsh-antigen/antigen.zsh"
+    ;;
+darwin*)
+    # Disable compfix on MacOS
     ZSH_DISABLE_COMPFIX="true"
-fi
+
+    ANTIGEN_ZSH="/usr/local/share/antigen/antigen.zsh"
+    ;;
+esac
 
 ## OMZSH configuration
 
@@ -79,15 +88,7 @@ plugins=(
 )
 
 # Antigen plugins manager
-case $OSTYPE in
-linux*)
-    source /usr/share/zsh-antigen/antigen.zsh
-    ;;
-darwin*)
-    source /usr/local/share/antigen/antigen.zsh
-    ;;
-esac
-
+source $ANTIGEN_ZSH
 antigen init ~/.antigenrc
 
 # OMZ
@@ -155,5 +156,5 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Upgrade $PATH.
+# Update PATH
 export PATH=$HOME/.local/bin:$PATH
