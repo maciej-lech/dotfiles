@@ -20,6 +20,9 @@ darwin*)
     ;;
 esac
 
+# Update PATH
+export PATH=$HOME/.local/bin:$PATH
+
 ## OMZSH configuration
 
 # Set name of the theme to load --- if set to "random", it will
@@ -94,6 +97,7 @@ antigen init ~/.antigenrc
 # OMZ
 source $ZSH/oh-my-zsh.sh
 
+
 ## User configuration
 
 # PyEnv
@@ -102,11 +106,6 @@ if (( $+commands[pyenv] )); then
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
-fi
-
-# # Powerline
-if [ -f  "${HOME}/.local/pipx/venvs/powerline-status/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh" ]; then
-    source ${HOME}/.local/pipx/venvs/powerline-status/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
 
 # Golang
@@ -140,21 +139,8 @@ if (( $+commands[keychain] )); then
     esac
 fi
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Update PATH
-export PATH=$HOME/.local/bin:$PATH
+# Powerline
+if [ -f  "${HOME}/.local/pipx/venvs/powerline-status/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh" ]; then
+    source ${HOME}/.local/pipx/venvs/powerline-status/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh
+    powerline-daemon -q
+fi
