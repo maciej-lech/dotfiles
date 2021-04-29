@@ -14,6 +14,7 @@ linux*)
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     ;;
 darwin*)
+    export PATH=/usr/local/sbin:$PATH
     ANTIGEN_ZSH="/usr/local/share/antigen/antigen.zsh"
     ZSH_DISABLE_COMPFIX="true" # Disable compfix on MacOS
     ;;
@@ -126,6 +127,10 @@ if [ -d "${HOME}/perl5/bin" ]; then
     PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"; export PERL_MM_OPT;
 fi
 
+# Node.js
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+
 # Keychain
 if (( $+commands[keychain] )); then
     case $OSTYPE in
@@ -138,7 +143,15 @@ if (( $+commands[keychain] )); then
     esac
 fi
 
+# Docker-Machine (macOS only)
+if (( $+commands[docker-machine] )); then
+    eval "$(docker-machine env default)"
+fi
+
 # Powerline
 if [ -f  "${HOME}/.local/pipx/venvs/powerline-status/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh" ]; then
     source ${HOME}/.local/pipx/venvs/powerline-status/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
+
+# Update PATH
+export PATH=$HOME/.local/bin:$PATH
