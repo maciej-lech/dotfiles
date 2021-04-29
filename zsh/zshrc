@@ -155,3 +155,6 @@ fi
 
 # Update PATH
 export PATH=$HOME/.local/bin:$PATH
+
+# Local RC file
+[ -s "$HOME/.zshrc.local" ] && . "$HOME/.zshrc.local"
