@@ -11,12 +11,11 @@ setopt incappendhistory
 case $OSTYPE in
 linux*)
     ANTIGEN_ZSH="/usr/share/zsh-antigen/antigen.zsh"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     ;;
 darwin*)
-    # Disable compfix on MacOS
-    ZSH_DISABLE_COMPFIX="true"
-
     ANTIGEN_ZSH="/usr/local/share/antigen/antigen.zsh"
+    ZSH_DISABLE_COMPFIX="true" # Disable compfix on MacOS
     ;;
 esac
 
@@ -142,5 +141,4 @@ fi
 # Powerline
 if [ -f  "${HOME}/.local/pipx/venvs/powerline-status/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh" ]; then
     source ${HOME}/.local/pipx/venvs/powerline-status/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh
-    powerline-daemon -q
 fi
