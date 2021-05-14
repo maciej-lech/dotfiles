@@ -34,6 +34,6 @@ antigen bundles <<EOBUNDLES
     greymd/tmux-xpanes
 EOBUNDLES
 
-antigen theme robbyrussell
+antigen theme denysdovhan/spaceship-prompt
 
 antigen apply
