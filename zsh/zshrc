@@ -111,12 +111,8 @@ SPACESHIP_PROMPT_ORDER=(
 
     git           # Git section (git_branch + git_status)
     hg            # Mercurial section (hg_branch  + hg_status)
-    package       # Package version
-    golang        # Go section
 
     vi_mode       # Vi-mode indicator
-    docker        # Docker section
-    aws           # Amazon Web Services section
     venv          # virtualenv section
     # pyenv         # Pyenv section
     kubectl       # Kubectl context section
