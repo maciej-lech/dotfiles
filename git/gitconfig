@@ -4,7 +4,7 @@
     editor = nano
     pager = less -rFX
     whitespace = trailing-space,space-before-tab
-	attributesfile = ~/.gitattributes
+    attributesfile = ~/.gitattributes
 [color]
     ui = always
 [diff]

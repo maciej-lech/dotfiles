@@ -139,9 +139,9 @@ fi
 
 # Golang
 if [ -d "${HOME}/go/bin" ]; then
-    PATH="${HOME}/go/bin${PATH:+:${PATH}}"; export PATH;
-    # export GOROOT="${HOME}/go"
-    export GOPATH="${HOME}/go"
+    PATH="${HOME}/go/bin:${HOME}/go/packages/bin${PATH:+:${PATH}}"; export PATH;
+    export GOROOT="${HOME}/go"
+    export GOPATH="${HOME}/go/packages"
     export GOBIN="${GOPATH}/bin"
     export GOARCH=amd64
     export GOOS=linux
