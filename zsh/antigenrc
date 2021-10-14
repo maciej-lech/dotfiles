@@ -18,7 +18,6 @@ antigen bundles <<EOBUNDLES
     colored-man-pages
     dircycle
     debian
-    django
     docker
     docker-compose
     dotenv
