@@ -97,7 +97,6 @@ antigen init ~/.antigenrc
 # OMZ
 source $ZSH/oh-my-zsh.sh
 
-
 ## User configuration
 
 # Prompt
@@ -115,7 +114,7 @@ SPACESHIP_PROMPT_ORDER=(
     vi_mode       # Vi-mode indicator
     venv          # virtualenv section
     # pyenv         # Pyenv section
-    kubectl       # Kubectl context section
+    # kubectl       # Kubectl context section
 
     # line_sep      # Line break
     dir           # Current directory section
@@ -129,9 +128,13 @@ SPACESHIP_GIT_SYMBOL=""
 SPACESHIP_EXIT_CODE_SHOW="true"
 SPACESHIP_EXIT_CODE_SYMBOL=""
 
+# Completion
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+fpath+=~/.zfunc
+
 # PyEnv
 if (( $+commands[pyenv] )); then
-    export PATH="${HOME}/.pyenv/bin:$PATH"
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
@@ -147,19 +150,6 @@ if [ -d "${HOME}/go/bin" ]; then
     export GOOS=linux
 fi
 
-# Perl
-if [ -d "${HOME}/perl5/bin" ]; then
-    PATH="${HOME}/perl5/bin${PATH:+:${PATH}}"; export PATH;
-    PERL5LIB="${HOME}/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-    PERL_LOCAL_LIB_ROOT="${HOME}/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-    PERL_MB_OPT="--install_base \"${HOME}/perl5\""; export PERL_MB_OPT;
-    PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"; export PERL_MM_OPT;
-fi
-
-# Node.js
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
-
 # Keychain
 if (( $+commands[keychain] )); then
     case $OSTYPE in
@@ -171,9 +161,6 @@ if (( $+commands[keychain] )); then
         ;;
     esac
 fi
-
-# Update PATH
-export PATH=$HOME/.local/bin:$PATH
 
 # Local RC file
 [ -s "$HOME/.zshrc.local" ] && . "$HOME/.zshrc.local"
