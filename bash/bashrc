@@ -7,7 +7,7 @@ case $- in
 esac
 
 # Update PATH
-export PATH=/usr/lib/ccache:$HOME/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # Don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -38,7 +38,7 @@ fi
 
 # Set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # Uncomment for a colored prompt, if the terminal has the capability; turned
@@ -89,7 +89,10 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
+# Colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# Some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -97,12 +100,6 @@ alias l='ls -CF'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-utf8_conv()
-{
-    iconv -f WINDOWS-1250 -t UTF-8 $1 > $1.tmp
-    mv $1.tmp $1
-}
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -112,12 +109,6 @@ utf8_conv()
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-
-lockmount()
-{
-    encfs -f $HOME/.Lock_encfs $HOME/Lock
-#    fusermount -u Lock
-}
 
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -131,8 +122,11 @@ if ! shopt -oq posix; then
 fi
 
 # PyEnv
-export PATH="/home/maciek/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if [ -x $HOME/.pyenv/bin/pyenv ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
-#[ -r /home/maciek/.byobu/prompt ] && . /home/maciek/.byobu/prompt   #byobu-prompt#
+# EOF
