@@ -55,6 +55,7 @@
     enabled = true
 [push]
     default = simple
+    autoSetupRemote = true
     followTags = true
 [branch]
     autosetuprebase = always
