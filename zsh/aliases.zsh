@@ -13,14 +13,11 @@ alias e='exit'
 
 # Shells
 alias rcreload='. ~/.zshrc'
-alias t='tmux'
 
 # Grep and find
 alias grepi='grep -i'
 alias grepr='grep -r'
 alias grepir='grep -ir'
-alias findf='find . -name'
-alias a=ack-grep
 
 # Git
 alias g='git'
@@ -57,5 +54,4 @@ alias docc=docker-compose
 # Misc
 alias xo='xdg-open'
 alias synchtime='sudo ntpdate pl.pool.ntp.org'
-alias sdh='sudo shutdown -h'
 alias ppt2pdf='libreoffice --headless --invisible --convert-to pdf'

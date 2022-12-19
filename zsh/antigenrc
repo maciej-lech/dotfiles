@@ -1,17 +1,5 @@
 ## Antigen configuration
 
-# Plugins
-
-# for debian plugin
-apt_pref='apt'
-
-# for git (my custom modification)
-ZSH_GIT_NOALIASES=1
-
-# tmux
-ZSH_TMUX_AUTOSTART=false
-ZSH_TMUX_AUTOQUIT=false
-
 antigen use oh-my-zsh
 
 antigen bundles <<EOBUNDLES
@@ -19,23 +7,18 @@ antigen bundles <<EOBUNDLES
     common-aliases
     colored-man-pages
     dircycle
-    debian
-    docker
-    docker-compose
     dotenv
-    git
     pip
+    poetry
     pyenv
     python
     sudo
-    tmux
     zsh-users/zsh-autosuggestions
     zsh-users/zsh-completions
     zsh-users/zsh-syntax-highlighting
     greymd/tmux-xpanes
 EOBUNDLES
 
-# Theme
 SPACESHIP_PROMPT_ORDER=(
     jobs          # Background jobs indicator
     exit_code     # Exit code section
