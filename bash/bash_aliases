@@ -6,6 +6,10 @@ lockmount() {
     encfs -f $HOME/.Lock_encfs $HOME/Lock
 }
 
+openvpn-client() {
+    systemctl $1 openvpn-client@$2
+}
+
 ## Aliases
 
 # Basic
@@ -23,7 +27,7 @@ alias 'lr'='ls -lar'
 
 # Shells
 alias rcreload='. ~/.bashrc'
-alias t='tmux'
+alias tmux-default='tmux new-session -A -s 0'
 
 # Grep and find
 alias greph='history | grep'
