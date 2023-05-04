@@ -9,6 +9,3 @@ def bootstrap(c):
         symlink(c, 'zshrc', '~/.zshrc')
         symlink(c, 'zprofile', '~/.zprofile')
         symlink(c, 'aliases.zsh', '~/.zsh/aliases.zsh')
-
-        # Antigen
-        symlink(c, 'antigenrc', '~/.antigenrc')
