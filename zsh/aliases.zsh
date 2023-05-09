@@ -43,7 +43,6 @@ alias aptlist="dpkg -l | grep ^ii | cut -d ' ' -f3 | tr '\n' ' '"
 alias aptman="comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)"
 
 # Python
-alias pip-upgrade-all='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
 alias pip-uninstall-all='pip uninstall -y -r <(pip freeze)'
 alias pip-uninstall-all-local='pip uninstall -y -r <(pip freeze -l)'
 
@@ -59,4 +58,3 @@ alias docc=docker-compose
 # Misc
 alias xo='xdg-open'
 alias synchtime='sudo ntpdate pl.pool.ntp.org'
-alias ppt2pdf='libreoffice --headless --invisible --convert-to pdf'
