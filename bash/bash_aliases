@@ -62,7 +62,7 @@ alias pip-uninstall-all-local='pip uninstall -y -r <(pip freeze -l)'
 alias pe=pyenv
 
 # Editors
-alias st=subl
+alias st='subl -a'
 
 # Docker
 alias doc=docker
