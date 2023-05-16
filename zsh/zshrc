@@ -52,8 +52,8 @@ SPACESHIP_EXIT_CODE_SHOW="true"
 SPACESHIP_EXIT_CODE_SYMBOL=""
 
 # PyEnv
-if (( $+commands[pyenv] )); then
-    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+if [ -d "${HOME}/.pyenv/bin" ]; then
+    # export PYENV_VIRTUALENV_DISABLE_PROMPT=1
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
@@ -128,3 +128,5 @@ EOBUNDLES
 
 ## Local RC file
 [ -s "$HOME/.zshrc.local" ] && . "$HOME/.zshrc.local"
+
+# EOF
