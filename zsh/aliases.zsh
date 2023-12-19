@@ -53,7 +53,7 @@ alias st='subl -a'
 
 # Docker
 alias doc=docker
-alias docc=docker-compose
+alias docc='docker compose'
 
 # Misc
 alias xo='xdg-open'
