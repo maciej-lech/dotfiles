@@ -17,13 +17,15 @@ alias s='sudo'
 alias c='clear'
 alias e='exit'
 
-# Change and list dir
+# System commands
 alias '..'='cd ..'
 alias 'cd..'='cd ..'
 alias 'cd...'='cd ../..'
 alias 'cd....'='cd ../../..'
-alias 'll'='ls -la'
-alias 'lr'='ls -lar'
+alias ls='ls --group-directories-first --color=tty -v'
+alias ll='ls -la'
+alias lr='ls -lar'
+alias tree='tree --dirsfirst'
 
 # Shells
 alias rcreload='. ~/.bashrc'
@@ -56,7 +58,7 @@ alias aptlist="dpkg -l | grep ^ii | cut -d ' ' -f3 | tr '\n' ' '"
 alias aptman="comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)"
 
 # Snap
-alias snapref='sudo snap resresh'
+alias snapref='sudo snap refresh'
 alias snapins='sudo snap install'
 alias snaprem='sudo snap remove'
 alias snapfin='snap find'

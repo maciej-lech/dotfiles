@@ -15,6 +15,10 @@ alias s='sudo'
 alias c='clear'
 alias e='exit'
 
+# System commands
+alias ls='ls --group-directories-first --color=tty -v'
+alias tree='tree --dirsfirst'
+
 # Shells
 alias rcreload='. ~/.zshrc'
 alias tmux-default='tmux new-session -A -s 0'
@@ -43,7 +47,7 @@ alias aptlist="dpkg -l | grep ^ii | cut -d ' ' -f3 | tr '\n' ' '"
 alias aptman="comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u)"
 
 # Snap
-alias snapref='sudo snap resresh'
+alias snapref='sudo snap refresh'
 alias snapins='sudo snap install'
 alias snaprem='sudo snap remove'
 alias snapfin='snap find'
