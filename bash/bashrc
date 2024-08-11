@@ -129,4 +129,18 @@ if [ -d "$HOME/.pyenv/bin" ]; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
+# GoEnv
+if [ -d "${HOME}/.goenv/bin" ]; then
+    export GOENV_ROOT="$HOME/.goenv"
+    export PATH="$GOENV_ROOT/bin:$PATH"
+    eval "$(goenv init -)"
+    export PATH="$GOROOT/bin:$PATH"
+    export PATH="$PATH:$GOPATH/bin"
+fi
+
+# Autocompletion
+complete -C /usr/bin/nomad nomad
+complete -C /usr/bin/consul consul
+complete -C /usr/bin/vault vault
+
 # EOF

@@ -60,9 +60,13 @@ if [ -d "${HOME}/.pyenv/bin" ]; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
-# Golang
-if [ -d "${HOME}/go/bin" ]; then
-    PATH="${HOME}/go/bin:${PATH:+:${PATH}}"; export PATH;
+# GoEnv
+if [ -d "${HOME}/.goenv/bin" ]; then
+    export GOENV_ROOT="$HOME/.goenv"
+    export PATH="$GOENV_ROOT/bin:$PATH"
+    eval "$(goenv init -)"
+    export PATH="$GOROOT/bin:$PATH"
+    export PATH="$PATH:$GOPATH/bin"
 fi
 
 # Node.js
@@ -127,6 +131,13 @@ antidote bundle <<EOBUNDLES
     # Theme
     spaceship-prompt/spaceship-prompt
 EOBUNDLES
+
+# Autocompletion
+# autoload -U compinit; compinit
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/nomad nomad
+complete -o nospace -C /usr/bin/consul consul
+complete -o nospace -C /usr/bin/vault vault
 
 ## Local RC file
 [ -s "$HOME/.zshrc.local" ] && . "$HOME/.zshrc.local"

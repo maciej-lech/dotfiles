@@ -8,6 +8,10 @@ openvpn-client() {
     systemctl $1 openvpn-client@$2
 }
 
+tmux-session() {
+    tmux new-session -A -s $1
+}
+
 ## Aliases
 
 # Basic
@@ -21,7 +25,6 @@ alias tree='tree --dirsfirst'
 
 # Shells
 alias rcreload='. ~/.zshrc'
-alias tmux-default='tmux new-session -A -s 0'
 
 # Grep and find
 alias grepi='grep -i'
