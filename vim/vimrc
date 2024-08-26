@@ -19,6 +19,8 @@ Plug 'arcticicestudio/nord-vim'
 " Initialize plugin system
 call plug#end()
 
+" FZF
+set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
 
 " Other settings
 

@@ -20,7 +20,9 @@ alias c='clear'
 alias e='exit'
 
 # System commands
-alias ls='ls --group-directories-first --color=tty -v'
+(( $+commands[eza] )) || alias ls='ls --group-directories-first --color=tty -v'
+(( $+commands[eza] )) && alias ls='eza --group-directories-first'
+(( $+commands[bat] )) && alias cat='bat --paging=never'
 alias tree='tree --dirsfirst'
 
 # Shells
