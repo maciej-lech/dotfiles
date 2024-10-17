@@ -192,11 +192,19 @@ fi
 
 ## Autocompletion
 
-# autoload -U compinit; compinit
+# autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/nomad nomad
-complete -o nospace -C /usr/bin/consul consul
-complete -o nospace -C /usr/bin/vault vault
+
+# hashistack autocompletion
+if (( $+commands[nomad] )); then
+    complete -o nospace -C /usr/bin/nomad nomad
+fi
+if (( $+commands[consul] )); then
+    complete -o nospace -C /usr/bin/consul consul
+fi
+if (( $+commands[vault] )); then
+    complete -o nospace -C /usr/bin/vault vault
+fi
 
 ## Local RC file
 [ -s "$HOME/.zshrc.local" ] && . "$HOME/.zshrc.local"
