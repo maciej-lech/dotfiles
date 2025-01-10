@@ -5,6 +5,13 @@ export PATH=$HOME/.local/bin:$PATH
 
 export ZSH="$HOME/.cache/antidote/ohmyzsh/ohmyzsh"
 
+# ZSH-native prompt
+# autoload -Uz vcs_info
+# precmd() { vcs_info }
+# zstyle ':vcs_info:git:*' formats '%b'
+# setopt PROMPT_SUBST
+# PROMPT='%F{red}${vcs_info_msg_0_}%f %F{blue}%~%f ➜ '
+
 ## OMZ configuration
 export ZSH_CUSTOM="$HOME/.zsh"
 
@@ -76,11 +83,11 @@ if [ -d "${HOME}/.goenv" ]; then
 fi
 
 # Node.js
-if [ -d "${HOME}/.nvm" ]; then
-    export NVM_DIR="${HOME}/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
+# if [ -d "${HOME}/.nvm" ]; then
+#     export NVM_DIR="${HOME}/.nvm"
+#     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# fi
 
 # GNOME Keyring
 export SSH_AUTH_SOCK="/run/user/$UID/keyring/ssh"
@@ -183,6 +190,7 @@ fi
 if (( $+commands[bat] )); then
     export BAT_STYLE=numbers
     export BAT_THEME=Nord
+    export LESSOPEN="|bat --color always -pP %s"
 fi
 
 if (( $+commands[thefuck] )); then
@@ -194,6 +202,9 @@ fi
 
 # autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
+
+# ssh better completion
+complete -F _ssh_hosts_completion ssh
 
 # hashistack autocompletion
 if (( $+commands[nomad] )); then

@@ -22,7 +22,7 @@ alias e='exit'
 # System commands
 (( $+commands[eza] )) || alias ls='ls --group-directories-first --color=tty -v'
 (( $+commands[eza] )) && alias ls='eza --group-directories-first'
-(( $+commands[bat] )) && alias cat='bat --paging=never -p'
+(( $+commands[bat] )) && alias cat='bat -pP'
 alias tree='tree --dirsfirst'
 
 # Shells
@@ -61,13 +61,13 @@ alias snapfin='snap find'
 alias pip-uninstall-all='pip uninstall -y -r <(pip freeze)'
 alias pip-uninstall-all-local='pip uninstall -y -r <(pip freeze -l)'
 
-alias pe=pyenv
+alias pe='pyenv'
 
 # Editors
 alias st='subl -a'
 
 # Docker
-alias doc=docker
+alias doc='docker'
 alias docc='docker compose'
 
 # Misc

@@ -70,14 +70,14 @@ alias snapfin='snap find'
 alias pip-uninstall-all='pip uninstall -y -r <(pip freeze)'
 alias pip-uninstall-all-local='pip uninstall -y -r <(pip freeze -l)'
 
-alias pe=pyenv
+alias pe='pyenv'
 
 # Editors
 alias st='subl -a'
 
 # Docker
-alias doc=docker
-alias docc=docker compose
+alias doc='docker'
+alias docc='docker compose'
 
 # Misc
 alias xo='xdg-open'
