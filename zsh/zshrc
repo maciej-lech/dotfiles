@@ -118,7 +118,6 @@ antidote bundle <<EOBUNDLES
     ohmyzsh/ohmyzsh
 
     # OMZ plugins
-    ohmyzsh/ohmyzsh path:plugins/ansible
     ohmyzsh/ohmyzsh path:plugins/command-not-found
     ohmyzsh/ohmyzsh path:plugins/common-aliases
     ohmyzsh/ohmyzsh path:plugins/colored-man-pages
