@@ -14,16 +14,17 @@
 [alias]
     alias = "!sh -c '[ $# = 2 ] && git config --global alias.\"$1\" \"$2\" && exit 0 || echo \"usage: git alias <new alias> <original command>\" >&2 && exit 1' -"
     aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
-    amend = commit --amend
     amend-to = "!f() { SHA=`git rev-parse \"$1\"`; git stash -k && git commit --fixup \"$SHA\" && GIT_SEQUENCE_EDITOR=true git rebase --interactive --autosquash \"$SHA^\" && git stash pop; }; f"
     delete = "!sh -c '[ $# = 1 ] && git branch -d \"$1\" && git push -d origin \"$1\" && exit 0 || echo \"usage: git delete <branch>\" >&2 && exit 1' -"
+    clean-orig = "clean -e '!*.orig' -f"
     empty-tree-sha1 = hash-object -t tree /dev/null
     head = rev-parse HEAD
     who = shortlog -s --
     lol = log --graph --decorate --oneline
+    lol2 = log --graph --pretty=tformat:'%C(auto)%h - %an - %ci - %s %d' --abbrev-commit
     lola = log --graph --decorate --oneline --all
     lola2 = log --graph --pretty=tformat:'%C(auto)%h - %an - %ci - %s %d' --abbrev-commit --all
-    ad = add -A
+    ad = add
     ad-a = add -A
     br = branch
     co = commit
@@ -34,11 +35,15 @@
     di = diff
     di-c = diff --cached
     fe = fetch
-    fp = fetch --prune
+    fe-a = fetch --all
+    fe-p = fetch --prune
     l = lol
     la = lola
     la2 = lola2
-    re = restore
+    me = merge
+    me-c = merge --continue
+    re = rebase
+    re-c = rebase --continue
     sh = show
     sh-s = show --pretty=fuller -s
     st = status -s
