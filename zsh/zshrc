@@ -215,6 +215,9 @@ fi
 if (( $+commands[vault] )); then
     complete -o nospace -C /usr/bin/vault vault
 fi
+if (( $+commands[packer] )); then
+    complete -o nospace -C /usr/bin/packer packer
+fi
 
 ## Local RC file
 [ -s "$HOME/.zshrc.local" ] && . "$HOME/.zshrc.local"
