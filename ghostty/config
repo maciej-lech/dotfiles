@@ -1,0 +1,48 @@
+# This is the configuration file for Ghostty.
+#
+# This template file has been automatically created at the following
+# path since Ghostty couldn't find any existing config files on your system:
+#
+#   /home/maciek/.config/ghostty/config
+#
+# The template does not set any default options, since Ghostty ships
+# with sensible defaults for all options. Users should only need to set
+# options that they want to change from the default.
+#
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+#
+# Additionally, each config option is also explained in detail
+# on Ghostty's website, at https://ghostty.org/docs/config.
+
+# look
+font-family = JetBrainsMono Nerd Font
+font-size = 14
+theme = nord
+
+# window
+window-decoration = none
+window-save-state = always
+window-new-tab-position = current
+window-padding-balance = true
+window-padding-x = 5
+window-padding-y = 1
+maximize = true
+#title = ""
+resize-overlay = never
+gtk-titlebar = false
+#gtk-titlebar-hide-when-maximized = true
+gtk-tabs-location = bottom
+gtk-adwaita = true
+adw-toolbar-style = flat
+
+# cursor
+cursor-style = block
+cursor-style-blink = false
+
+# behaviour
+shell-integration-features = no-cursor,sudo,no-title
+clipboard-trim-trailing-spaces = true
+#mouse-scroll-multiplier = 2
+quit-after-last-window-closed = true
+auto-update = off
