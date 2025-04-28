@@ -1,10 +1,10 @@
 [include]
-    path = ~/.gitconfig.local
+    path = ~/.config/git/config.local
 [core]
     editor = nano
     pager = less -rFX
     whitespace = trailing-space,space-before-tab
-    attributesfile = ~/.gitattributes
+    attributesfile = ~/.config/git/attributes
 [color]
     ui = always
 [diff]

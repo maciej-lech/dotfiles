@@ -2,9 +2,8 @@
 
 # Dependencies
 
-* Python 3
-* invoke
+* GNU Stow
 
 # Usage
 
-    invoke -e
+    stow .
