@@ -1,6 +1,7 @@
 .env
 
 git/config.local
+fish/fish_variables
 tmux/plugins/
 tmux/tmux.conf.local
 vim/autoload/
