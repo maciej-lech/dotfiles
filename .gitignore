@@ -1,6 +1,8 @@
 .env
 
 git/config.local
+home-manager/flake.lock
+home-manager/result
 fish/fish_variables
 tmux/plugins/
 tmux/tmux.conf.local
