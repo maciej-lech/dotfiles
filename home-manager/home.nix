@@ -122,7 +122,7 @@ in {
 
   # Style
   stylix = {
-    enable = true;
+    enable = false;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
     image = ./assets/w343434.png;
     polarity = "dark";
