@@ -13,7 +13,9 @@ let
        chmod +x $wrapped_bin
       done
     '';
+
   nixGLIntelWrap = pkg: nixGLWrap pkgs.nixgl.nixGLIntel pkg;
+
   nixVulkanIntelWrap = pkg: nixGLWrap pkgs.nixgl.nixVulkanIntel pkg;
 in {
   # Home Manager needs a bit of information about you and the paths it should

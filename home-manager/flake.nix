@@ -52,6 +52,7 @@
             inherit inputs;
           };
         };
+
       systemConfigs.${systemSettings.hostname} =
         inputs.system-manager.lib.makeSystemConfig {
           modules = [ ./system.nix ];
