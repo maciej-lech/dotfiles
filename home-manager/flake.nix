@@ -39,21 +39,23 @@
         overlays = [ inputs.nixgl.overlay ];
       };
     in {
-      homeConfigurations.${userSettings.username} = inputs.home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./home.nix ];
-        extraSpecialArgs = {
-          inherit systemSettings;
-          inherit userSettings;
-          inherit inputs;
+      homeConfigurations.${userSettings.username} =
+        inputs.home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./home.nix ];
+          extraSpecialArgs = {
+            inherit systemSettings;
+            inherit userSettings;
+            inherit inputs;
+          };
         };
-      };
-      systemConfigs.${systemSettings.hostname} = inputs.system-manager.lib.makeSystemConfig {
-        modules = [ ./system.nix ];
-        extraSpecialArgs = {
-          inherit systemSettings;
-          inherit inputs;
+      systemConfigs.${systemSettings.hostname} =
+        inputs.system-manager.lib.makeSystemConfig {
+          modules = [ ./system.nix ];
+          extraSpecialArgs = {
+            inherit systemSettings;
+            inherit inputs;
+          };
         };
-      };
     };
 }

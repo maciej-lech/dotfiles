@@ -4,8 +4,6 @@
   config = {
     nixpkgs.hostPlatform = systemSettings.system;
 
-    environment.systemPackages = with pkgs; [
-      nh
-    ];
+    environment.systemPackages = with pkgs; [ nh ];
   };
 }

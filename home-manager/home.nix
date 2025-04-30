@@ -1,17 +1,18 @@
 { config, lib, pkgs, systemSettings, userSettings, ... }:
 
 let
-  nixGLWrap = wrap: pkg: pkgs.runCommand "${pkg.name}-nixgl-wrapper" {} ''
-    mkdir $out
-    ln -s ${pkg}/* $out
-    rm $out/bin
-    mkdir $out/bin
-    for bin in ${pkg}/bin/*; do
-     wrapped_bin=$out/bin/$(basename $bin)
-     echo "exec ${lib.getExe wrap} $bin \$@" > $wrapped_bin
-     chmod +x $wrapped_bin
-    done
-  '';
+  nixGLWrap = wrap: pkg:
+    pkgs.runCommand "${pkg.name}-nixgl-wrapper" { } ''
+      mkdir $out
+      ln -s ${pkg}/* $out
+      rm $out/bin
+      mkdir $out/bin
+      for bin in ${pkg}/bin/*; do
+       wrapped_bin=$out/bin/$(basename $bin)
+       echo "exec ${lib.getExe wrap} $bin \$@" > $wrapped_bin
+       chmod +x $wrapped_bin
+      done
+    '';
   nixGLIntelWrap = pkg: nixGLWrap pkgs.nixgl.nixGLIntel pkg;
   nixVulkanIntelWrap = pkg: nixGLWrap pkgs.nixgl.nixVulkanIntel pkg;
 in {
@@ -70,6 +71,7 @@ in {
 
     nil
     nixd
+    nixfmt
 
     uv
 
@@ -114,9 +116,7 @@ in {
     # EDITOR = "emacs";
   };
 
-  fonts.fontconfig = {
-    enable = true;
-  };
+  fonts.fontconfig = { enable = true; };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

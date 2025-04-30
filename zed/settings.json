@@ -37,6 +37,14 @@
     "HCL": ["*.tftpl", "*.ctmpl"]
   },
   "language": {
+    "Nix": {
+      "language_servers": ["nil", "!nixd"],
+      "formatter": {
+        "language_server": {
+          "name": "nil"
+        }
+      }
+    },
     "python": {
       "show_inline_completions": true,
       "language_servers": ["ruff"],
@@ -73,6 +81,13 @@
             "enabled": true,
             "path": "ansible-lint"
           }
+        }
+      }
+    },
+    "nil": {
+      "initialization_options": {
+        "formatting": {
+          "command": ["nixfmt", "--quiet", "--"]
         }
       }
     }
