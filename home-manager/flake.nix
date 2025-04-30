@@ -18,6 +18,12 @@
       url = "github:numtide/system-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs = inputs@{ self, ... }:
@@ -45,7 +51,7 @@
       homeConfigurations.${userSettings.username} =
         inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home.nix ];
+          modules = [ ./home.nix inputs.stylix.homeManagerModules.stylix ];
           extraSpecialArgs = {
             inherit systemSettings;
             inherit userSettings;

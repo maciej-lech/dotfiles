@@ -118,6 +118,13 @@ in {
     # EDITOR = "emacs";
   };
 
+  # Style
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+    image = ./assets/w343434.png;
+    polarity = "dark";
+  };
   fonts.fontconfig = { enable = true; };
 
   # Let Home Manager install and manage itself.
