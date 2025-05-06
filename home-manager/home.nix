@@ -64,6 +64,7 @@ in {
     eza
     fd
     fzf
+    rclone
     thefuck
     wtfis
 
@@ -79,8 +80,9 @@ in {
 
     uv
 
+    (nixGLIntelWrap brave)
     (nixGLIntelWrap ghostty)
-    (nixGLIntelWrap librewolf)
+    (nixGLIntelWrap mumble)
     (nixGLIntelWrap obsidian)
     (nixVulkanIntelWrap zed-editor)
   ];
