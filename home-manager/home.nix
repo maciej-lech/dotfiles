@@ -59,6 +59,7 @@ in {
     nerd-fonts.adwaita-mono
     nerd-fonts.jetbrains-mono
 
+    babelfish
     bat
     broot
     eza
