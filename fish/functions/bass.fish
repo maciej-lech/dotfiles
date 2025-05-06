@@ -20,7 +20,7 @@ function bass
   if test -n "$bass_debug"
     cat $script_file
   end
-  source $script_file
+  builtin source $script_file
   command rm $script_file
 end
 
