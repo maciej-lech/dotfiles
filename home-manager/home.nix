@@ -62,6 +62,7 @@ in {
     babelfish
     bat
     broot
+    direnv
     eza
     fd
     fzf
@@ -76,6 +77,7 @@ in {
     go-task
 
     nil
+    nix-direnv
     nixd
     nixfmt
 
