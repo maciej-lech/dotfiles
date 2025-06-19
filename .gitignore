@@ -8,3 +8,4 @@ tmux/plugins/
 tmux/tmux.conf.local
 vim/autoload/
 vim/plugged/
+zed/settings_backup.json

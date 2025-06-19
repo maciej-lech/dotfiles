@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "vim_mode": false,
   "file_types": {
     "Plain Text": ["txt"],
     "JSONC": ["**/.zed/**/*.json", "**/zed/**/*.json", "**/Zed/**/*.json"],
@@ -92,7 +93,7 @@
       }
     }
   },
-  "assistant": {
+  "agent": {
     "default_model": {
       "provider": "ollama",
       "model": "llama3.2:latest"
@@ -109,7 +110,7 @@
   "ui_font_family": ".SystemUIFont",
   "ui_font_size": 16,
   "buffer_font_family": "JetBrainsMono Nerd Font",
-  "buffer_font_size": 17.0,
+  "buffer_font_size": 14.0,
   "theme": {
     "mode": "system",
     "light": "Nord Light",
