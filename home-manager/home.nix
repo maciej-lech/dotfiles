@@ -67,7 +67,6 @@ in {
     fd
     fzf
     rclone
-    thefuck
     wtfis
 
     awscli2
@@ -82,6 +81,8 @@ in {
     nixfmt
 
     uv
+
+    pm2
 
     (nixGLIntelWrap brave)
     (nixGLIntelWrap ghostty)
