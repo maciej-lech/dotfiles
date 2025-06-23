@@ -51,7 +51,7 @@
       homeConfigurations.${userSettings.username} =
         inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home.nix inputs.stylix.homeManagerModules.stylix ];
+          modules = [ ./home.nix inputs.stylix.homeModules.stylix ];
           extraSpecialArgs = {
             inherit systemSettings;
             inherit userSettings;
