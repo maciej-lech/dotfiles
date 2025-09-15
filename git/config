@@ -8,9 +8,13 @@
 [color]
     ui = always
 [diff]
-    tool = smerge
+    tool = smerge_flatpak
 [merge]
-    tool = smerge
+    tool = smerge_flatpak
+[difftool "smerge_flatpak"]
+  cmd = flatpak run --file-forwarding com.sublimemerge.App $LOCAL $REMOTE
+[mergetool "smerge_flatpak"]
+  cmd = flatpak run --file-forwarding com.sublimemerge.App mergetool $BASE $LOCAL $REMOTE -o $MERGED
 [alias]
     alias = "!sh -c '[ $# = 2 ] && git config --global alias.\"$1\" \"$2\" && exit 0 || echo \"usage: git alias <new alias> <original command>\" >&2 && exit 1' -"
     aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
