@@ -1,3 +1,3 @@
 function zed --wraps='zeditor' --description 'alias zed=zeditor'
-    zeditor $argv
+    flatpak run dev.zed.Zed $argv
 end
