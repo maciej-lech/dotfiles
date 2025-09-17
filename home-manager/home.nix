@@ -1,23 +1,6 @@
 { config, lib, pkgs, systemSettings, userSettings, ... }:
 
-let
-  nixGLWrap = wrap: pkg:
-    pkgs.runCommand "${pkg.name}-nixgl-wrapper" { } ''
-      mkdir $out
-      ln -s ${pkg}/* $out
-      rm $out/bin
-      mkdir $out/bin
-      for bin in ${pkg}/bin/*; do
-       wrapped_bin=$out/bin/$(basename $bin)
-       echo "exec ${lib.getExe wrap} $bin \$@" > $wrapped_bin
-       chmod +x $wrapped_bin
-      done
-    '';
-
-  nixGLIntelWrap = pkg: nixGLWrap pkgs.nixgl.nixGLIntel pkg;
-
-  nixVulkanIntelWrap = pkg: nixGLWrap pkgs.nixgl.nixVulkanIntel pkg;
-in {
+{
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = userSettings.username;
@@ -52,9 +35,6 @@ in {
     #   echo "Hello, ${config.home.username}!"
     # '')
 
-    nixgl.nixGLIntel
-    nixgl.nixVulkanIntel
-
     adwaita-fonts
     nerd-fonts.adwaita-mono
     nerd-fonts.jetbrains-mono
@@ -75,6 +55,8 @@ in {
     glab
     go-task
 
+    devbox
+
     nh
     nil
     nix-direnv
@@ -86,12 +68,6 @@ in {
     uv
 
     pm2
-
-    (nixGLIntelWrap brave)
-    (nixGLIntelWrap ghostty)
-    (nixGLIntelWrap mumble)
-    (nixGLIntelWrap obsidian)
-    (nixVulkanIntelWrap zed-editor)
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
