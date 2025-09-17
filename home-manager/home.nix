@@ -35,28 +35,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
-    adwaita-fonts
-    nerd-fonts.adwaita-mono
-    nerd-fonts.jetbrains-mono
-
-    babelfish
-    bat
-    broot
-    direnv
-    eza
-    fd
-    fzf
-    rclone
-    wtfis
-
-    awscli2
-    gh
-    gitlab-ci-local
-    glab
-    go-task
-
     devbox
-
     nh
     nil
     nix-direnv
@@ -64,10 +43,6 @@
     nixfmt
     nix-output-monitor
     nvd
-
-    uv
-
-    pm2
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -104,37 +79,6 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
-
-  # Style
-  stylix = {
-    enable = false;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-    image = ./assets/w343434.png;
-    polarity = "dark";
-
-    fonts = {
-      serif = {
-        package = pkgs.adwaita-fonts;
-        name = "Adwaita Sans";
-      };
-
-      sansSerif = {
-        package = pkgs.adwaita-fonts;
-        name = "Adwaita Sans";
-      };
-
-      monospace = {
-        package = pkgs.adwaita-fonts;
-        name = "Adwaita Mono";
-      };
-
-      emoji = {
-        package = pkgs.noto-fonts-emoji;
-        name = "Noto Color Emoji";
-      };
-    };
-  };
-  fonts.fontconfig = { enable = true; };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
