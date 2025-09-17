@@ -14,11 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    system-manager = {
-      url = "github:numtide/system-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -55,15 +50,6 @@
           extraSpecialArgs = {
             inherit systemSettings;
             inherit userSettings;
-            inherit inputs;
-          };
-        };
-
-      systemConfigs.${systemSettings.hostname} =
-        inputs.system-manager.lib.makeSystemConfig {
-          modules = [ ./system.nix ];
-          extraSpecialArgs = {
-            inherit systemSettings;
             inherit inputs;
           };
         };

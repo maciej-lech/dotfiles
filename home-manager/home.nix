@@ -75,10 +75,13 @@ in {
     glab
     go-task
 
+    nh
     nil
     nix-direnv
     nixd
     nixfmt
+    nix-output-monitor
+    nvd
 
     uv
 
