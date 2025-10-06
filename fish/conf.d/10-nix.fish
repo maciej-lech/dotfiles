@@ -3,5 +3,5 @@ if command -q nixd
 
     set -p fish_complete_path ~/.nix-profile/share/fish/vendor_completions.d
 
-    bass . ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+    replay source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
 end
