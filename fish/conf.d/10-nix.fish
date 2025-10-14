@@ -1,7 +1,11 @@
-if command -q nixd
-    if test -e ~/.nix-profile/etc/profile.d/nix.fish; . ~/.nix-profile/etc/profile.d/nix.fish; end
+set NIX_PROFILE_PATH ~/.nix-profile
 
-    set -p fish_complete_path ~/.nix-profile/share/fish/vendor_completions.d
+if test -e $NIX_PROFILE_PATH
+    if test -e $NIX_PROFILE_PATH/etc/profile.d/nix.fish
+        source $NIX_PROFILE_PATH/etc/profile.d/nix.fish
+    end
 
-    replay source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+    set -p fish_complete_path $NIX_PROFILE_PATH/share/fish/vendor_completions.d
+
+    replay source $NIX_PROFILE_PATH/etc/profile.d/hm-session-vars.sh
 end
