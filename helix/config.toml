@@ -1,0 +1,13 @@
+# helix
+
+theme = "nord-night"
+
+[editor]
+scrolloff = 999
+line-number = "relative"
+bufferline = "always"
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
