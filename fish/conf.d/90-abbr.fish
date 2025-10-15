@@ -11,6 +11,9 @@ abbr -a -- ... 'cd ../..'
 abbr -a -- .... 'cd ../../..'
 abbr -a -- ..... 'cd ../../../..'
 
+# Editor
+abbr -a -- h hx
+
 # Git
 abbr -a -- g git
 
