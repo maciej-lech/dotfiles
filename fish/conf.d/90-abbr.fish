@@ -20,21 +20,9 @@ abbr -a -- flatins 'flatpak install'
 abbr -a -- flatuni 'flatpak uninstall'
 abbr -a -- flatsch 'flatpak search'
 
-# Python
-abbr -a -- pe 'pyenv'
-
-# Golang
-abbr -a -- ge 'goenv'
-
 # Docker
 abbr -a -- doc docker
 abbr -a -- docc 'docker compose'
-
-# Hashistack
-abbr -a -- no nomad
-abbr -a -- co consul
-abbr -a -- va vault
-abbr -a -- tf terraform
 
 # Task
 abbr -a -- t task
