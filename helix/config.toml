@@ -6,6 +6,8 @@ theme = "nord-night"
 scrolloff = 999
 line-number = "relative"
 bufferline = "always"
+trim-trailing-whitespace = true # Trim whitespace preceding line endings on write (default false)
+trim-final-newlines = true # Trim extra line endings after the final one on write (default false)
 
 [editor.cursor-shape]
 normal = "block"
