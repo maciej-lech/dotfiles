@@ -1,7 +1,7 @@
 [include]
     path = ~/.config/git/config.local
 [core]
-    editor = nano
+    editor = hx
     pager = less -rFX
     whitespace = trailing-space,space-before-tab
     attributesfile = ~/.config/git/attributes
