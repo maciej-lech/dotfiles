@@ -1,0 +1,3 @@
+[[language]]
+name = "hcl"
+auto-format = false
