@@ -3,17 +3,18 @@
 theme = "nord-night"
 
 [editor]
-clipboard-provider = "wayland"
-scrolloff = 999
-line-number = "relative"
 bufferline = "always"
+clipboard-provider = "wayland"
+line-number = "relative"
+scrolloff = 999
 trim-trailing-whitespace = true # Trim whitespace preceding line endings on write (default false)
 trim-final-newlines = true # Trim extra line endings after the final one on write (default false)
+true-color = true
 
 [editor.auto-save]
 focus-lost = true
 
 [editor.cursor-shape]
-normal = "block"
 insert = "bar"
+normal = "block"
 select = "underline"
