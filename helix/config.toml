@@ -5,6 +5,8 @@ theme = "nord-night"
 [editor]
 bufferline = "always"
 clipboard-provider = "wayland"
+cursorline = true
+default-yank-register = "+"
 line-number = "relative"
 scrolloff = 999
 trim-trailing-whitespace = true # Trim whitespace preceding line endings on write (default false)
@@ -18,3 +20,19 @@ focus-lost = true
 insert = "bar"
 normal = "block"
 select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[keys.insert]
+C-s = ":write"
+C-w = ":write-buffer-close"
+
+[keys.normal]
+C-r = ":config-reload"
+C-s = ":write"
+C-w = ":write-buffer-close"
+
+[keys.select]
+C-s = ":write"
+C-w = ":write-buffer-close"
