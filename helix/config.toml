@@ -26,13 +26,14 @@ hidden = false
 
 [keys.insert]
 C-s = ":write"
-C-w = ":write-buffer-close"
+C-w = ":buffer-close"
 
 [keys.normal]
+C-q = ":quit"
 C-r = ":config-reload"
 C-s = ":write"
-C-w = ":write-buffer-close"
+C-w = ":buffer-close"
 
 [keys.select]
 C-s = ":write"
-C-w = ":write-buffer-close"
+C-w = ":buffer-close"
