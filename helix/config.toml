@@ -30,7 +30,8 @@ C-w = ":buffer-close"
 
 [keys.normal]
 C-q = ":quit"
-C-r = ":config-reload"
+C-r = ":reload-all"
+A-r = ":config-reload"
 C-s = ":write"
 C-w = ":buffer-close"
 
