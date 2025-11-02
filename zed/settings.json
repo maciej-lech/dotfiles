@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "relative_line_numbers": true,
+  "helix_mode": true,
+  "base_keymap": "JetBrains",
   "vim_mode": false,
   "file_types": {
     "Plain Text": ["txt"],
@@ -37,30 +40,12 @@
     ],
     "HCL": ["*.tftpl", "*.ctmpl"]
   },
-  "language": {
-    "Nix": {
-      "language_servers": ["nil", "!nixd"],
-      "formatter": {
-        "language_server": {
-          "name": "nil"
-        }
-      }
-    },
-    "python": {
-      "show_inline_completions": true,
-      "language_servers": ["ruff"],
-      "formatter": [
-        {
-          "code_actions": {
-            // Fix all auto-fixable lint violations
-            "source.fixAll.ruff": true,
-            // Organize imports
-            "source.organizeImports.ruff": true
-          },
-          "language_server": {
-            "name": "ruff"
-          }
-        }
+  "languages": {
+    "Python": {
+      "language_servers": [
+        "ty",
+        "!basedpyright",
+        "..."
       ]
     }
   },
@@ -94,11 +79,11 @@
     }
   },
   "agent": {
+    "always_allow_tool_actions": false,
     "default_model": {
-      "provider": "ollama",
-      "model": "llama3.2:latest"
-    },
-    "version": "2"
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5-latest"
+    }
   },
   "telemetry": {
     "metrics": false,
@@ -106,15 +91,14 @@
   },
   "autosave": "on_focus_change",
   "format_on_save": "off",
-  "base_keymap": "JetBrains",
   "ui_font_family": ".SystemUIFont",
   "ui_font_size": 16,
-  "buffer_font_family": "JetBrainsMono Nerd Font",
-  "buffer_font_size": 14.0,
+  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_size": 18.0,
   "theme": {
     "mode": "system",
     "light": "Nord Light",
-    "dark": "Nord"
+    "dark": "Nord Dark"
   },
   "project_panel": {
     "auto_reveal_entries": false,
