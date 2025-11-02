@@ -10,6 +10,15 @@
     "context": "Workspace",
     "bindings": {
       // "shift shift": "file_finder::Toggle"
+      "ctrl-q": "zed::Quit"
+    }
+  },
+  {
+    "context": "Editor && (helix_mode || vim_mode) && !VimWaiting && !menu",
+    "bindings": {
+      // Match Helix keybindings from config.toml
+      "ctrl-s": "workspace::Save",
+      "ctrl-w": "pane::CloseActiveItem"
     }
   },
   {

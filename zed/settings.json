@@ -7,16 +7,44 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "relative_line_numbers": true,
-  "helix_mode": true,
+  "theme": {
+    "mode": "system",
+    "light": "Nord Light",
+    "dark": "Nord Dark"
+  },
   "base_keymap": "JetBrains",
+  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_size": 18.0,
+  "ui_font_family": ".SystemUIFont",
+  "ui_font_size": 16,
   "vim_mode": false,
+  "helix_mode": true,
+  "cursor_blink": false,
+  "scroll_beyond_last_line": "one_page",
+  "vertical_scroll_margin": 999,
+  "relative_line_numbers": true,
+  "project_panel": {
+    "auto_reveal_entries": false,
+    "auto_fold_dirs": false,
+    "entry_spacing": "standard",
+    "indent_size": 16
+  },
+  "agent": {
+    "always_allow_tool_actions": false,
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5-latest"
+    }
+  },
+  "autosave": "on_focus_change",
+  "format_on_save": "off",
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  },
   "file_types": {
     "Plain Text": ["txt"],
     "JSONC": ["**/.zed/**/*.json", "**/zed/**/*.json", "**/Zed/**/*.json"],
-    // "YAML": [
-    //   "**/group_vars/**"
-    // ],
     "Shell Script": [".env.*"],
     "Ansible": [
       "**.ansible.yml",
@@ -33,7 +61,6 @@
       "**/group_vars/**.yaml",
       "**playbook*.yaml",
       "**playbook*.yml",
-      // custom
       "**/deploy/*.yml",
       "**/deploy/*.yaml",
       "**/group_vars/**"
@@ -42,11 +69,7 @@
   },
   "languages": {
     "Python": {
-      "language_servers": [
-        "ty",
-        "!basedpyright",
-        "..."
-      ]
+      "language_servers": ["ty", "!basedpyright", "..."]
     }
   },
   "lsp": {
@@ -77,33 +100,5 @@
         }
       }
     }
-  },
-  "agent": {
-    "always_allow_tool_actions": false,
-    "default_model": {
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-5-latest"
-    }
-  },
-  "telemetry": {
-    "metrics": false,
-    "diagnostics": false
-  },
-  "autosave": "on_focus_change",
-  "format_on_save": "off",
-  "ui_font_family": ".SystemUIFont",
-  "ui_font_size": 16,
-  "buffer_font_family": "JetBrains Mono",
-  "buffer_font_size": 18.0,
-  "theme": {
-    "mode": "system",
-    "light": "Nord Light",
-    "dark": "Nord Dark"
-  },
-  "project_panel": {
-    "auto_reveal_entries": false,
-    "auto_fold_dirs": false,
-    "entry_spacing": "standard",
-    "indent_size": 16
   }
 }
