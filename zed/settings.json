@@ -69,7 +69,7 @@
   },
   "languages": {
     "Python": {
-      "language_servers": ["ty", "!basedpyright", "..."]
+      "language_servers": ["basedpyright", "ty", "..."]
     }
   },
   "lsp": {
