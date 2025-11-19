@@ -20,13 +20,15 @@ window-padding-y = 1
 maximize = true
 resize-overlay = never
 gtk-tabs-location = top
-adw-toolbar-style = flat
+gtk-toolbar-style = flat
 
 # Cursor
 cursor-style = block
 cursor-style-blink = false
 
 # Behaviour
+command = fish
+shell-integration = fish
 shell-integration-features = no-cursor,sudo,no-title
 clipboard-trim-trailing-spaces = true
 #mouse-scroll-multiplier = 2
