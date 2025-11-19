@@ -9,6 +9,8 @@ end
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
+    bind alt-backspace backward-kill-word
+
     # In distrobox container, re-define our own fish_prompt function.
     # Distrobox defines its own in /etc/fish/conf.d/distrobox_config.fish
     if set -q DISTROBOX_ENTER_PATH
