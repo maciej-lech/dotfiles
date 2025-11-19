@@ -22,7 +22,7 @@
   "cursor_blink": false,
   "scroll_beyond_last_line": "one_page",
   "vertical_scroll_margin": 999,
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "project_panel": {
     "auto_reveal_entries": false,
     "auto_fold_dirs": false,
