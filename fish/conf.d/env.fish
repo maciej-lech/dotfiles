@@ -7,5 +7,3 @@ set -gx GID (id -g)
 
 set -gx EDITOR hx
 set -gx VISUAL hx
-
-set -gx SSH_AUTH_SOCK /run/user/$UID/keyring/ssh
