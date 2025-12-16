@@ -31,6 +31,6 @@ command = fish
 shell-integration = fish
 shell-integration-features = no-cursor,sudo,no-title
 clipboard-trim-trailing-spaces = true
-#mouse-scroll-multiplier = 2
+mouse-scroll-multiplier = 1
 quit-after-last-window-closed = true
 auto-update = off
