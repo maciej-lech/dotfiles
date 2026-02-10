@@ -20,7 +20,7 @@
     aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
     amend-to = "!f() { SHA=`git rev-parse \"$1\"`; git stash -k && git commit --fixup \"$SHA\" && GIT_SEQUENCE_EDITOR=true git rebase --interactive --autosquash \"$SHA^\" && git stash pop; }; f"
     delete = "!sh -c '[ $# = 1 ] && git branch -d \"$1\" && git push -d origin \"$1\" && exit 0 || echo \"usage: git delete <branch>\" >&2 && exit 1' -"
-    clean-orig = "clean -e '!*.orig' -f"
+    clean-orig = "!fd -e orig -x rm -f {}"
     empty-tree-sha1 = hash-object -t tree /dev/null
     head = rev-parse HEAD
     who = shortlog -s --
