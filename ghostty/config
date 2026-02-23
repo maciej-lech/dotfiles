@@ -29,8 +29,8 @@ shell-integration-features = no-cursor,sudo,no-title
 
 # Behaviour
 mouse-hide-while-typing = true
+mouse-scroll-multiplier = 1
 clipboard-trim-trailing-spaces = true
-# gnome: mouse-scroll-multiplier = 1
 confirm-close-surface = false
 quit-after-last-window-closed = true
 gtk-single-instance = true
