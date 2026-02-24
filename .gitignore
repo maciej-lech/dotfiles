@@ -1,5 +1,6 @@
 .env
 
+DankMaterialShell/.*
 git/config.local
 home-manager/flake.lock
 home-manager/result
