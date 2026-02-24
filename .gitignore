@@ -4,6 +4,7 @@ git/config.local
 home-manager/flake.lock
 home-manager/result
 fish/fish_variables
+niri/dms/outputs.kdl
 tmux/plugins/
 tmux/tmux.conf.local
 vim/autoload/
