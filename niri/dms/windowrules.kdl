@@ -7,3 +7,23 @@ window-rule {
     open-maximized true
     open-focused true
 }
+
+// @id=wr_1771943769344943948 @name=brave-browser
+window-rule {
+    match app-id="^brave-browser$"
+    open-maximized true
+    open-focused true
+}
+
+// @id=wr_1771943860410281059 @name=im.riot.Riot
+window-rule {
+    match app-id="^im.riot.Riot$"
+    open-maximized true
+}
+
+// @id=wr_1771949960859573831 @name=dev.zed.Zed
+window-rule {
+    match app-id="^dev.zed.Zed$"
+    open-maximized true
+    open-focused true
+}
