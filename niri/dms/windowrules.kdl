@@ -4,6 +4,6 @@
 // @id=wr_1771865679388045052 @name=com.mitchellh.ghostty
 window-rule {
     match app-id="^com.mitchellh.ghostty$"
-    open-maximized-to-edges true
+    open-maximized true
     open-focused true
 }
