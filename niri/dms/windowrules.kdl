@@ -27,3 +27,10 @@ window-rule {
     open-maximized true
     open-focused true
 }
+
+// @id=wr_1772019678766714229 @name=org.mozilla.firefox
+window-rule {
+    match app-id="^org.mozilla.firefox$"
+    open-maximized true
+    open-focused true
+}

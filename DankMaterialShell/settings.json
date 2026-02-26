@@ -282,12 +282,12 @@
   "dockAutoHide": false,
   "dockSmartAutoHide": false,
   "dockGroupByApp": false,
-  "dockOpenOnOverview": false,
+  "dockOpenOnOverview": true,
   "dockPosition": 1,
   "dockSpacing": 4,
   "dockBottomGap": 0,
   "dockMargin": 0,
-  "dockIconSize": 40,
+  "dockIconSize": 36,
   "dockIndicatorStyle": "circle",
   "dockBorderEnabled": false,
   "dockBorderColor": "surfaceText",
@@ -384,13 +384,26 @@
   },
   "hyprlandOutputSettings": {},
   "displayProfiles": {
-    "niri": {}
+    "niri": {
+      "profile_1772090150998_wel1x0": {
+        "id": "profile_1772090150998_wel1x0",
+        "name": "Office",
+        "outputSet": [
+          "DP-12",
+          "DP-7",
+          "DP-9",
+          "eDP-1"
+        ],
+        "createdAt": 1772090150999,
+        "updatedAt": 1772090150999
+      }
+    }
   },
   "activeDisplayProfile": {
-    "niri": "profile_1771861799348_zv57n7"
+    "niri": "profile_1772090150998_wel1x0"
   },
   "displayProfileAutoSelect": false,
-  "displayShowDisconnected": false,
+  "displayShowDisconnected": true,
   "displaySnapToEdge": true,
   "barConfigs": [
     {
