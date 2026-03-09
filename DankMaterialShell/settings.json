@@ -75,13 +75,6 @@
   "privacyShowScreenShareIcon": false,
   "controlCenterWidgets": [
     {
-      "id": "brightnessSlider",
-      "enabled": true,
-      "width": 100,
-      "instanceId": "mm0a0fqkklgvy7vptrw",
-      "deviceName": ""
-    },
-    {
       "id": "volumeSlider",
       "enabled": true,
       "width": 50
@@ -92,12 +85,12 @@
       "width": 50
     },
     {
-      "id": "audioInput",
+      "id": "audioOutput",
       "enabled": true,
       "width": 50
     },
     {
-      "id": "audioOutput",
+      "id": "audioInput",
       "enabled": true,
       "width": 50
     },
@@ -120,6 +113,13 @@
       "id": "doNotDisturb",
       "enabled": true,
       "width": 50
+    },
+    {
+      "id": "brightnessSlider",
+      "enabled": true,
+      "width": 100,
+      "instanceId": "mm0a0fqkklgvy7vptrw",
+      "deviceName": ""
     }
   ],
   "showWorkspaceIndex": true,
@@ -178,7 +178,9 @@
   "sortAppsAlphabetically": false,
   "appLauncherGridColumns": 4,
   "spotlightCloseNiriOverview": true,
-  "spotlightSectionViewModes": {},
+  "spotlightSectionViewModes": {
+    "apps": "list"
+  },
   "appDrawerSectionViewModes": {},
   "niriOverviewOverlayEnabled": true,
   "dankLauncherV2Size": "compact",
@@ -189,7 +191,7 @@
   "dankLauncherV2UnloadOnClose": false,
   "useAutoLocation": false,
   "weatherEnabled": true,
-  "networkPreference": "auto",
+  "networkPreference": "ethernet",
   "iconTheme": "Adwaita",
   "cursorSettings": {
     "theme": "Adwaita",
@@ -396,6 +398,15 @@
         ],
         "createdAt": 1772090150999,
         "updatedAt": 1772090150999
+      },
+      "profile_1772179468471_guv82l": {
+        "id": "profile_1772179468471_guv82l",
+        "name": "Laptop",
+        "outputSet": [
+          "eDP-1"
+        ],
+        "createdAt": 1772179468471,
+        "updatedAt": 1772179468471
       }
     }
   },

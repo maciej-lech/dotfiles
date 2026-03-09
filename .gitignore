@@ -6,6 +6,7 @@ home-manager/flake.lock
 home-manager/result
 fish/fish_variables
 niri/dms/outputs.kdl
+niri/dms/profiles/
 tmux/plugins/
 tmux/tmux.conf.local
 vim/autoload/
