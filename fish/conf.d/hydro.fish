@@ -6,25 +6,6 @@ function $_hydro_git --on-variable $_hydro_git
     commandline --function repaint
 end
 
-function _hydro_pretty_path
-    set --local parts (string split / $argv[1])
-    set --local total (count $parts)
-    set --local keep (set --query argv[2] && echo $argv[2] || echo $hydro_pwd_dir_levels)
-
-    set --local shortened
-    for i in (seq 1 $total)
-        if test $i -le (math $total - $keep)
-            set --append shortened (string replace --regex -- "(\.?[^/]{$hydro_pwd_dir_length}).*" '$1' $parts[$i])
-        else
-            set --append shortened $parts[$i]
-        end
-    end
-
-    string join / $shortened |
-        string replace --regex -- '([^/]+)$' "\x1b[1m\$1\x1b[22m" |
-        string replace --regex --all -- '(?!^/$)/|^$' "\x1b[2m/\x1b[22m"
-end
-
 function _hydro_pwd --on-variable PWD --on-variable hydro_ignored_git_paths --on-variable hydro_pwd_dir_length --on-variable hydro_pwd_dir_levels
     if test "$hydro_pwd_dir_length" = 0
         set --global _hydro_pwd (path basename $PWD)
@@ -32,23 +13,23 @@ function _hydro_pwd --on-variable PWD --on-variable hydro_ignored_git_paths --on
     end
 
     set --local dir (string replace --regex -- "^$(string escape --style=regex -- ~)" '~' $PWD)
+    set --local parts (string split / $dir)
+    set --local total (count $parts)
 
-    if ! set --query _hydro_git_root[1]
-        set --global _hydro_pwd (_hydro_pretty_path $dir)
-    else
-        set --local git_dir (string replace --regex -- "^$(string escape --style=regex -- ~)" '~' $_hydro_git_root)
-        set --local after_git (string replace -- "$git_dir" "" "$dir")
-
-        if test -z $after_git
-            set --global _hydro_pwd (_hydro_pretty_path $dir)
+    set --local shortened
+    for i in (seq 1 $total)
+        if test $i -le (math $total - $hydro_pwd_dir_levels)
+            set --append shortened (string replace --regex -- "(\.?[^/]{$hydro_pwd_dir_length}).*" '$1' $parts[$i])
         else
-            # Count non-empty components in after_git
-            set --local after_parts (string split / $after_git | string match -v '')
-            set --local after_count (count $after_parts)
-            set --local git_keep (math "max(1, $hydro_pwd_dir_levels - $after_count)")
-            set --global _hydro_pwd "$(_hydro_pretty_path $git_dir $git_keep)$(_hydro_pretty_path $after_git $after_count)"
+            set --append shortened $parts[$i]
         end
     end
+
+    set --global _hydro_pwd (
+        string join / $shortened |
+            string replace --regex -- '([^/]+)$' "\x1b[1m\$1\x1b[22m" |
+            string replace --regex --all -- '(?!^/$)/|^$' "\x1b[2m/\x1b[22m"
+    )
 end
 
 function _hydro_postexec --on-event fish_postexec
@@ -57,7 +38,7 @@ function _hydro_postexec --on-event fish_postexec
 
     for code in $last_status
         if test $code -ne 0
-            set --global _hydro_status "$_hydro_color_error| "(echo $last_status)" $_hydro_newline$_hydro_color_prompt$_hydro_color_error$hydro_symbol_prompt"
+            set --global _hydro_status "$_hydro_color_error"(echo $last_status)" $_hydro_newline$_hydro_color_prompt$_hydro_color_error$hydro_symbol_prompt"
             break
         end
     end
@@ -85,12 +66,7 @@ function _hydro_prompt --on-event fish_prompt
 
     set --local git_root (command git --no-optional-locks rev-parse --show-toplevel 2>/dev/null)
 
-    if test "$git_root" != "$_hydro_git_root"
-        set --global _hydro_git_root $git_root
-        _hydro_pwd
-    end
-
-    if ! set --query _hydro_git_root[1] || contains -- "$_hydro_git_root" $hydro_ignored_git_paths 
+    if ! set --query git_root[1] || contains -- "$git_root" $hydro_ignored_git_paths
         set $_hydro_git
         return
     end
@@ -116,14 +92,16 @@ function _hydro_prompt --on-event fish_prompt
             switch \"\$behind \$ahead\"
                 case \" \" \"0 0\"
                 case \"0 *\"
-                    set upstream \" $hydro_symbol_git_ahead\$ahead\"
+                    set upstream \"$hydro_symbol_git_ahead\$ahead\"
                 case \"* 0\"
-                    set upstream \" $hydro_symbol_git_behind\$behind\"
+                    set upstream \"$hydro_symbol_git_behind\$behind\"
                 case \*
-                    set upstream \" $hydro_symbol_git_ahead\$ahead $hydro_symbol_git_behind\$behind\"
+                    set upstream \"$hydro_symbol_git_ahead\$ahead$hydro_symbol_git_behind\$behind\"
             end
 
-            set --universal $_hydro_git \"\$branch\$info\$upstream \"
+            set -l _status \"\$info\$upstream\"
+            test -n \"\$_status\" && set _status \":\$_status\"
+            set --universal $_hydro_git \"\$branch\$_status \"
 
             test \$fetch = true && command git fetch --no-tags 2>/dev/null
         end
