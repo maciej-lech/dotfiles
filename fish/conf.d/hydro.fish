@@ -7,12 +7,25 @@ function $_hydro_git --on-variable $_hydro_git
 end
 
 function _hydro_pretty_path
-    string replace --regex --all -- "(\.?[^/]{$hydro_pwd_dir_length})[^/]*/" '$1/' $argv[1] |
+    set --local parts (string split / $argv[1])
+    set --local total (count $parts)
+    set --local keep (set --query argv[2] && echo $argv[2] || echo $hydro_pwd_dir_levels)
+
+    set --local shortened
+    for i in (seq 1 $total)
+        if test $i -le (math $total - $keep)
+            set --append shortened (string replace --regex -- "(\.?[^/]{$hydro_pwd_dir_length}).*" '$1' $parts[$i])
+        else
+            set --append shortened $parts[$i]
+        end
+    end
+
+    string join / $shortened |
         string replace --regex -- '([^/]+)$' "\x1b[1m\$1\x1b[22m" |
         string replace --regex --all -- '(?!^/$)/|^$' "\x1b[2m/\x1b[22m"
 end
 
-function _hydro_pwd --on-variable PWD --on-variable hydro_ignored_git_paths --on-variable hydro_pwd_dir_length
+function _hydro_pwd --on-variable PWD --on-variable hydro_ignored_git_paths --on-variable hydro_pwd_dir_length --on-variable hydro_pwd_dir_levels
     if test "$hydro_pwd_dir_length" = 0
         set --global _hydro_pwd (path basename $PWD)
         return
@@ -29,7 +42,11 @@ function _hydro_pwd --on-variable PWD --on-variable hydro_ignored_git_paths --on
         if test -z $after_git
             set --global _hydro_pwd (_hydro_pretty_path $dir)
         else
-            set --global _hydro_pwd "$(_hydro_pretty_path $git_dir)$(_hydro_pretty_path $after_git)"
+            # Count non-empty components in after_git
+            set --local after_parts (string split / $after_git | string match -v '')
+            set --local after_count (count $after_parts)
+            set --local git_keep (math "max(1, $hydro_pwd_dir_levels - $after_count)")
+            set --global _hydro_pwd "$(_hydro_pretty_path $git_dir $git_keep)$(_hydro_pretty_path $after_git $after_count)"
         end
     end
 end
@@ -80,7 +97,7 @@ function _hydro_prompt --on-event fish_prompt
 
     fish --private --command "
         set branch (
-            command git symbolic-ref --short HEAD 2>/dev/null ||
+            command git branch --show-current 2>/dev/null ||
             command git describe --tags --exact-match HEAD 2>/dev/null ||
             command git rev-parse --short HEAD 2>/dev/null |
                 string replace --regex -- '(.+)' '@\$1'
@@ -149,4 +166,5 @@ set --query hydro_symbol_git_ahead || set --global hydro_symbol_git_ahead ↑
 set --query hydro_symbol_git_behind || set --global hydro_symbol_git_behind ↓
 set --query hydro_multiline || set --global hydro_multiline false
 set --query hydro_pwd_dir_length || set --global hydro_pwd_dir_length 1
+set --query hydro_pwd_dir_levels || set --global hydro_pwd_dir_levels 1
 set --query hydro_cmd_duration_threshold || set --global hydro_cmd_duration_threshold 1000
