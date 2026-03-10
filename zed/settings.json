@@ -37,6 +37,11 @@
     "indent_size": 16
   },
   "agent": {
+    "inline_assistant_model": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-6-latest",
+      "enable_thinking": false
+    },
     "always_allow_tool_actions": false,
     "default_model": {
       "provider": "anthropic",
@@ -77,6 +82,11 @@
   "languages": {
     "Python": {
       "language_servers": ["basedpyright", "ty", "..."]
+    }
+  },
+  "terminal": {
+    "shell": {
+      "program": "fish"
     }
   },
   "lsp": {
