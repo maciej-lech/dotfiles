@@ -34,3 +34,9 @@ window-rule {
     open-maximized true
     open-focused true
 }
+
+// @id=wr_1773392735148288563 @name=sublime_merge
+window-rule {
+    match app-id="^sublime_merge$"
+    open-maximized true
+}
