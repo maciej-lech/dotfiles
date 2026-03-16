@@ -40,3 +40,9 @@ window-rule {
     match app-id="^sublime_merge$"
     open-maximized true
 }
+
+// @id=wr_1773647088553707226 @name=eu.betterbird.Betterbird
+window-rule {
+    match app-id="^eu.betterbird.Betterbird$"
+    open-maximized true
+}
