@@ -4,6 +4,7 @@
   "customThemeFile": "",
   "registryThemeVariants": {},
   "matugenScheme": "scheme-tonal-spot",
+  "matugenContrast": 0,
   "runUserMatugenTemplates": true,
   "matugenTargetMonitor": "",
   "popupTransparency": 1,
@@ -47,6 +48,12 @@
   "modalElevationEnabled": true,
   "popoutElevationEnabled": true,
   "barElevationEnabled": false,
+  "blurEnabled": false,
+  "blurForegroundLayers": true,
+  "blurLayerOutlineOpacity": 0.12,
+  "blurBorderColor": "outline",
+  "blurBorderCustomColor": "#ffffff",
+  "blurBorderOpacity": 1,
   "wallpaperFillMode": "Fill",
   "blurredWallpaperLayer": false,
   "blurWallpaperOnOverview": false,
@@ -63,6 +70,9 @@
   "selectedGpuIndex": 0,
   "enabledGpuPciIds": [],
   "showSystemTray": true,
+  "systemTrayIconTintMode": "none",
+  "systemTrayIconTintSaturation": 50,
+  "systemTrayIconTintStrength": 135,
   "showClock": true,
   "showNotificationButton": true,
   "showBattery": true,
@@ -157,6 +167,7 @@
   "workspaceNameIcons": {},
   "waveProgressEnabled": true,
   "scrollTitleEnabled": true,
+  "mediaAdaptiveWidthEnabled": true,
   "audioVisualizerEnabled": true,
   "audioScrollMode": "volume",
   "audioWheelScrollAmount": 5,
@@ -201,6 +212,7 @@
   "sortAppsAlphabetically": false,
   "appLauncherGridColumns": 4,
   "spotlightCloseNiriOverview": true,
+  "rememberLastQuery": false,
   "spotlightSectionViewModes": {
     "apps": "list"
   },
@@ -212,6 +224,8 @@
   "dankLauncherV2BorderColor": "primary",
   "dankLauncherV2ShowFooter": true,
   "dankLauncherV2UnloadOnClose": false,
+  "dankLauncherV2IncludeFilesInAll": false,
+  "dankLauncherV2IncludeFoldersInAll": false,
   "useAutoLocation": false,
   "weatherEnabled": true,
   "networkPreference": "ethernet",
@@ -251,6 +265,7 @@
   "notepadLastCustomTransparency": 0.7,
   "soundsEnabled": false,
   "useSystemSoundTheme": false,
+  "soundLogin": false,
   "soundNewNotification": true,
   "soundVolumeChanged": true,
   "soundPluggedIn": true,
@@ -259,13 +274,15 @@
   "acSuspendTimeout": 0,
   "acSuspendBehavior": 0,
   "acProfileName": "",
+  "acPostLockMonitorTimeout": 0,
   "batteryMonitorTimeout": 0,
   "batteryLockTimeout": 0,
   "batterySuspendTimeout": 0,
   "batterySuspendBehavior": 0,
   "batteryProfileName": "",
+  "batteryPostLockMonitorTimeout": 0,
   "batteryChargeLimit": 100,
-  "lockBeforeSuspend": false,
+  "lockBeforeSuspend": true,
   "loginctlLockIntegration": true,
   "fadeToLockEnabled": true,
   "fadeToLockGracePeriod": 5,
@@ -282,8 +299,8 @@
   "syncModeWithPortal": true,
   "terminalsAlwaysDark": false,
   "muxType": "tmux",
-  "muxUseCustomCommand": false,
-  "muxCustomCommand": "",
+  "muxUseCustomCommand": true,
+  "muxCustomCommand": "ghostty",
   "muxSessionFilter": "",
   "runDmsMatugenTemplates": true,
   "matugenTemplateGtk": true,
@@ -318,6 +335,7 @@
       "harmony": 0.5
     }
   },
+  "matugenTemplateNeovimSetBackground": true,
   "showDock": false,
   "dockAutoHide": false,
   "dockSmartAutoHide": false,
@@ -345,6 +363,9 @@
   "dockMaxVisibleApps": 0,
   "dockMaxVisibleRunningApps": 0,
   "dockShowOverflowBadge": true,
+  "dockShowTrash": false,
+  "dockTrashFileManager": "default",
+  "dockTrashCustomCommand": "",
   "notificationOverlayEnabled": false,
   "notificationPopupShadowEnabled": true,
   "notificationPopupPrivacyMode": false,
@@ -356,7 +377,7 @@
   "lockScreenShowProfileImage": true,
   "lockScreenShowPasswordField": true,
   "lockScreenShowMediaPlayer": true,
-  "lockScreenPowerOffMonitorsOnLock": false,
+  "lockScreenPowerOffMonitorsOnLock": true,
   "lockAtStartup": false,
   "enableFprint": false,
   "maxFprintTries": 15,
@@ -491,20 +512,6 @@
       "centerWidgets": [],
       "rightWidgets": [
         {
-          "id": "clock",
-          "enabled": true,
-          "clockCompactMode": false
-        },
-        {
-          "id": "weather",
-          "enabled": true
-        },
-        {
-          "id": "music",
-          "enabled": true,
-          "mediaSize": 0
-        },
-        {
           "id": "systemTray",
           "enabled": true
         },
@@ -523,6 +530,11 @@
         {
           "id": "controlCenterButton",
           "enabled": true
+        },
+        {
+          "id": "clock",
+          "enabled": true,
+          "clockCompactMode": false
         }
       ],
       "spacing": 0,
