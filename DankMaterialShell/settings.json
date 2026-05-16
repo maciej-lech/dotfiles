@@ -39,6 +39,8 @@
   "modalAnimationSpeed": 1,
   "modalCustomAnimationDuration": 150,
   "enableRippleEffects": true,
+  "animationVariant": 0,
+  "motionEffect": 0,
   "m3ElevationEnabled": true,
   "m3ElevationIntensity": 12,
   "m3ElevationOpacity": 30,
@@ -257,6 +259,8 @@
   "monoFontFamily": "JetBrains Mono",
   "fontWeight": 400,
   "fontScale": 1,
+  "textRenderType": 1,
+  "textRenderQuality": 0,
   "notepadUseMonospace": true,
   "notepadFontFamily": "",
   "notepadFontSize": 14,
@@ -313,6 +317,7 @@
   "matugenTemplatePywalfox": false,
   "matugenTemplateZenBrowser": false,
   "matugenTemplateVesktop": false,
+  "matugenTemplateVencord": true,
   "matugenTemplateEquibop": false,
   "matugenTemplateGhostty": false,
   "matugenTemplateKitty": false,
@@ -339,6 +344,7 @@
   "showDock": false,
   "dockAutoHide": false,
   "dockSmartAutoHide": false,
+  "dockHideOnFullscreen": true,
   "dockGroupByApp": false,
   "dockRestoreSpecialWorkspaceOnClick": false,
   "dockOpenOnOverview": true,
@@ -438,6 +444,9 @@
   "updaterUseCustomCommand": false,
   "updaterCustomCommand": "",
   "updaterTerminalAdditionalParams": "",
+  "updaterIntervalSeconds": 1800,
+  "updaterIncludeFlatpak": true,
+  "updaterAllowAUR": true,
   "displayNameMode": "model",
   "screenPreferences": {
     "wallpaper": [
@@ -451,40 +460,20 @@
   "niriOutputSettings": {
     "California Institute of Technology 0x1403 Unknown": {
       "disabled": true
+    },
+    "Dell Inc. DELL U2722DE GPZM6P3": {
+      "focusAtStartup": true
     }
   },
   "hyprlandOutputSettings": {},
-  "displayProfiles": {
-    "niri": {
-      "profile_1772090150998_wel1x0": {
-        "id": "profile_1772090150998_wel1x0",
-        "name": "Office",
-        "outputSet": [
-          "DP-12",
-          "DP-7",
-          "DP-9",
-          "eDP-1"
-        ],
-        "createdAt": 1772090150999,
-        "updatedAt": 1772090150999
-      },
-      "profile_1772179468471_guv82l": {
-        "id": "profile_1772179468471_guv82l",
-        "name": "Laptop",
-        "outputSet": [
-          "eDP-1"
-        ],
-        "createdAt": 1772179468471,
-        "updatedAt": 1772179468471
-      }
-    }
-  },
+  "displayProfiles": {},
   "activeDisplayProfile": {
     "niri": "profile_1772090150998_wel1x0"
   },
   "displayProfileAutoSelect": false,
   "displayShowDisconnected": true,
   "displaySnapToEdge": true,
+  "connectedFrameBarStyleBackups": {},
   "barConfigs": [
     {
       "id": "default",
@@ -653,5 +642,20 @@
   "clipboardEnterToPaste": false,
   "launcherPluginVisibility": {},
   "launcherPluginOrder": [],
-  "configVersion": 5
+  "frameEnabled": false,
+  "frameThickness": 16,
+  "frameRounding": 23,
+  "frameColor": "",
+  "frameOpacity": 1,
+  "frameScreenPreferences": [
+    "all"
+  ],
+  "frameBarSize": 40,
+  "frameShowOnOverview": false,
+  "frameBlurEnabled": true,
+  "frameCloseGaps": true,
+  "frameLauncherEmergeSide": "bottom",
+  "frameLauncherArcExtender": false,
+  "frameMode": "separate",
+  "configVersion": 11
 }
