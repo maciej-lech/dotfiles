@@ -12,3 +12,6 @@ github_attestations = false
 
 [settings.github]
 github_attestations = false
+
+[tools]
+"github:mensfeld/code-on-incus" = "0.8.1"
