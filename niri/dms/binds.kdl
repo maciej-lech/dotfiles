@@ -1,5 +1,7 @@
 binds {
+    Alt+Print hotkey-overlay-title="Screenshot: Window" { spawn "dms" "ipc" "call" "niri" "screenshotWindow"; }
     Ctrl+Alt+Delete hotkey-overlay-title="Task Manager" { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
+    Ctrl+Print hotkey-overlay-title="Screenshot: Full Screen" { spawn "dms" "ipc" "call" "niri" "screenshotScreen"; }
     Ctrl+XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "decrement" "3"; }
     Ctrl+XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "increment" "3"; }
     Mod+Alt+L hotkey-overlay-title="Lock Screen" { spawn "dms" "ipc" "call" "lock" "lock"; }
@@ -10,6 +12,7 @@ binds {
     Mod+Shift+W hotkey-overlay-title="Create window rule" { spawn "dms" "ipc" "call" "window-rules" "toggle"; }
     Mod+Space hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
     Mod+V hotkey-overlay-title="Clipboard Manager" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+    Print hotkey-overlay-title="Screenshot: Interactive" { spawn "dms" "ipc" "call" "niri" "screenshot"; }
     Super+Ctrl+Shift+Slash hotkey-overlay-title="Keybinds Cheatsheet: Toggle" { spawn "dms" "ipc" "call" "keybinds" "toggle" "niri"; }
     Super+X hotkey-overlay-title="Power Menu: Toggle" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "3"; }
@@ -31,13 +34,9 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
-    Mod+Down { focus-window-or-workspace-down; }
-    Mod+J { focus-window-or-workspace-down; }
-    Mod+K { focus-window-or-workspace-up; }
     Mod+Ctrl+Down { focus-workspace-down; }
     Mod+Ctrl+J { focus-workspace-down; }
     Mod+Ctrl+K { focus-workspace-up; }
-    Mod+Ctrl+Up { focus-workspace-up; }
     Mod+Ctrl+Shift+1 { move-window-to-workspace 1; }
     Mod+Ctrl+Shift+2 { move-window-to-workspace 2; }
     Mod+Ctrl+Shift+3 { move-window-to-workspace 3; }
@@ -47,26 +46,30 @@ binds {
     Mod+Ctrl+Shift+7 { move-window-to-workspace 7; }
     Mod+Ctrl+Shift+8 { move-window-to-workspace 8; }
     Mod+Ctrl+Shift+9 { move-window-to-workspace 9; }
-    Mod+Shift+1 { move-column-to-monitor "Dell Inc. DELL U2421E 9G64CP3"; }
-    Mod+Shift+2 { move-column-to-monitor "Dell Inc. DELL U2722DE GPZM6P3"; }
-    Mod+Shift+3 { move-column-to-monitor "Dell Inc. DELL U2421E 3H64CP3"; }
-    Mod+Shift+Page_Down { move-workspace-to-monitor-left; }
-    Mod+Shift+Page_Up { move-workspace-to-monitor-right; }
     Mod+Ctrl+Shift+Page_Down { move-workspace-down; }
     Mod+Ctrl+Shift+Page_Up { move-workspace-up; }
+    Mod+Ctrl+Up { focus-workspace-up; }
+    Mod+Down { focus-window-or-workspace-down; }
+    Mod+J { focus-window-or-workspace-down; }
+    Mod+K { focus-window-or-workspace-up; }
+    Mod+Shift+Down { move-window-down-or-to-workspace-down; }
+    Mod+Shift+J { move-window-down-or-to-workspace-down; }
+    Mod+Shift+K { move-window-up-or-to-workspace-up; }
+    Mod+Shift+Page_Down { move-workspace-to-monitor-left; }
+    Mod+Shift+Page_Up { move-workspace-to-monitor-right; }
+    Mod+Shift+Up { move-window-up-or-to-workspace-up; }
+    Mod+Shift+WheelScrollDown cooldown-ms=150 { move-window-down-or-to-workspace-down; }
+    Mod+Shift+WheelScrollUp cooldown-ms=150 { move-window-up-or-to-workspace-up; }
     Mod+Up { focus-window-or-workspace-up; }
     Mod+WheelScrollDown cooldown-ms=150 { focus-window-or-workspace-down; }
     Mod+WheelScrollUp cooldown-ms=150 { focus-window-or-workspace-up; }
-    Alt+Print { screenshot-window; }
     Alt+XF86Launch1 { screenshot-window; }
     Mod+BracketLeft { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
     Mod+C { center-column; }
     Mod+Ctrl+C { center-visible-columns; }
-    Mod+Shift+End { move-column-to-last; }
     Mod+Ctrl+F { expand-column-to-available-width; }
     Mod+Ctrl+H { focus-monitor-left; }
-    Mod+Shift+Home { move-column-to-first; }
     Mod+Ctrl+L { focus-monitor-right; }
     Mod+Ctrl+Left { focus-monitor-left; }
     Mod+Ctrl+R { reset-window-height; }
@@ -83,31 +86,28 @@ binds {
     Mod+Q repeat=false { close-window; }
     Mod+R { switch-preset-column-width; }
     Mod+Right { focus-column-or-monitor-right; }
-    Mod+Shift+Down { move-window-down-or-to-workspace-down; }
+    Mod+Shift+1 { move-column-to-monitor "Dell Inc. DELL U2421E 9G64CP3"; }
+    Mod+Shift+2 { move-column-to-monitor "Dell Inc. DELL U2722DE GPZM6P3"; }
+    Mod+Shift+3 { move-column-to-monitor "Dell Inc. DELL U2421E 3H64CP3"; }
+    Mod+Shift+End { move-column-to-last; }
     Mod+Shift+Equal { set-window-height "+10%"; }
     Mod+Shift+F { fullscreen-window; }
     Mod+Shift+H { move-column-left-or-to-monitor-left; }
-    Mod+Shift+J { move-window-down-or-to-workspace-down; }
-    Mod+Shift+K { move-window-up-or-to-workspace-up; }
+    Mod+Shift+Home { move-column-to-first; }
     Mod+Shift+L { move-column-right-or-to-monitor-right; }
     Mod+Shift+Left { move-column-left-or-to-monitor-left; }
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Shift+Right { move-column-right-or-to-monitor-right; }
     Mod+Shift+T { toggle-window-floating; }
-    Mod+Shift+Up { move-window-up-or-to-workspace-up; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
-    Mod+Shift+WheelScrollDown cooldown-ms=150 { move-window-down-or-to-workspace-down; }
     Mod+Shift+WheelScrollLeft cooldown-ms=150 { move-column-left-or-to-monitor-left; }
     Mod+Shift+WheelScrollRight cooldown-ms=150 { move-column-right-or-to-monitor-right; }
-    Mod+Shift+WheelScrollUp cooldown-ms=150 { move-window-up-or-to-workspace-up; }
     Mod+W { toggle-column-tabbed-display; }
     Mod+WheelScrollLeft cooldown-ms=150 { focus-column-or-monitor-left; }
     Mod+WheelScrollRight cooldown-ms=150 { focus-column-or-monitor-right; }
     Mod+Shift+P { power-off-monitors; }
-    Ctrl+Print { screenshot-screen; }
     Ctrl+XF86Launch1 { screenshot-screen; }
-    Print { screenshot; }
     XF86Launch1 { screenshot; }
     Mod+Shift+E { quit; }
     Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
