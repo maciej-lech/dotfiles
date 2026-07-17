@@ -98,7 +98,12 @@
   },
   "terminal": {
     "shell": {
-      "program": "fish"
+      "with_arguments": {
+        "program": "/app/bin/host-spawn",
+        "args": [
+          "/usr/bin/fish"
+        ]
+      }
     },
     "env": {
       "LD_LIBRARY_PATH": "",
