@@ -12,7 +12,6 @@ binds {
     Mod+Shift+W hotkey-overlay-title="Create window rule" { spawn "dms" "ipc" "call" "window-rules" "toggle"; }
     Mod+Space hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
     Mod+V hotkey-overlay-title="Clipboard Manager" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
-    Print hotkey-overlay-title="Screenshot: Interactive" { spawn "dms" "ipc" "call" "niri" "screenshot"; }
     Super+Ctrl+Shift+Slash hotkey-overlay-title="Keybinds Cheatsheet: Toggle" { spawn "dms" "ipc" "call" "keybinds" "toggle" "niri"; }
     Super+X hotkey-overlay-title="Power Menu: Toggle" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "3"; }
@@ -23,6 +22,7 @@ binds {
     XF86AudioPlay allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
     XF86AudioPrev allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "previous"; }
     XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "3"; }
+    XF86Launch1 hotkey-overlay-title="Screenshot: Interactive" { spawn "dms" "ipc" "call" "niri" "screenshot"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""; }
     XF86MonBrightnessUp allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "5" ""; }
     Mod+1 { focus-workspace 1; }
@@ -108,7 +108,7 @@ binds {
     Mod+WheelScrollRight cooldown-ms=150 { focus-column-or-monitor-right; }
     Mod+Shift+P { power-off-monitors; }
     Ctrl+XF86Launch1 { screenshot-screen; }
-    XF86Launch1 { screenshot; }
+    Print hotkey-overlay-title="Screenshot (Interactive)" { screenshot; }
     Mod+Shift+E { quit; }
     Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
     Super+B hotkey-overlay-title="Open Brave" { spawn "flatpak" "run" "com.brave.Browser"; }
