@@ -29,6 +29,24 @@
   "mangoLayoutRadiusOverride": -1,
   "mangoLayoutBorderSize": -1,
   "mangoTrackpadNaturalScrolling": true,
+  "mouseAccelProfile": "default",
+  "mouseAccelSpeed": 0,
+  "mouseLeftHanded": false,
+  "mouseMiddleEmulation": false,
+  "mouseNaturalScroll": false,
+  "mouseScrollFactor": 1,
+  "mouseScrollMethod": "default",
+  "touchpadAccelProfile": "default",
+  "touchpadAccelSpeed": 0,
+  "touchpadDisableOnExternalMouse": false,
+  "touchpadDisableWhileTyping": true,
+  "touchpadDragLock": false,
+  "touchpadMiddleEmulation": false,
+  "touchpadNaturalScroll": true,
+  "touchpadScrollFactor": 1,
+  "touchpadScrollMethod": "default",
+  "touchpadTapAndDrag": true,
+  "touchpadTapToClick": true,
   "firstDayOfWeek": -1,
   "showWeekNumber": true,
   "calendarBackend": "auto",
@@ -60,6 +78,7 @@
   "blurEnabled": false,
   "blurForegroundLayers": true,
   "blurLayerOutlineOpacity": 0.12,
+  "blurBorderEnabled": true,
   "blurBorderColor": "outline",
   "blurBorderCustomColor": "#ffffff",
   "blurBorderOpacity": 1,
@@ -247,6 +266,7 @@
   "greeterLockDateFormat": "",
   "greeterFontFamily": "",
   "greeterWallpaperFillMode": "",
+  "greeterPamExternallyManaged": false,
   "greeterSyncPending": false,
   "greeterSyncBaseline": {},
   "mediaSize": 1,
@@ -380,6 +400,7 @@
   "batteryLowNotificationType": 0,
   "batteryCriticalNotificationType": 0,
   "batteryAutoPowerSaver": false,
+  "lowerDisplayRefreshRateOnBattery": false,
   "lockBeforeSuspend": true,
   "loginctlLockIntegration": true,
   "fadeToLockEnabled": true,
@@ -387,11 +408,6 @@
   "fadeToDpmsEnabled": true,
   "fadeToDpmsGracePeriod": 5,
   "launchPrefix": "",
-  "brightnessDevicePins": {},
-  "wifiNetworkPins": {},
-  "bluetoothDevicePins": {},
-  "audioInputDevicePins": {},
-  "audioOutputDevicePins": {},
   "gtkThemingEnabled": false,
   "qtThemingEnabled": false,
   "syncModeWithPortal": true,
@@ -469,6 +485,7 @@
   "notificationOverlayEnabled": false,
   "notificationPopupShadowEnabled": true,
   "notificationPopupPrivacyMode": false,
+  "notificationForegroundLayers": true,
   "modalDarkenBackground": true,
   "lockScreenShowPowerActions": true,
   "lockScreenShowSystemIcons": true,
@@ -483,6 +500,11 @@
   "maxFprintTries": 15,
   "enableU2f": false,
   "u2fMode": "or",
+  "lockPamPath": "",
+  "lockPamInlineFprint": false,
+  "lockPamInlineU2f": false,
+  "lockPamExternallyManaged": false,
+  "lockU2fPamPath": "",
   "lockScreenInactiveColor": "#000000",
   "lockScreenNotificationMode": 0,
   "lockScreenVideoEnabled": false,
@@ -495,6 +517,7 @@
   "notificationTimeoutLow": 5000,
   "notificationTimeoutNormal": 5000,
   "notificationTimeoutCritical": 0,
+  "notificationIgnoreAppTimeout": false,
   "notificationCompactMode": false,
   "notificationShowTimeoutBar": false,
   "notificationDedupeEnabled": true,
@@ -570,6 +593,20 @@
   "activeDisplayProfile": {
     "niri": "auto_92382b6e"
   },
+  "activeDisplayProfileModes": {
+    "niri": {
+      "Dell Inc. DELL U2421E 9G64CP3": {
+        "mode": "1920x1200@59.950"
+      },
+      "Dell Inc. DELL U2421E 3H64CP3": {
+        "mode": "1920x1200@59.950"
+      },
+      "Dell Inc. DELL U2722DE GPZM6P3": {
+        "mode": "2560x1440@59.951"
+      }
+    }
+  },
+  "displayPreviousRefreshModes": {},
   "displayProfileAutoSelect": true,
   "displayShowDisconnected": true,
   "displaySnapToEdge": true,
@@ -772,5 +809,5 @@
   "barInsetPaddingShared": -1,
   "barInsetPaddingSyncAll": false,
   "frameBarInsetPadding": -1,
-  "configVersion": 12
+  "configVersion": 13
 }
