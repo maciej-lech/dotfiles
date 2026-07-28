@@ -1,13 +1,17 @@
 onboarding = false
-[ui]
-agent_panel_scope = "all"
-prompt_new_tab_name = false
 
 [theme]
-name = "nord"
+name = "catppuccin"
+auto_switch = false
+
+[ui]
+prompt_new_tab_name = false
 
 [ui.sound]
 enabled = false
+
+[ui.toast]
+delivery = "herdr"
 
 [keys]
 prefix = "ctrl+a"
@@ -17,9 +21,6 @@ focus_pane_up = "alt+shift+k"
 focus_pane_right = "alt+shift+l"
 previous_tab = "alt+left"
 next_tab = "alt+right"
-
-[ui.toast]
-delivery = "herdr"
 
 [experimental]
 pane_history = true
