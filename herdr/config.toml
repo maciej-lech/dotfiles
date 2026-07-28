@@ -3,16 +3,19 @@
 
 # Show first-run notification setup on startup.
 # Missing also shows onboarding; set false after you've chosen.
+# onboarding = true
 onboarding = false
 
 [theme]
 # Built-in themes: catppuccin, terminal, tokyo-night, dracula, nord,
 #                  gruvbox, one-dark, solarized, kanagawa, rose-pine,
 #                  vesper
+# name = "catppuccin"
 name = "nord"
 
 # Follow host terminal light/dark appearance and switch Herdr UI themes.
 # Existing manual behavior is unchanged unless this is true.
+# auto_switch = false
 auto_switch = false
 # dark_name = "catppuccin"
 # light_name = "catppuccin-latte"
@@ -47,6 +50,7 @@ auto_switch = false
 
 # Check herdr.dev for new Herdr versions in the background.
 # version_check = true
+version_check = false
 
 # Check herdr.dev for remote agent-detection manifest updates in the background.
 # manifest_check = true
@@ -60,6 +64,7 @@ auto_switch = false
 # Named punctuation such as minus, comma, ampersand, plus, and backtick is also accepted.
 # Most reliable direct bindings are ctrl+letter, function keys, and explicit modified chords.
 # alt+..., cmd/super, and punctuation-with-modifiers may depend on your terminal/tmux setup.
+# prefix = "ctrl+b"
 prefix = "ctrl+a"
 
 # Prefix-mode actions
@@ -84,16 +89,22 @@ prefix = "ctrl+a"
 # remote_image_paste = "ctrl+v" # only active in herdr --remote; empty disables raw-key image paste
 # new_tab = "prefix+c"
 # rename_tab = "prefix+shift+t"
+# previous_tab = "prefix+p"
 previous_tab = "alt+left"
+# next_tab = "prefix+n"
 next_tab = "alt+right"
 # switch_tab = "prefix+1..9"
 # switch_workspace = ""   # optional indexed binding, e.g. "prefix+shift+1..9"
 # close_tab = "prefix+shift+x"
 # rename_pane = "prefix+shift+p"
 # edit_scrollback = "prefix+e"
+# focus_pane_left = "prefix+h"
 focus_pane_left = "alt+shift+h"
+# focus_pane_down = "prefix+j"
 focus_pane_down = "alt+shift+j"
+# focus_pane_up = "prefix+k"
 focus_pane_up = "alt+shift+k"
+# focus_pane_right = "prefix+l"
 focus_pane_right = "alt+shift+l"
 # cycle_pane_next = "prefix+tab"
 # cycle_pane_previous = "prefix+shift+tab"
@@ -148,6 +159,7 @@ focus_pane_right = "alt+shift+l"
 # sidebar_max_width = 36
 
 # Start with the sidebar collapsed. Changes take effect on the next launch.
+# sidebar_start_collapsed = false
 sidebar_start_collapsed = true
 
 # Collapsed sidebar presentation: "compact" keeps the narrow status rail, "hidden" uses zero width.
@@ -188,9 +200,11 @@ sidebar_start_collapsed = true
 
 # Ask for a tab name before creating a new tab.
 # Set false to create tabs immediately with generated names.
+# prompt_new_tab_name = true
 prompt_new_tab_name = false
 
 # Ask for a workspace name before interactive creation.
+# prompt_new_workspace_name = false
 prompt_new_workspace_name = false
 
 # Draw borders around split panes.
@@ -201,6 +215,7 @@ prompt_new_workspace_name = false
 
 # Show detected/reported agent labels in split pane borders when no manual pane name is set.
 # show_agent_labels_on_pane_borders = false
+show_agent_labels_on_pane_borders = true
 
 # Hide the tab row when a workspace has exactly one tab.
 # New tabs can still be created with the configured keybinding.
@@ -241,6 +256,7 @@ prompt_new_workspace_name = false
 # herdr = show in-app toasts
 # terminal = ask the outer terminal to show a desktop notification
 # system = ask the OS notification service directly
+# delivery = "off"
 delivery = "herdr"
 # delay_seconds = 1
 
@@ -253,6 +269,7 @@ delivery = "herdr"
 
 # Play sounds when agents change state in background workspaces
 [ui.sound]
+# enabled = true
 enabled = false
 # Optional custom mp3 sound files. Relative paths are resolved from this config file's directory.
 # path = "sounds/notification.mp3"   # one mp3 file for all sound notifications
@@ -287,6 +304,7 @@ enabled = false
 # Requires a Kitty graphics-compatible outer terminal.
 # kitty_graphics = false
 # Save recent pane screen history across full server restarts.
+# pane_history = false
 pane_history = true
 # While prefix mode is active, temporarily switch the macOS host input
 # source to an ASCII-capable keyboard layout so prefix commands register
