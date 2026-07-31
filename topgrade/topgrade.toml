@@ -1,5 +1,5 @@
 [misc]
-only = ["system", "flatpak", "brew_formula", "brew_cask"]
+only = ["system", "flatpak", "brew_formula", "brew_cask", "mise"]
 no_self_update = true
 set_title = false
 
