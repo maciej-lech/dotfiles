@@ -21,12 +21,16 @@
   "which_key": {
     "enabled": false
   },
-  "icon_theme": "Zed (Default)",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
   "session": {
     "trust_all_worktrees": true
   },
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "Nord Light",
     "dark": "Nord Dark"
   },
@@ -97,6 +101,7 @@
     }
   },
   "terminal": {
+    "font_weight": 200.0,
     "shell": {
       "with_arguments": {
         "program": "/app/bin/host-spawn",
