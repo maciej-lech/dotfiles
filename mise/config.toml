@@ -1,14 +1,8 @@
 [settings]
-asdf_compat = true
-auto_install = true
-github_attestations = false
 experimental = true
+minimum_release_age = "48h"
 
-[settings.aqua]
-cosign = false
-slsa = false
-minisign = false
-github_attestations = false
-
-[settings.github]
-github_attestations = false
+[tools]
+claude-code = "latest"
+opencode = "latest"
+pi = "latest"
