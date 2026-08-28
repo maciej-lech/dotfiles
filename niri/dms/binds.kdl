@@ -110,6 +110,7 @@ binds {
     Ctrl+XF86Launch1 { screenshot-screen; }
     Print hotkey-overlay-title="Screenshot (Interactive)" { screenshot; }
     Mod+Shift+E { quit; }
+    Ctrl+space hotkey-overlay-title="Toggle Handy Transcription" { spawn "handy" "--toggle-transcription"; }
     Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
     Super+B hotkey-overlay-title="Open Brave" { spawn "flatpak" "run" "com.brave.Browser"; }
     Super+Z hotkey-overlay-title="Open Zed" { spawn "flatpak" "run" "dev.zed.Zed"; }
