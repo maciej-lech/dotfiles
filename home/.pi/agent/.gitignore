@@ -1,0 +1,5 @@
+# Allowlist - only the entries below are tracked.
+/*
+!/.gitignore
+!/settings.json
+!/extensions/

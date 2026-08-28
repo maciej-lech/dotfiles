@@ -1,0 +1,4 @@
+# Allowlist - only the entries below are tracked.
+/*
+!/.gitignore
+!/agent/

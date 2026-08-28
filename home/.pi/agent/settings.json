@@ -1,0 +1,8 @@
+{
+  "lastChangelogVersion": "0.84.3",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "kimi-k3",
+  "defaultThinkingLevel": "max",
+  "theme": "dark",
+  "enableInstallTelemetry": false
+}
