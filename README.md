@@ -6,4 +6,5 @@
 
 # Usage
 
-    stow .
+    stow --target=~ home
+    stow --target=~/.config config

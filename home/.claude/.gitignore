@@ -1,0 +1,7 @@
+# Allowlist: everything in ~/.claude is runtime state unless listed below.
+/*
+!/.gitignore
+!/CLAUDE.md
+!/settings.json
+!/bin/
+!/hooks/
