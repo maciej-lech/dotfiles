@@ -1,2 +1,5 @@
-config.local
-ignore
+# Allowlist - only the entries below are tracked.
+/*
+!/.gitignore
+!/attributes
+!/config

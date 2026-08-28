@@ -1,4 +1,4 @@
-# Allowlist: everything in ~/.claude is runtime state unless listed below.
+# Allowlist - only the entries below are tracked.
 /*
 !/.gitignore
 !/CLAUDE.md

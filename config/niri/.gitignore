@@ -1,2 +1,7 @@
-dms/outputs.kdl
-dms/profiles/
+# Allowlist - only the entries below are tracked.
+/*
+!/.gitignore
+!/config.kdl
+!/dms/
+/dms/outputs.kdl
+/dms/profiles/

@@ -1,1 +1,6 @@
-settings_backup.json
+# Allowlist - only the entries below are tracked.
+/*
+!/.gitignore
+!/keymap.json
+!/settings.json
+!/themes/

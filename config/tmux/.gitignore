@@ -1,2 +1,4 @@
-plugins/
-tmux.conf.local
+# Allowlist - only the entries below are tracked.
+/*
+!/.gitignore
+!/tmux.conf

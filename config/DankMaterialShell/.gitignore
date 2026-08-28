@@ -1,3 +1,5 @@
-.*
-!.gitignore
-monitors.json
+# Allowlist - only the entries below are tracked.
+/*
+!/.gitignore
+!/clsettings.json
+!/settings.json

@@ -1,1 +1,9 @@
-fish_variables*
+# Allowlist - only the entries below are tracked.
+/*
+!/.gitignore
+!/config.fish
+!/fish_plugins
+!/completions/
+!/conf.d/
+!/functions/
+!/themes/
