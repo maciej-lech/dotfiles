@@ -2,8 +2,8 @@
 
 # Dependencies
 
-* GNU Stow
 * just
+* GNU Stow
 
 # Usage
 
