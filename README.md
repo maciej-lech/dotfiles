@@ -3,8 +3,8 @@
 # Dependencies
 
 * GNU Stow
+* just
 
 # Usage
 
-    stow --target=~ home
-    stow --target=~/.config config
+    just stow
