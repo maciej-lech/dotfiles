@@ -61,5 +61,8 @@
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
   "remoteControlAtStartup": false,
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "env": {
+    "DISABLE_AUTOUPDATER": "1"
+  }
 }
