@@ -255,6 +255,8 @@ show_agent_labels_on_pane_borders = true
 # Background notification popup delivery
 agent_panel_sort = "spaces"
 
+status_indicators = "symbols"
+
 [ui.toast]
 # off = disable pop-up notifications
 # herdr = show in-app toasts
