@@ -79,9 +79,10 @@ RIGHT_DISP="${FILL_PART}${EMPTY_PART} ${GREY}${PCT_LEFT}% left${RESET}${SEP}${GR
 STATS_PLAIN="${PCT_LEFT}% left · ${USED_H}/${LIMIT_H} · \$${COST_H}"
 RIGHT_LEN=$(( BAR_WIDTH + 1 + ${#STATS_PLAIN} ))
 
-# Terminal width less a margin so the box's right padding never truncates us.
+# Terminal width less the fullscreen box chrome (border + padding on both sides)
+# so Claude Code never truncates the trailing cost.
 WIDTH=${COLUMNS:-$(tput cols 2>/dev/null || echo 80)}
-USABLE=$(( WIDTH - 3 ))
+USABLE=$(( WIDTH - 6 ))
 PAD=$(( USABLE - LEFT_LEN - RIGHT_LEN ))
 [ "$PAD" -lt 1 ] && PAD=1
 SPACER=$(printf '%*s' "$PAD" '')
