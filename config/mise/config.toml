@@ -1,6 +1,6 @@
 [settings]
 experimental = true
-minimum_release_age = "48h"
+minimum_release_age = "24h"
 
 [tools]
 claude-code = "latest"
