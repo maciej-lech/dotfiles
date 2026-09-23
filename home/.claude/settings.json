@@ -1,5 +1,8 @@
 {
   "respectGitignore": false,
+  "env": {
+    "DISABLE_AUTOUPDATER": "1"
+  },
   "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
@@ -55,15 +58,16 @@
       }
     }
   },
+  "feedbackDrafts": "off",
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
   "tui": "fullscreen",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
   "remoteControlAtStartup": false,
-  "voiceEnabled": true,
-  "env": {
-    "DISABLE_AUTOUPDATER": "1"
-  },
-  "feedbackDrafts": "off"
+  "voiceEnabled": true
 }
