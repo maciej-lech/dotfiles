@@ -1,7 +1,12 @@
 [misc]
-only = ["system", "flatpak", "brew_formula", "brew_cask", "mise"]
+only = ["system", "flatpak", "brew_formula", "brew_cask", "custom_commands"]
 no_self_update = true
 set_title = false
 
 [linux]
 bootc = true
+
+# mise built-in step always runs `mise self-update`, which fails for the
+# Homebrew-managed mise; brew_formula already upgrades the binary.
+[commands]
+"mise" = "mise plugins update && mise upgrade"
