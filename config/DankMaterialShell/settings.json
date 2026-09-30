@@ -74,9 +74,24 @@
       ]
     }
   ],
+  "dmsWindowsFloatingSeeded": [
+    "niri"
+  ],
   "showWeekNumber": true,
   "barElevationEnabled": false,
   "controlCenterWidgets": [
+    {
+      "id": "userCard",
+      "enabled": true,
+      "w": 6.5,
+      "h": 1.5
+    },
+    {
+      "id": "quickActions",
+      "enabled": true,
+      "w": 1.5,
+      "h": 1.5
+    },
     {
       "id": "volumeSlider",
       "enabled": true,
@@ -285,7 +300,8 @@
       "shadowColorMode": "text",
       "shadowCustomColor": "#000000",
       "clickThrough": false,
-      "followInterfaceStyle": true
+      "followInterfaceStyle": true,
+      "widgetFollowInterfaceStyle": true
     }
   ],
   "builtInPluginSettings": {
@@ -294,8 +310,14 @@
     },
     "dms_clipboard_search": {
       "trigger": "cb"
+    },
+    "dms_qr_generator": {
+      "trigger": "qrg"
+    },
+    "dms_power": {
+      "trigger": "pw"
     }
   },
   "frameMode": "separate",
-  "configVersion": 28
+  "configVersion": 34
 }
