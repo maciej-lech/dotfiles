@@ -48,3 +48,5 @@ keybind = ctrl+plus=increase_font_size:1
 keybind = ctrl+minus=decrease_font_size:1
 keybind = ctrl+zero=reset_font_size
 keybind = shift+enter=text:\n
+keybind = ctrl+enter=unbind
+keybind = f11=toggle_fullscreen
