@@ -54,6 +54,9 @@
       "showTrash": false,
       "trashFileManager": "default",
       "trashCustomCommand": "",
+      "magnification": false,
+      "magnificationScale": 130,
+      "magnificationProfile": "parabolic",
       "order": [],
       "widgets": [
         {
@@ -81,64 +84,105 @@
   "barElevationEnabled": false,
   "controlCenterWidgets": [
     {
-      "id": "userCard",
+      "id": "user",
       "enabled": true,
-      "w": 6.5,
-      "h": 1.5
+      "w": 5,
+      "h": 1,
+      "col": 0,
+      "row": 0,
+      "badge": false,
+      "compositor": false
     },
     {
-      "id": "quickActions",
+      "id": "settings",
       "enabled": true,
-      "w": 1.5,
-      "h": 1.5
+      "w": 1,
+      "h": 1,
+      "small": true,
+      "col": 5,
+      "row": 0
+    },
+    {
+      "id": "lock",
+      "enabled": true,
+      "w": 1,
+      "h": 1,
+      "small": true,
+      "col": 6,
+      "row": 0
+    },
+    {
+      "id": "power",
+      "enabled": true,
+      "w": 1,
+      "h": 1,
+      "small": true,
+      "col": 7,
+      "row": 0
     },
     {
       "id": "volumeSlider",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 0,
+      "row": 1
     },
     {
       "id": "inputVolumeSlider",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 4,
+      "row": 1
     },
     {
       "id": "audioOutput",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 0,
+      "row": 2
     },
     {
       "id": "audioInput",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 4,
+      "row": 2
     },
     {
       "id": "wifi",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 0,
+      "row": 3
     },
     {
       "id": "builtin_vpn",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 4,
+      "row": 3
     },
     {
       "id": "bluetooth",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 0,
+      "row": 4
     },
     {
       "id": "doNotDisturb",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 4,
+      "row": 4
     },
     {
       "id": "brightnessSlider",
@@ -146,7 +190,18 @@
       "instanceId": "mm0a0fqkklgvy7vptrw",
       "deviceName": "",
       "w": 8,
-      "h": 1
+      "h": 1,
+      "col": 0,
+      "row": 5
+    },
+    {
+      "id": "edit",
+      "enabled": true,
+      "w": 1,
+      "h": 1,
+      "small": true,
+      "footer": true,
+      "footerEnd": true
     }
   ],
   "appIdSubstitutions": [],
@@ -197,7 +252,6 @@
   "notificationFocusedMonitor": true,
   "osdMediaPlaybackEnabled": true,
   "osdPowerProfileEnabled": true,
-  "updaterIntervalSeconds": 86400,
   "updaterIncludeFlatpak": false,
   "displayNameMode": "model",
   "screenPreferences": {
@@ -319,5 +373,5 @@
     }
   },
   "frameMode": "separate",
-  "configVersion": 34
+  "configVersion": 37
 }
