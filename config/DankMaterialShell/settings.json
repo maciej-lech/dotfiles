@@ -57,6 +57,7 @@
       "magnification": false,
       "magnificationScale": 130,
       "magnificationProfile": "parabolic",
+      "magnificationExpand": false,
       "order": [],
       "widgets": [
         {
@@ -373,5 +374,5 @@
     }
   },
   "frameMode": "separate",
-  "configVersion": 37
+  "configVersion": 38
 }
