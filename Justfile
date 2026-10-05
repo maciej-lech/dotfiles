@@ -2,3 +2,4 @@
 stow:
     stow --target="$HOME" home
     stow --target="$HOME/.config" config
+    stow --target="$HOME/.local" local

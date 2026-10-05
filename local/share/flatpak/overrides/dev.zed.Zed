@@ -1,0 +1,6 @@
+[Context]
+filesystems=/var/home/linuxbrew:ro;~/.config/zed;
+
+[Environment]
+ZED_FLATPAK_NO_ESCAPE=1
+FLATPAK_ENABLE_SDK_EXT=golang,rust-stable
