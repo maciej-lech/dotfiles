@@ -38,7 +38,6 @@
   "enabledPlugins": {
     "caveman@caveman": true,
     "gopls-lsp@claude-plugins-official": true,
-    "mattpocock-skills@mattpocock": true,
     "memsearch@memsearch-plugins": true,
     "pyright-lsp@claude-plugins-official": true
   },
@@ -47,12 +46,6 @@
       "source": {
         "source": "github",
         "repo": "JuliusBrussee/caveman"
-      }
-    },
-    "mattpocock": {
-      "source": {
-        "source": "github",
-        "repo": "mattpocock/skills"
       }
     },
     "memsearch-plugins": {
