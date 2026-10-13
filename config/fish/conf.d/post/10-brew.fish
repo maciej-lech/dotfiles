@@ -5,7 +5,7 @@ if test -d /home/linuxbrew/.linuxbrew
 end
 
 if command -q brew
-    set HOMEBREW_COMMAND_NOT_FOUND_HANDLER $HOMEBREW_REPOSITORY/Library/Homebrew/command-not-found/handler.fish
+    set -l HOMEBREW_COMMAND_NOT_FOUND_HANDLER $HOMEBREW_REPOSITORY/Library/Homebrew/command-not-found/handler.fish
     if test -f $HOMEBREW_COMMAND_NOT_FOUND_HANDLER
         source $HOMEBREW_COMMAND_NOT_FOUND_HANDLER
     end
