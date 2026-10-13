@@ -1,6 +1,6 @@
 ## Environment
 
-set -gx SHELL (which fish)
+set -gx SHELL (status fish-path)
 
 set -gx UID (id -u)
 set -gx GID (id -g)
