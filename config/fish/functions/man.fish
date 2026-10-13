@@ -1,3 +1,6 @@
+# Based on https://github.com/decors/fish-colored-man
+# Copyright (c) 2016 Decors, MIT License: https://github.com/decors/fish-colored-man/blob/master/LICENSE
+
 function man --wraps man --description 'Format and display manual pages'
     set -q man_blink; and set -l blink (set_color $man_blink); or set -l blink (set_color -o red)
     set -q man_bold; and set -l bold (set_color $man_bold); or set -l bold (set_color -o 5fafd7)

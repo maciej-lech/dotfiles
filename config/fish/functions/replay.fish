@@ -1,3 +1,6 @@
+# Based on https://github.com/jorgebucaran/replay.fish
+# Copyright (c) Jorge Bucaran, MIT License: https://github.com/jorgebucaran/replay.fish/blob/main/LICENSE.md
+
 function replay --description "Run Bash commands replaying changes in Fish"
     switch "$argv"
         case -v --version

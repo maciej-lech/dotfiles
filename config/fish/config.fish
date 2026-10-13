@@ -14,7 +14,7 @@ if status is-interactive
     # In distrobox container, re-define our own fish_prompt function.
     # Distrobox defines its own in /etc/fish/conf.d/distrobox_config.fish
     if set -q DISTROBOX_ENTER_PATH
-        set -g hydro_symbol_start "📦 "
+        set -g prompt_symbol_start "📦 "
         source "$__fish_config_dir"/functions/fish_prompt.fish
     end
 end

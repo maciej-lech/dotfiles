@@ -1,3 +1,6 @@
+# Based on https://github.com/jorgebucaran/hydro
+# Copyright (c) Jorge Bucaran, MIT License: https://github.com/jorgebucaran/hydro/blob/main/LICENSE.md
+
 function fish_mode_prompt
     if test "$fish_key_bindings" != fish_default_key_bindings
         set --local vi_mode_color

@@ -1,3 +1,6 @@
-function fish_prompt --description Hydro
-    echo -e -n "$_hydro_color_start$hydro_symbol_start$hydro_color_normal$_hydro_color_pwd$_hydro_pwd$hydro_color_normal $_hydro_color_git$$_hydro_git$hydro_color_normal$_hydro_color_duration$_hydro_cmd_duration$hydro_color_normal$_hydro_status$hydro_color_normal "
+# Based on https://github.com/jorgebucaran/hydro
+# Copyright (c) Jorge Bucaran, MIT License: https://github.com/jorgebucaran/hydro/blob/main/LICENSE.md
+
+function fish_prompt --description 'Write out the prompt'
+    echo -e -n "$_prompt_color_start$prompt_symbol_start$prompt_color_normal$_prompt_color_pwd$_prompt_pwd$prompt_color_normal $_prompt_color_git$$_prompt_git$prompt_color_normal$_prompt_color_duration$_prompt_cmd_duration$prompt_color_normal$_prompt_status$prompt_color_normal "
 end
