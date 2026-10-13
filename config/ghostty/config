@@ -43,7 +43,6 @@ unfocused-split-fill = #44464f
 
 # Key bindings
 keybind = ctrl+shift+n=new_window
-keybind = ctrl+t=new_tab
 keybind = ctrl+plus=increase_font_size:1
 keybind = ctrl+minus=decrease_font_size:1
 keybind = ctrl+zero=reset_font_size
