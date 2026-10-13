@@ -4,9 +4,28 @@
 status is-interactive || exit
 
 set --global _prompt_git _prompt_git_$fish_pid
+set --global _prompt_git_seq 0
+
+# Async git status goes through a file in $XDG_RUNTIME_DIR plus SIGUSR1, so killed shells leave nothing
+# in fish_variables; without a usable runtime dir, fall back to a per-shell universal variable
+set --global _prompt_git_file
+if set --query XDG_RUNTIME_DIR[1] && path is -d -w -- $XDG_RUNTIME_DIR
+    set --local dir $XDG_RUNTIME_DIR/fish-prompt
+    if path is -d -w -- $dir || command mkdir -m 700 $dir 2>/dev/null
+        set _prompt_git_file $dir/$fish_pid
+    end
+end
 
 function $_prompt_git --on-variable $_prompt_git
     commandline --function repaint
+end
+
+if test -n "$_prompt_git_file"
+    function _prompt_git_ready --on-signal SIGUSR1
+        read --line --local seq value <$_prompt_git_file 2>/dev/null
+        or return
+        test "$seq" = "$_prompt_git_seq" && set --global $_prompt_git $value
+    end
 end
 
 function _prompt_pwd --on-variable PWD --on-variable prompt_ignored_git_paths --on-variable prompt_pwd_dir_length --on-variable prompt_pwd_dir_levels
@@ -66,6 +85,7 @@ function _prompt_update --on-event fish_prompt
     set --query _prompt_pwd || _prompt_pwd
 
     command kill $_prompt_last_pid 2>/dev/null
+    set _prompt_git_seq (math $_prompt_git_seq + 1)
 
     set --local git_root (command git --no-optional-locks rev-parse --show-toplevel 2>/dev/null)
 
@@ -74,7 +94,27 @@ function _prompt_update --on-event fish_prompt
         return
     end
 
+    set --local --export _prompt_git_current $$_prompt_git
+    set --local --export _prompt_git_job_seq $_prompt_git_seq
+    set --local --export _prompt_git_job_file $_prompt_git_file
+    set --local --export _prompt_git_parent $fish_pid
+
     fish --private --command "
+        function _publish
+            if test -z \"\$_prompt_git_job_file\"
+                set --universal $_prompt_git \"\$argv\"
+                return
+            end
+            set --local tmp \$_prompt_git_job_file.\$fish_pid
+            printf '%s\\n%s\\n' \$_prompt_git_job_seq \"\$argv\" >\$tmp && command mv -f \$tmp \$_prompt_git_job_file || return
+            # SIGUSR1 terminates non-fish processes, so never signal a reused pid
+            if test -r /proc/\$_prompt_git_parent/comm
+                read --local comm </proc/\$_prompt_git_parent/comm
+                test \"\$comm\" = fish || return
+            end
+            command kill -s USR1 \$_prompt_git_parent 2>/dev/null
+        end
+
         set branch (
             command git branch --show-current 2>/dev/null ||
             command git describe --tags --exact-match HEAD 2>/dev/null ||
@@ -82,7 +122,7 @@ function _prompt_update --on-event fish_prompt
                 string replace --regex -- '(.+)' '@\$1'
         )
 
-        test -z \"\$$_prompt_git\" && set --universal $_prompt_git \"\$branch \"
+        test -z \"\$_prompt_git_current\" && _publish \"\$branch \"
 
         command git diff-index --quiet HEAD 2>/dev/null
         test \$status -eq 1 ||
@@ -104,7 +144,7 @@ function _prompt_update --on-event fish_prompt
 
             set -l _status \"\$info\$upstream\"
             test -n \"\$_status\" && set _status \":\$_status\"
-            set --universal $_prompt_git \"\$branch\$_status \"
+            _publish \"\$branch\$_status \"
 
             test \$fetch = true && command git fetch --no-tags 2>/dev/null
         end
@@ -115,6 +155,10 @@ end
 
 function _prompt_fish_exit --on-event fish_exit
     set --erase $_prompt_git
+    if test -n "$_prompt_git_file"
+        command kill $_prompt_last_pid 2>/dev/null
+        command rm -f $_prompt_git_file
+    end
 end
 
 set --global prompt_color_normal (set_color normal)
