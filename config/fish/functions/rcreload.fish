@@ -3,7 +3,7 @@ function rcreload --description 'Reload fish config, including functions'
         source $file
     end
 
-    source ~/.config/fish/config.fish
+    source "$__fish_config_dir"/config.fish
 
     for file in "$__fish_config_dir"/functions/*.fish
         source $file
