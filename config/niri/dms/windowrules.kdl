@@ -60,6 +60,13 @@ window-rule {
     open-focused true
 }
 
+// @id=wr_1791796384067016158 @name=google-chrome
+window-rule {
+    match app-id="^google-chrome$"
+    open-maximized true
+    open-focused true
+}
+
 // @id=dms-window-opaque @name=DMS Window Opaque
 window-rule {
     match app-id="^com\\.danklinux\\.dms$"
