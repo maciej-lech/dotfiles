@@ -1,0 +1,1 @@
+__fish_cache_sourced_completions ruff generate-shell-completion fish
