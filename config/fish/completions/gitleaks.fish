@@ -1,1 +1,1 @@
-__fish_cache_sourced_completions gitleaks completion fish
+__cached_completions gitleaks completion fish

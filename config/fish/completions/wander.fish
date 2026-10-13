@@ -1,1 +1,1 @@
-__fish_cache_sourced_completions wander completion fish
+__cached_completions wander completion fish
