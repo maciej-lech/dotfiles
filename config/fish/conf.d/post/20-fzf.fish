@@ -7,5 +7,4 @@ if command -q fzf
     set -gx FZF_CTRL_T_OPTS '--preview "bat -n --color=always --line-range :500 {}"'
     set -gx FZF_ALT_C_OPTS '--preview "eza --tree --group-directories-first --level 2 --color=always {} | head -200"'
     set -gx FZF_CTRL_R_OPTS '--preview "echo '{}'"'
-    set -gx FZF_DEFAULT_OPTS "$FZF_CTRL_T_OPTS"
 end
