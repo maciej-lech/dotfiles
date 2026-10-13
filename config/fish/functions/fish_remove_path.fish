@@ -25,27 +25,22 @@ function fish_remove_path --description 'Remove paths from PATH'
     and isatty stdout
     and set -l _flag_verbose yes
 
-    # Collect valid removal targets
+    # Collect removal targets (missing dirs allowed, to clean stale entries)
     set -l remove_paths
     for path in $argv
-        set -l p (builtin realpath -s -- $path 2>/dev/null)
-        if not test -e "$p"
-            if set -q _flag_verbose
-                printf (_ "Skipping non-existent path: %s\n") "$path"
-            end
-            continue
-        end
-        set -a remove_paths $p
+        set -a remove_paths (builtin realpath -s -- $path)
     end
 
     set -l oldvar $$var
     set -l newvar
+    set -l removed
 
     for p in $oldvar
         if contains -- $p $remove_paths
             if set -q _flag_verbose
                 printf (_ "Removing path: %s\n") "$p"
             end
+            set -a removed $p
             continue
         end
         set -a newvar $p
@@ -59,7 +54,7 @@ function fish_remove_path --description 'Remove paths from PATH'
         set $scope $var $newvar
     end
 
-    if not set -q remove_paths[1]
+    if not set -q removed[1]
         if set -q _flag_verbose
             printf (_ "No paths to remove.\n")
         end
