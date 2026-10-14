@@ -4,7 +4,6 @@
 * Always use `-` (dash) instead of `—` (em dash) in text output
 * Always trip white characters in edited lines
 * Always leave empty line at the end when you create a new file
-* I use `fish` shell, so every command you ask me to run must be fish compatible (or wrapped in `bash -c '...'`)
 * Prefer `rg` over `grep`
 * Prefer `fd` over `find`
 * Use `wt` (worktrunk) for managing Git worktrees
