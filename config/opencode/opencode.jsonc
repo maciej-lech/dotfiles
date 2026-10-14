@@ -1,0 +1,17 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "lsp": {
+    "gopls": {
+      "command": ["gopls"],
+      "extensions": ["go"]
+    },
+    "terraform-ls": {
+      "command": ["terraform-ls", "serve"],
+      "extensions": ["tf", "tfvars"]
+    },
+    "ansible-language-server": {
+      "command": ["ansible-language-server", "--stdio"],
+      "extensions": ["yaml", "yml"]
+    }
+  }
+}

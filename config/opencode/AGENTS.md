@@ -1,0 +1,1 @@
+../../home/.pi/agent/AGENTS.md
