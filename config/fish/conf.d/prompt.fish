@@ -124,9 +124,8 @@ function _prompt_update --on-event fish_prompt
 
         test -z \"\$_prompt_git_current\" && _publish \"\$branch \"
 
-        command git diff-index --quiet HEAD 2>/dev/null
-        test \$status -eq 1 ||
-            count (command git ls-files --others --exclude-standard (command git rev-parse --show-toplevel)) >/dev/null && set info \"$prompt_symbol_git_dirty\"
+        # status rehashes stat-changed files (diff-index alone flags identical rewrites as dirty)
+        test -n \"\$(command git --no-optional-locks status --porcelain 2>/dev/null)\" && set info \"$prompt_symbol_git_dirty\"
 
         for fetch in $prompt_fetch false
             command git rev-list --count --left-right @{upstream}...@ 2>/dev/null |
