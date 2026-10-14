@@ -5,7 +5,7 @@ function _tab_title --argument-names title
     if test -n "$TMUX"
         printf '\033k%s\033\\' $title
     end
-    if test -n "$HERDR_TAB_ID" -a -n "$HERDR_BIN_PATH"
+    if test -n "$HERDR_TAB_ID"
         _herdr_tab_title $title
     end
 end
@@ -34,13 +34,18 @@ function _herdr_tab_title --argument-names title
         set --local last
         test -n "$state" && test -r $state && read last <$state
 
-        set --local info (command $HERDR_BIN_PATH tab get $HERDR_TAB_ID 2>/dev/null)
+        # HERDR_BIN_PATH is a versioned brew path that disappears on upgrade while the server keeps running
+        set --local herdr $HERDR_BIN_PATH
+        test -x "$herdr" || set herdr (command -s herdr)
+        or exit
+
+        set --local info (command $herdr tab get $HERDR_TAB_ID 2>/dev/null)
         or exit
         set --local label (string match --regex --groups-only -- "\"label\":\"([^\"]*)\"" $info)
         string match --quiet --regex -- "^\d+\$" $label || contains -- $label $last $previous
         or exit
 
-        command $HERDR_BIN_PATH tab rename $HERDR_TAB_ID $title >/dev/null 2>&1
+        command $herdr tab rename $HERDR_TAB_ID $title >/dev/null 2>&1
         or exit
         if test -n "$state"
             command mkdir -p (path dirname $state)
