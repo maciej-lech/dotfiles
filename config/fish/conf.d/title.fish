@@ -63,5 +63,5 @@ function _tab_title_command --on-event fish_preexec
 end
 
 function _tab_title_prompt --on-event fish_prompt
-    _tab_title (prompt_pwd -d 1 -D 2)
+    _tab_title (string shorten -m 32 --left (prompt_pwd -d 1 -D 2))
 end
