@@ -92,6 +92,7 @@ prefix = "ctrl+a"
 # goto = "prefix+g"
 # new_workspace = "prefix+shift+n"
 # new_worktree = "prefix+shift+g"
+new_worktree = ""
 # open_worktree = ""    # optional, unset by default
 # remove_worktree = ""  # optional, unset by default; opens confirmation
 # rename_workspace = "prefix+shift+w"
@@ -162,6 +163,12 @@ split_vertical = "prefix+|"
 # command = "lazygit"
 # width = "80%"
 # height = "80%"
+
+[[keys.command]]
+key = "prefix+shift+g"
+type = "plugin_action"
+command = "wt-picker.open"
+description = "Worktree: switch / create (wt picker)"
 
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.

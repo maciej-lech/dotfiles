@@ -1,0 +1,29 @@
+id = "wt-picker"
+name = "wt picker"
+version = "0.1.0"
+min_herdr_version = "0.7.4"
+description = "Switch or create git worktrees with the worktrunk picker"
+platforms = ["linux", "macos"]
+
+[[startup]]
+command = ["bash", "check-hook.sh"]
+
+[[actions]]
+id = "open"
+title = "Worktree: switch / create (wt picker)"
+contexts = ["workspace"]
+command = ["bash", "open.sh"]
+
+[[actions]]
+id = "cleanup"
+title = "Worktree: close spaces of removed worktrees"
+contexts = ["workspace", "global"]
+command = ["bash", "cleanup.sh"]
+
+[[panes]]
+id = "picker"
+title = "wt"
+placement = "popup"
+width = "90%"
+height = "80%"
+command = ["bash", "-c", "exec bash \"$HERDR_PLUGIN_ROOT/picker.sh\""]
