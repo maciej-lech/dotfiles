@@ -160,6 +160,9 @@ bell = "off"
 [workspaces]
 new_window_when_empty = true
 
+[hooks]
+after-attach = "$HOME/.config/tuios/scripts/wt-check-hook.sh"
+
 [keybindings]
 leader_key = "ctrl+a"
 
@@ -180,7 +183,16 @@ terminal_next_window = []
 terminal_prev_window = []
 
 [keybindings.prefix_mode]
+new_worktree = []
 prefix_new_window = []
+
+[[keybindings.command]]
+key = "prefix+U"
+type = "popup"
+command = "$HOME/.config/tuios/scripts/wt-picker.sh"
+description = "Worktree: switch / create (wt picker)"
+width = "90%"
+height = "80%"
 
 # TODO: replace with new_workspace = ["c"] in [keybindings.prefix_mode] when a tuios release after v0.11.1 ships Gaurav-Gosain/tuios#1189
 [[keybindings.command]]

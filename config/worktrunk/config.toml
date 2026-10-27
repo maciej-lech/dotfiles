@@ -340,3 +340,4 @@ worktree-path = "{{ repo_path }}/.worktrees/{{ branch | sanitize }}"
 
 [post-remove]
 herdr = "herdr plugin action invoke cleanup --plugin wt-picker"
+tuios = "~/.config/tuios/scripts/wt-cleanup.sh"
