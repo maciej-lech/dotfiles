@@ -157,6 +157,10 @@ format = "{workspace}:{pane}"
 [notifications]
 bell = "off"
 
+[screenshot]
+frame = "none"
+padding = 0
+
 [workspaces]
 new_window_when_empty = true
 
@@ -183,8 +187,10 @@ terminal_next_window = []
 terminal_prev_window = []
 
 [keybindings.prefix_mode]
+new_session = ["C"]
 new_worktree = []
 prefix_new_window = []
+prefix_screenshot = []
 
 [[keybindings.command]]
 key = "prefix+U"
