@@ -135,7 +135,7 @@ window_title_position = "top"
 window_title_style = "pill"
 window_title_align = "auto"
 shared_borders = true
-hide_window_buttons = false
+hide_window_buttons = true
 
 [appearance.sidebar.left]
 enabled = true
@@ -197,7 +197,7 @@ prefix_screenshot = []
 key = "prefix+U"
 type = "popup"
 command = "$HOME/.config/tuios/scripts/wt-picker.sh"
-description = "Worktree: switch / create (wt picker)"
+description = "Worktrees"
 width = "90%"
 height = "80%"
 
@@ -220,3 +220,6 @@ key = "alt+shift+right"
 type = "shell"
 command = "$HOME/.config/tuios/scripts/move-workspace.sh 1"
 description = "Move workspace right"
+
+[spotlight]
+enabled = false
