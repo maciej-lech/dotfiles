@@ -229,5 +229,6 @@
   "theme": "dark",
   "remoteControlAtStartup": false,
   "voiceEnabled": true,
-  "switchModelsOnFlag": false
+  "switchModelsOnFlag": false,
+  "preferredNotifChannel": "notifications_disabled"
 }
