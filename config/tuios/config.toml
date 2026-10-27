@@ -120,9 +120,12 @@
 tiled = true
 daemon = true
 open_default_window = false
+start_in_terminal_mode = true
 
 [appearance]
 theme = "nord"
+auto_enter_terminal_on_focus = "all"
+scrollback_lines = 50000
 border_style = "glyphs"
 session_colors = true
 show_clock = false
@@ -142,3 +145,59 @@ position = "left"
 
 [appearance.sidebar.right]
 enabled = false
+
+[dock]
+left = ["mode", "workspaces", "tape"]
+center = ["windows"]
+right = ["transfers", "notifications", "copy-help", "cpu", "ram", "clock", "session"]
+
+[dock.session]
+format = "{workspace}:{pane}"
+
+[notifications]
+bell = "off"
+
+[workspaces]
+new_window_when_empty = true
+
+[keybindings]
+leader_key = "ctrl+a"
+
+[keybindings.terminal_mode]
+next_session = ["alt+down"]
+next_workspace = ["alt+right"]
+prev_session = ["alt+up"]
+prev_workspace = ["alt+left"]
+resize_pane_down_5 = ["alt+j"]
+resize_pane_left_5 = ["alt+h"]
+resize_pane_right_5 = ["alt+l"]
+resize_pane_up_5 = ["alt+k"]
+terminal_focus_down = ["alt+shift+j"]
+terminal_focus_left = ["alt+shift+h"]
+terminal_focus_right = ["alt+shift+l"]
+terminal_focus_up = ["alt+shift+k"]
+terminal_next_window = []
+terminal_prev_window = []
+
+[keybindings.prefix_mode]
+prefix_new_window = []
+
+# TODO: replace with new_workspace = ["c"] in [keybindings.prefix_mode] when a tuios release after v0.11.1 ships Gaurav-Gosain/tuios#1189
+[[keybindings.command]]
+key = "prefix+c"
+type = "shell"
+command = "$HOME/.config/tuios/scripts/new-workspace.sh"
+description = "New workspace"
+
+# TODO: replace both entries with move_workspace_left/right in [keybindings.terminal_mode] when Gaurav-Gosain/tuios#1217 is fixed
+[[keybindings.command]]
+key = "alt+shift+left"
+type = "shell"
+command = "$HOME/.config/tuios/scripts/move-workspace.sh -1"
+description = "Move workspace left"
+
+[[keybindings.command]]
+key = "alt+shift+right"
+type = "shell"
+command = "$HOME/.config/tuios/scripts/move-workspace.sh 1"
+description = "Move workspace right"
