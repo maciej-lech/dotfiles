@@ -124,6 +124,7 @@ start_in_terminal_mode = true
 
 [appearance]
 theme = "nord"
+animation_speed = 400
 auto_enter_terminal_on_focus = "all"
 scrollback_lines = 50000
 border_style = "glyphs"
