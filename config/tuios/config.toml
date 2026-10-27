@@ -162,6 +162,9 @@ bell = "off"
 frame = "none"
 padding = 0
 
+[agents.checkpoints]
+enabled = false
+
 [workspaces]
 new_window_when_empty = true
 
