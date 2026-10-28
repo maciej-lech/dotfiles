@@ -121,7 +121,6 @@ tiled = true
 daemon = true
 open_default_window = false
 start_in_terminal_mode = true
-layout = "scrolling"
 
 [appearance]
 theme = "nord"
