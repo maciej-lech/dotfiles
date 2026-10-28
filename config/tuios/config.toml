@@ -130,7 +130,7 @@ animation_speed = 400
 auto_enter_terminal_on_focus = "all"
 scrollback_lines = 50000
 border_style = "glyphs"
-session_colors = true
+session_colors = false
 show_clock = false
 frame_panels = false
 window_title_position = "top"
@@ -145,6 +145,7 @@ enabled = true
 [appearance.sidebar]
 enabled = true
 position = "left"
+file_icon_colors = false
 
 [appearance.sidebar.right]
 enabled = false
