@@ -179,7 +179,9 @@ leader_key = "ctrl+a"
 
 [keybindings.terminal_mode]
 next_session = ["alt+down"]
+next_workspace = ["alt+right"]
 prev_session = ["alt+up"]
+prev_workspace = ["alt+left"]
 resize_pane_down_5 = ["alt+j"]
 resize_pane_left_5 = ["alt+h"]
 resize_pane_right_5 = ["alt+l"]
@@ -217,18 +219,6 @@ key = "prefix+c"
 type = "shell"
 command = "$HOME/.config/tuios/scripts/new-workspace.sh"
 description = "New workspace"
-
-[[keybindings.command]]
-key = "alt+left"
-type = "shell"
-command = "$HOME/.config/tuios/scripts/focus-or-workspace.sh left"
-description = "Focus left or previous workspace"
-
-[[keybindings.command]]
-key = "alt+right"
-type = "shell"
-command = "$HOME/.config/tuios/scripts/focus-or-workspace.sh right"
-description = "Focus right or next workspace"
 
 # TODO: replace both entries with move_workspace_left/right in [keybindings.terminal_mode] when Gaurav-Gosain/tuios#1217 is fixed
 [[keybindings.command]]
