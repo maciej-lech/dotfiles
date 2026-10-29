@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# PNG handler: annotate screenshots in Satty or Swappy, open everything else
+# with the default image/jpeg app.
+
+set -euo pipefail
+
+screenshots_dir="$(xdg-user-dir PICTURES)/Screenshots"
+path="$(realpath -- "${1#file://}")"
+
+if [[ "$path" == "$screenshots_dir"/* ]]; then
+	for editor in satty swappy; do
+		if command -v "$editor" >/dev/null; then
+			exec "$editor" -f "$path"
+		fi
+	done
+fi
+
+exec gtk-launch "$(xdg-mime query default image/jpeg)" "$path"

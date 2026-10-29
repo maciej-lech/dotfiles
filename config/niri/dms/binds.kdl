@@ -1,7 +1,7 @@
 binds {
-    Alt+Print hotkey-overlay-title="Screenshot: Window" { spawn "dms" "ipc" "call" "niri" "screenshotWindow"; }
+    Alt+Print hotkey-overlay-title="Screenshot: Window" { spawn "dms" "screenshot" "window"; }
     Ctrl+Alt+Delete hotkey-overlay-title="Task Manager" { spawn "dms" "ipc" "call" "processlist" "focusOrToggle"; }
-    Ctrl+Print hotkey-overlay-title="Screenshot: Full Screen" { spawn "dms" "ipc" "call" "niri" "screenshotScreen"; }
+    Ctrl+Print hotkey-overlay-title="Screenshot: Full Screen" { spawn "dms" "screenshot" "full"; }
     Ctrl+XF86AudioLowerVolume allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "decrement" "3"; }
     Ctrl+XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "increment" "3"; }
     Mod+Alt+L hotkey-overlay-title="Lock Screen" { spawn "dms" "ipc" "call" "lock" "lock"; }
@@ -22,7 +22,7 @@ binds {
     XF86AudioPlay allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
     XF86AudioPrev allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "previous"; }
     XF86AudioRaiseVolume allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "increment" "3"; }
-    XF86Launch1 hotkey-overlay-title="Screenshot: Interactive" { spawn "dms" "ipc" "call" "niri" "screenshot"; }
+    XF86Launch1 hotkey-overlay-title="Screenshot: Interactive" { screenshot show-pointer=false; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""; }
     XF86MonBrightnessUp allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "5" ""; }
     Mod+1 { focus-workspace 1; }
@@ -107,8 +107,8 @@ binds {
     Mod+WheelScrollLeft cooldown-ms=150 { focus-column-or-monitor-left; }
     Mod+WheelScrollRight cooldown-ms=150 { focus-column-or-monitor-right; }
     Mod+Shift+P { power-off-monitors; }
-    Ctrl+XF86Launch1 { screenshot-screen; }
-    Print hotkey-overlay-title="Screenshot (Interactive)" { screenshot; }
+    Ctrl+XF86Launch1 { screenshot-screen show-pointer=false; }
+    Print hotkey-overlay-title="Screenshot (Interactive)" { spawn "dms" "screenshot"; }
     Mod+Shift+E { quit; }
     Ctrl+space hotkey-overlay-title="Toggle Handy Transcription" { spawn-sh "pgrep -x handy >/dev/null && handy --toggle-transcription"; }
     Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }

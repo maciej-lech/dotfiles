@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Screenshot Open
+Comment=Open screenshots in Satty or Swappy, other images in the default image viewer
+Exec=screenshot-open %f
+MimeType=image/png;
+NoDisplay=true
+Terminal=false
