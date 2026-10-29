@@ -67,6 +67,13 @@ window-rule {
     open-focused true
 }
 
+// @id=wr_1793273401768795170 @name=com.gabm.satty
+window-rule {
+    match app-id="^com.gabm.satty$"
+    open-maximized true
+    open-focused true
+}
+
 // @id=dms-window-opaque @name=DMS Window Opaque
 window-rule {
     match app-id="^(dev\\.duxlabs\\.shell|com\\.danklinux\\.dms)$"
