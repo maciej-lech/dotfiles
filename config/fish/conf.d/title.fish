@@ -30,12 +30,11 @@ function _herdr_tab_title --argument-names title
         set state $XDG_RUNTIME_DIR/herdr-tab-titles/(string replace --all : _ $HERDR_TAB_ID)
     end
 
-    # A job still in flight would race this one, so stop it first
-    if set --query _herdr_tab_job[1] && path is -d /proc/$_herdr_tab_job
-        command kill $_herdr_tab_job 2>/dev/null
-    end
-
+    # Killing a job in flight leaves its herdr call running to land late, so each job waits for the one before
     fish --no-config --private --command '
+        while test -n "$argv[4]" && path is -d /proc/$argv[4]
+            sleep 0.05
+        end
         set --local title $argv[1]
         set --local previous $argv[2]
         set --local state $argv[3]
@@ -50,7 +49,8 @@ function _herdr_tab_title --argument-names title
         set --local info (command $herdr tab get $HERDR_TAB_ID 2>/dev/null)
         or exit
         set --local label (string match --regex --groups-only -- "\"label\":\"([^\"]*)\"" $info)
-        string match --quiet --regex -- "^\d+\$" $label || contains -- $label $last $previous
+        # herdr (and tuios) trim the label, so compare trimmed
+        string match --quiet --regex -- "^\d+\$" $label || contains -- $label (string trim -- $last $previous)
         or exit
 
         command $herdr tab rename $HERDR_TAB_ID $title >/dev/null 2>&1
@@ -59,15 +59,15 @@ function _herdr_tab_title --argument-names title
             command mkdir -p (path dirname $state)
             echo $title >$state
         end
-    ' -- $title $previous $state </dev/null >/dev/null 2>&1 &
+    ' -- "$title" "$previous" "$state" "$_herdr_tab_job" </dev/null >/dev/null 2>&1 &
     set --global _herdr_tab_job $last_pid
     disown $last_pid
 end
 
 function _tab_title_command --on-event fish_preexec
-    # The shell is replaced or gone before a title job for these could be stopped
+    # The shell is replaced or gone, so no prompt would ever set the title back
     string match --quiet --regex -- '^\s*(exec|exit)\b' $argv && return
-    _tab_title (string shorten -m 32 $argv)
+    _tab_title (string trim -- $argv | string shorten -m 32)
 end
 
 function _tab_title_prompt --on-event fish_prompt
