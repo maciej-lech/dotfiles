@@ -198,6 +198,7 @@ terminal_prev_window = []
 [keybindings.prefix_mode]
 cycle_layout = ["space"]
 new_session = ["C"]
+new_workspace = ["c"]
 new_worktree = []
 prefix_new_window = []
 prefix_screenshot = []
@@ -214,13 +215,6 @@ command = "$HOME/.config/tuios/scripts/wt-picker.sh"
 description = "Worktrees"
 width = "90%"
 height = "80%"
-
-# TODO: replace with new_workspace = ["c"] in [keybindings.prefix_mode] when a tuios release after v0.11.1 ships Gaurav-Gosain/tuios#1189
-[[keybindings.command]]
-key = "prefix+c"
-type = "shell"
-command = "$HOME/.config/tuios/scripts/new-workspace.sh"
-description = "New workspace"
 
 # TODO: replace both entries with move_workspace_left/right in [keybindings.terminal_mode] when Gaurav-Gosain/tuios#1217 is fixed
 [[keybindings.command]]
