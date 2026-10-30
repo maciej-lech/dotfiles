@@ -146,6 +146,7 @@ enabled = true
 [appearance.sidebar]
 enabled = true
 position = "left"
+sections = "sessions:50,files,agents:34"
 file_icon_colors = false
 header_case = "uppercase"
 density = "roomy"
