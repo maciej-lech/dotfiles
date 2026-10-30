@@ -126,6 +126,7 @@ start_in_terminal_mode = true
 theme = "nord"
 scroll_column_max = 100
 scroll_column_width = 50
+scroll_column_presets = [50, 67, 100]
 animation_speed = 400
 auto_enter_terminal_on_focus = "all"
 scrollback_lines = 50000
