@@ -149,7 +149,8 @@ position = "left"
 file_icon_colors = false
 header_case = "uppercase"
 density = "roomy"
-group_main = true
+# TODO: set to true when Gaurav-Gosain/tuios#1299 is fixed, so next_session/prev_session follow the rail's grouped order
+group_main = false
 peek = false
 
 [appearance.sidebar.right]
