@@ -148,6 +148,8 @@ position = "left"
 file_icon_colors = false
 header_case = "uppercase"
 density = "roomy"
+group_main = true
+peek = false
 
 [appearance.sidebar.right]
 enabled = false
