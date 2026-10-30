@@ -146,6 +146,8 @@ enabled = true
 enabled = true
 position = "left"
 file_icon_colors = false
+header_case = "uppercase"
+density = "roomy"
 
 [appearance.sidebar.right]
 enabled = false
