@@ -189,9 +189,9 @@ leader_key = "ctrl+a"
 [keybindings.terminal_mode]
 move_workspace_left = ["alt+shift+left"]
 move_workspace_right = ["alt+shift+right"]
-next_session = ["alt+down"]
+next_session = []
 next_workspace = ["alt+right"]
-prev_session = ["alt+up"]
+prev_session = []
 prev_workspace = ["alt+left"]
 resize_pane_down_5 = ["alt+j"]
 resize_pane_left_5 = ["alt+h"]
@@ -224,6 +224,19 @@ command = "$HOME/.config/tuios/scripts/wt-picker.sh"
 description = "Worktrees"
 width = "90%"
 height = "80%"
+
+# TODO: replace both entries with next_session/prev_session in [keybindings.terminal_mode] when Gaurav-Gosain/tuios#1299 is fixed
+[[keybindings.command]]
+key = "alt+down"
+type = "shell"
+command = "$HOME/.config/tuios/scripts/cycle-session.sh 1"
+description = "Next session"
+
+[[keybindings.command]]
+key = "alt+up"
+type = "shell"
+command = "$HOME/.config/tuios/scripts/cycle-session.sh -1"
+description = "Previous session"
 
 [spotlight]
 enabled = false
