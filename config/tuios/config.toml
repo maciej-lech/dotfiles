@@ -180,6 +180,8 @@ after-attach = "$HOME/.config/tuios/scripts/wt-check-hook.sh"
 leader_key = "ctrl+a"
 
 [keybindings.terminal_mode]
+move_workspace_left = ["alt+shift+left"]
+move_workspace_right = ["alt+shift+right"]
 next_session = ["alt+down"]
 next_workspace = ["alt+right"]
 prev_session = ["alt+up"]
@@ -215,19 +217,6 @@ command = "$HOME/.config/tuios/scripts/wt-picker.sh"
 description = "Worktrees"
 width = "90%"
 height = "80%"
-
-# TODO: replace both entries with move_workspace_left/right in [keybindings.terminal_mode] when Gaurav-Gosain/tuios#1217 is fixed
-[[keybindings.command]]
-key = "alt+shift+left"
-type = "shell"
-command = "$HOME/.config/tuios/scripts/move-workspace.sh -1"
-description = "Move workspace left"
-
-[[keybindings.command]]
-key = "alt+shift+right"
-type = "shell"
-command = "$HOME/.config/tuios/scripts/move-workspace.sh 1"
-description = "Move workspace right"
 
 [spotlight]
 enabled = false
