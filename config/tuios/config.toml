@@ -181,6 +181,9 @@ new_window_when_empty = true
 [worktree]
 path = "{{ repo_path }}/.worktrees/{{ branch | sanitize }}"
 
+[review]
+focus = "files"
+
 [hooks]
 after-attach = "$HOME/.config/tuios/scripts/wt-check-hook.sh"
 
