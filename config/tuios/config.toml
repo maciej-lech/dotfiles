@@ -139,6 +139,7 @@ window_title_style = "pill"
 window_title_align = "auto"
 shared_borders = true
 hide_window_buttons = true
+calm = false
 
 [appearance.sidebar.left]
 enabled = true
