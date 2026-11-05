@@ -2,20 +2,12 @@ status is-interactive || exit
 set --query TMUX[1] || set --query HERDR_TAB_ID[1] || exit
 
 function _tab_title --argument-names title
-    if test -n "$TMUX" && not _tmux_workmux_window
+    if test -n "$TMUX"
         printf '\033k%s\033\\' $title
     end
     if test -n "$HERDR_TAB_ID"
         _herdr_tab_title $title
     end
-end
-
-# workmux finds its windows by name, so a title rename breaks it; it marks them with @workmux_token
-function _tmux_workmux_window
-    set --query _tmux_workmux_window && return 0
-    test -n "$(command tmux show-options -wqv -t $TMUX_PANE @workmux_token 2>/dev/null)"
-    or return 1
-    set --global _tmux_workmux_window 1
 end
 
 # herdr keeps OSC titles to itself, so rename the tab through its CLI in the background, only while the
