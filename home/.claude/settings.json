@@ -30,6 +30,11 @@
             "type": "command",
             "command": "bash \"$HOME/.claude/bin/memsearch-quiet-hint.sh\"",
             "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/bin/tuios-workspace-name.sh\"",
+            "timeout": 10
           }
         ]
       },
