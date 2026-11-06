@@ -12,3 +12,4 @@
 * Never add agent attribution (`Co-Authored-By:`, session or tool trailers) to commit messages or PR bodies
 * Keep code comments minimal; only explain non-standard patterns
 * When you need to execute a command as root, use `pkexec` instead of `sudo`; do not change `sudo` usage in scripts or other files; but in documentation (Markdown or other docs) write `sudo` in example commands, not `pkexec`
+* Never expose personal or identifying data (local username, home path like `/var/home/<user>`, hostname, email, IPs, serials) in anything public: GitHub issues, PRs, comments, gists, upstream reports, pasted logs; replace with `$HOME`, `~`, `user` or placeholders and scan every draft before posting
