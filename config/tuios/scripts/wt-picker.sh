@@ -13,5 +13,3 @@ fi
 
 wt switch --branches --no-cd -x "$root/wt-open.sh" -- \
   '{{ branch }}' '{{ worktree_path }}' '{{ primary_worktree_path }}'
-
-"$root/wt-cleanup.sh"

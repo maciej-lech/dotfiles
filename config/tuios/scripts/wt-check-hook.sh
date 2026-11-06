@@ -6,4 +6,4 @@ command -v wt >/dev/null || exit 0
 grep -qF "tuios/scripts/wt-cleanup.sh" "$config" 2>/dev/null && exit 0
 
 tuios run-command ${TUIOS_SESSION_ID:+-s "$TUIOS_SESSION_ID"} ShowNotification \
-  "wt-picker: worktrunk hook missing. Add to $config: [post-remove] tuios = \"~/.config/tuios/scripts/wt-cleanup.sh\"" warning >/dev/null
+  "wt-picker: worktrunk hook missing. Add to $config: [post-remove] tuios = \"~/.config/tuios/scripts/wt-cleanup.sh {{ branch }} {{ worktree_path }} {{ primary_worktree_path }}\"" warning >/dev/null

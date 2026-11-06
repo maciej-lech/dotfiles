@@ -14,12 +14,4 @@ if [[ -z $session ]]; then
   [[ $path != "$primary" ]] && session+="-${branch//\//-}"
 fi
 
-# Remember which worktree a session is for, so wt-cleanup.sh can close it after the worktree is removed
-if [[ $path != "$primary" ]]; then
-  state=${XDG_STATE_HOME:-$HOME/.local/state}/tuios-wt-picker
-  mkdir -p "$state"
-  { awk -F'\t' -v s="$session" '$1 != s' "$state/sessions" 2>/dev/null; printf '%s\t%s\n' "$session" "$path"; } >"$state/sessions.new"
-  mv "$state/sessions.new" "$state/sessions"
-fi
-
 exec tuios switch-session "$session" --create --cwd "$path" >/dev/null
