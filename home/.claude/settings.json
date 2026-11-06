@@ -219,6 +219,7 @@
     }
   },
   "feedbackDrafts": "off",
+  "idleCompaction": false,
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
   "modelSettings": {
