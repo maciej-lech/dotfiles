@@ -151,7 +151,7 @@ sections = "sessions:50,files,agents:34"
 file_icon_colors = false
 header_case = "uppercase"
 density = "roomy"
-group_main = true
+group_main = false
 peek = false
 
 [appearance.sidebar.right]
