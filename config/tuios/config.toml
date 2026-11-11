@@ -140,6 +140,7 @@ window_title_align = "auto"
 shared_borders = true
 hide_window_buttons = true
 calm = false
+host_title = "{title} · {session}"
 
 [appearance.sidebar.left]
 enabled = true
