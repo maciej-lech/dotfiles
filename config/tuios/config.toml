@@ -184,6 +184,7 @@ path = "{{ repo_path }}/.worktrees/{{ branch | sanitize }}"
 
 [review]
 focus = "files"
+scope = "uncommitted"
 
 [hooks]
 after-attach = "$HOME/.config/tuios/scripts/wt-check-hook.sh"
