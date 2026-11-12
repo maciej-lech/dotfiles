@@ -64,6 +64,9 @@
       "model": "claude-sonnet-4-6-latest"
     }
   },
+  "markdown_preview": {
+    "max_width": 1200
+  },
   "autosave": "on_focus_change",
   "format_on_save": "off",
   "telemetry": {
