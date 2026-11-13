@@ -173,6 +173,9 @@ bell = "off"
 frame = "none"
 padding = 0
 
+[agents]
+name_hint = "off"
+
 [agents.checkpoints]
 enabled = false
 
