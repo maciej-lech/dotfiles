@@ -17,10 +17,10 @@ function _herdr_tab_title --argument-names title
     set --local previous $_herdr_tab_title
     set --global _herdr_tab_title $title
 
-    set --local state
-    if set --query XDG_RUNTIME_DIR[1]
-        set state $XDG_RUNTIME_DIR/herdr-tab-titles/(string replace --all : _ $HERDR_TAB_ID)
-    end
+    # Not in XDG_RUNTIME_DIR: tuios resurrects tab labels after a reboot, the state must outlive it too
+    set --local state_home $XDG_STATE_HOME
+    set --query state_home[1] || set state_home ~/.local/state
+    set --local state $state_home/herdr-tab-titles/(string replace --all : _ $HERDR_TAB_ID)
 
     # Killing a job in flight leaves its herdr call running to land late, so each job waits for the one before
     fish --no-config --private --command '
@@ -31,7 +31,7 @@ function _herdr_tab_title --argument-names title
         set --local previous $argv[2]
         set --local state $argv[3]
         set --local last
-        test -n "$state" && test -r $state && read last <$state
+        test -r $state && read last <$state
 
         # HERDR_BIN_PATH is a versioned brew path that disappears on upgrade while the server keeps running
         set --local herdr $HERDR_BIN_PATH
@@ -47,10 +47,8 @@ function _herdr_tab_title --argument-names title
 
         command $herdr tab rename $HERDR_TAB_ID $title >/dev/null 2>&1
         or exit
-        if test -n "$state"
-            command mkdir -p (path dirname $state)
-            echo $title >$state
-        end
+        command mkdir -p (path dirname $state)
+        echo $title >$state
     ' -- "$title" "$previous" "$state" "$_herdr_tab_job" </dev/null >/dev/null 2>&1 &
     set --global _herdr_tab_job $last_pid
     disown $last_pid
