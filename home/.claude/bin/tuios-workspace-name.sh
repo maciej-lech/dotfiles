@@ -22,5 +22,12 @@ title="${title%"${title##*[![:space:]]}"}"
 [ -n "$title" ] || exit 0
 [ ${#title} -le 32 ] || title="${title:0:31}…"
 
-tuios set-workspace-name -s "$TUIOS_SESSION" "$ws" "$title" >/dev/null 2>&1
+tuios set-workspace-name -s "$TUIOS_SESSION" "$ws" "$title" >/dev/null 2>&1 || exit 0
+
+# Record the label where config/fish/conf.d/title.fish keeps its own, so a later prompt treats it as
+# one it set and renames it, instead of keeping it as a manual rename
+if [ -n "$HERDR_TAB_ID" ]; then
+    state="${XDG_STATE_HOME:-$HOME/.local/state}/herdr-tab-titles/${HERDR_TAB_ID//:/_}"
+    mkdir -p "${state%/*}" && printf '%s\n' "$title" >"$state"
+fi
 exit 0
