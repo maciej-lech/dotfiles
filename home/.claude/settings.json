@@ -34,7 +34,7 @@
           },
           {
             "type": "command",
-            "command": "bash \"$HOME/.claude/bin/tuios-workspace-name.sh\"",
+            "command": "fish --command 'set --query HERDR_PANE_ID[1] || exit; set --local p $fish_pid; while set p (string replace --regex --filter \"^PPid:\\s+\" \"\" </proc/$p/status) && test \"$p\" -gt 1; if test (cat /proc/$p/comm) = claude; _herdr_tab_title (string split0 </proc/$p/cmdline | string join \" \" | string shorten -m 32); break; end; end'",
             "timeout": 10
           }
         ]
