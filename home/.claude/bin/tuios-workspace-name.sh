@@ -26,8 +26,13 @@ tuios set-workspace-name -s "$TUIOS_SESSION" "$ws" "$title" >/dev/null 2>&1 || e
 
 # Record the label where config/fish/conf.d/title.fish keeps its own, so a later prompt treats it as
 # one it set and renames it, instead of keeping it as a manual rename
-if [ -n "$HERDR_TAB_ID" ]; then
-    state="${XDG_STATE_HOME:-$HOME/.local/state}/herdr-tab-titles/${HERDR_TAB_ID//:/_}"
+# HERDR_TAB_ID can name the wrong tab (moved or resurrected pane), so take the tab of the pane from herdr
+herdr="${HERDR_BIN_PATH:-herdr}"
+command -v "$herdr" >/dev/null || herdr=herdr
+tab=$("$herdr" pane get "$HERDR_PANE_ID" 2>/dev/null | jq -r '.result.pane.tab_id // empty' 2>/dev/null)
+tab="${tab:-$HERDR_TAB_ID}"
+if [ -n "$tab" ]; then
+    state="${XDG_STATE_HOME:-$HOME/.local/state}/herdr-tab-titles/${tab//:/_}"
     mkdir -p "${state%/*}" && printf '%s\n' "$title" >"$state"
 fi
 exit 0

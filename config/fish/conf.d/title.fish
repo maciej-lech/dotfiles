@@ -18,9 +18,9 @@ function _herdr_tab_title --argument-names title
     set --global _herdr_tab_title $title
 
     # Not in XDG_RUNTIME_DIR: tuios resurrects tab labels after a reboot, the state must outlive it too
-    set --local state_home $XDG_STATE_HOME
-    set --query state_home[1] || set state_home ~/.local/state
-    set --local state $state_home/herdr-tab-titles/(string replace --all : _ $HERDR_TAB_ID)
+    set --local state_dir $XDG_STATE_HOME
+    set --query state_dir[1] || set state_dir ~/.local/state
+    set state_dir $state_dir/herdr-tab-titles
 
     # Killing a job in flight leaves its herdr call running to land late, so each job waits for the one before
     fish --no-config --private --command '
@@ -29,27 +29,32 @@ function _herdr_tab_title --argument-names title
         end
         set --local title $argv[1]
         set --local previous $argv[2]
-        set --local state $argv[3]
-        set --local last
-        test -r $state && read last <$state
 
         # HERDR_BIN_PATH is a versioned brew path that disappears on upgrade while the server keeps running
         set --local herdr $HERDR_BIN_PATH
         test -x "$herdr" || set herdr (command -s herdr)
         or exit
 
-        set --local info (command $herdr tab get $HERDR_TAB_ID 2>/dev/null)
+        # HERDR_TAB_ID is fixed at shell start: stale after a pane moves, and tuios gives a resurrected pane
+        # the workspace number instead of its tab key, so ask herdr for the tab of the pane now
+        set --local tab (command $herdr pane get $HERDR_PANE_ID 2>/dev/null | string match --regex --groups-only -- "\"tab_id\":\"([^\"]+)\"")[1]
+        set --query tab[1] || set tab $HERDR_TAB_ID
+        set --local state $argv[3]/(string replace --all : _ $tab)
+        set --local last
+        test -r $state && read last <$state
+
+        set --local info (command $herdr tab get $tab 2>/dev/null)
         or exit
         set --local label (string match --regex --groups-only -- "\"label\":\"([^\"]*)\"" $info)
         # herdr (and tuios) trim the label, so compare trimmed
         string match --quiet --regex -- "^\d+\$" $label || contains -- $label (string trim -- $last $previous)
         or exit
 
-        command $herdr tab rename $HERDR_TAB_ID $title >/dev/null 2>&1
+        command $herdr tab rename $tab $title >/dev/null 2>&1
         or exit
         command mkdir -p (path dirname $state)
         echo $title >$state
-    ' -- "$title" "$previous" "$state" "$_herdr_tab_job" </dev/null >/dev/null 2>&1 &
+    ' -- "$title" "$previous" "$state_dir" "$_herdr_tab_job" </dev/null >/dev/null 2>&1 &
     set --global _herdr_tab_job $last_pid
     disown $last_pid
 end
