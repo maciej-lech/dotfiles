@@ -28,7 +28,6 @@
 
 * Outside tuios, use `wt` (worktrunk) for managing Git worktrees
 * Inside tuios (`$TUIOS_SESSION` is set), use `tuios worktree` instead of `wt`
-* Inside tuios, start an agent in a worktree with `tuios worktree new <branch> --base <base> --agent claude --detach --json`, then give it the task with `tuios queue -s <session> -w <window_id> '<task>'`; never use `delegate`, `fan`, `start-agent` or `tuios new` for this
 
 ## Privacy
 
