@@ -33,7 +33,9 @@ function _herdr_tab_title --argument-names title
 
         set --local info (command $herdr tab get $tab 2>/dev/null)
         or exit
-        set --local label (string match --regex --groups-only -- "\"label\":\"([^\"]*)\"" $info)
+        # The label is a JSON string: step over escapes (\x5c is a backslash) or a quoted command never matches
+        set --local label (string match --regex --groups-only -- "\"label\":\"((?:[^\"\x5c]|\x5c.)*)\"" $info |
+            string replace --all --regex -- "\x5c(.)" "\$1")
         # herdr (and tuios) trim the label, so compare trimmed
         string match --quiet --regex -- "^\d+\$" $label || contains -- $label (string trim -- $last $previous)
         or exit
