@@ -3,6 +3,7 @@ experimental = true
 minimum_release_age = "24h"
 
 [tools]
+antigravity-cli = "latest"
 claude-code = "latest"
 opencode = "latest"
 pi = "latest"
