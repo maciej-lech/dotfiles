@@ -37,6 +37,7 @@
       "openOnOverview": true,
       "groupByApp": false,
       "separatePinnedAndRunningApps": false,
+      "showRunningApps": true,
       "restoreSpecialWorkspaceOnClick": false,
       "isolateDisplays": false,
       "indicatorStyle": "circle",
@@ -486,7 +487,7 @@
     }
   },
   "frameMode": "separate",
-  "configVersion": 44,
+  "configVersion": 46,
   "barInsetPaddingSyncAll": false,
   "focusRingWidth": 1.5,
   "updaterIntervalSeconds": 0,
@@ -669,5 +670,6 @@
       }
     }
   ],
-  "lockScreenShowPowerActions": true
+  "lockScreenShowPowerActions": true,
+  "motionDuration": 0
 }
