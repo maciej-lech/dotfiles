@@ -10,7 +10,7 @@ done | head -n1)
 
 if [[ -z $session ]]; then
   # The main worktree is the repo's own session; linked ones follow tuios worktree naming
-  session=$(basename -- "$primary")
+  session=$(basename -- "$primary") session=${session#.}
   [[ $path != "$primary" ]] && session+="-${branch//\//-}"
 fi
 

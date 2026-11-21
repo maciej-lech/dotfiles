@@ -5,7 +5,7 @@
 # Args: <branch> <worktree path> <primary worktree path>
 branch=$1 path=$2 primary=$3
 [[ -n $branch && -n $primary && ! -e $path/.git ]] || exit 0
-session=$(basename -- "$primary")-${branch//\//-}
+session=$(basename -- "$primary") session=${session#.}-${branch//\//-}
 tuios ls --json 2>/dev/null | jq -e --arg s "$session" '.[] | select(.name == $s)' >/dev/null || exit 0
 
 # Killing the session a client shows would quit that client, so move it to the most recent other session first
