@@ -124,6 +124,9 @@ start_in_terminal_mode = true
 
 [appearance]
 theme = "nord"
+dock_pill_caps = false
+dock_mode_icon_tiling = ""
+dock_compact = true
 scroll_column_max = 100
 scroll_column_width = 50
 scroll_column_presets = [50, 67, 100]
@@ -148,9 +151,10 @@ enabled = true
 [appearance.sidebar]
 enabled = true
 position = "left"
-sections = "sessions:50,files,agents:34"
+sections = "sessions:50,agents:34"
 file_icon_colors = false
 header_case = "uppercase"
+header_style = "plain"
 density = "roomy"
 group_main = false
 peek = false
@@ -165,6 +169,11 @@ right = ["transfers", "notifications", "copy-help", "cpu", "ram", "clock", "sess
 
 [dock.session]
 format = "{workspace}:{pane}"
+
+[dock.tabs]
+style = "flat"
+caps = false
+show_add = true
 
 [notifications]
 bell = "off"
