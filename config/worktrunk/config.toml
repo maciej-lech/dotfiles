@@ -339,5 +339,5 @@ worktree-path = "{{ repo_path }}/.worktrees/{{ branch | sanitize }}"
 # See `wt hook` (https://worktrunk.dev/hook/) for hook types, execution order, template variables, and examples. User hooks apply to all projects; project hooks (https://worktrunk.dev/config/#project-configuration) apply only to that repository.
 
 [post-remove]
-herdr = "herdr plugin action invoke cleanup --plugin wt-picker"
-tuios = "~/.config/tuios/scripts/wt-cleanup.sh {{ branch }} {{ worktree_path }} {{ primary_worktree_path }}"
+herdr = '[ -z "${HERDR_ENV:-}" ] || [ -n "${TUIOS_ENV:-}" ] || herdr plugin action invoke cleanup --plugin wt-picker'
+tuios = '[ -z "${TUIOS_ENV:-}" ] || ~/.config/tuios/scripts/wt-cleanup.sh {{ branch }} {{ worktree_path }} {{ primary_worktree_path }}'

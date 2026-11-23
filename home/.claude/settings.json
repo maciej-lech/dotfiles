@@ -24,7 +24,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"$HOME/.claude/hooks/herdr-agent-state.sh\" session",
+            "command": "\"$HOME/.claude/bin/herdr-session-start.sh\"",
             "timeout": 10
           },
           {
@@ -34,7 +34,7 @@
           },
           {
             "type": "command",
-            "command": "fish --command 'set --query TUIOS_PANE_TTY[1] || exit 0; set --local p $fish_pid; while set p (string replace --regex --filter \"^PPid:\\s+\" \"\" </proc/$p/status) && test \"$p\" -gt 1; if test (cat /proc/$p/comm) = claude; _herdr_tab_title \"$(string split0 </proc/$p/cmdline | string join \" \" | string shorten -m 32)\" $TUIOS_PANE_TTY; break; end; end'",
+            "command": "\"$HOME/.claude/bin/tuios-tab-title.fish\"",
             "timeout": 10
           }
         ]

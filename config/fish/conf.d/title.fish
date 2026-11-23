@@ -1,12 +1,12 @@
 status is-interactive || exit
-set --query TMUX[1] || set --query HERDR_TAB_ID[1] || exit
+set --query TMUX[1] || set --query TUIOS_PANE_ID[1] || exit
 
 function _tab_title --argument-names title
     if test -n "$TMUX"
         printf '\033k%s\033\\' $title
     end
-    if test -n "$HERDR_TAB_ID"
-        _herdr_tab_title $title
+    if test -n "$TUIOS_PANE_ID"
+        _tuios_tab_title $title
     end
 end
 
