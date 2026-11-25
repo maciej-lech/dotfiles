@@ -3,10 +3,3 @@ if test -d /home/linuxbrew/.linuxbrew
     # Keep brew after system binaries so its dependencies (dbus, curl, mount...) don't shadow them
     fish_add_path --global --move --append --path $HOMEBREW_PREFIX/bin $HOMEBREW_PREFIX/sbin
 end
-
-if status is-interactive; and command -q brew
-    set -l HOMEBREW_COMMAND_NOT_FOUND_HANDLER $HOMEBREW_REPOSITORY/Library/Homebrew/command-not-found/handler.fish
-    if test -f $HOMEBREW_COMMAND_NOT_FOUND_HANDLER
-        source $HOMEBREW_COMMAND_NOT_FOUND_HANDLER
-    end
-end
