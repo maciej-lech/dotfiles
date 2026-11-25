@@ -487,7 +487,7 @@
     }
   },
   "frameMode": "separate",
-  "configVersion": 46,
+  "configVersion": 47,
   "barInsetPaddingSyncAll": false,
   "focusRingWidth": 1.5,
   "updaterIntervalSeconds": 0,
@@ -671,5 +671,6 @@
     }
   ],
   "lockScreenShowPowerActions": true,
-  "motionDuration": 0
+  "motionDuration": 0,
+  "controlCenterColumns": 8
 }
