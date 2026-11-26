@@ -134,7 +134,7 @@ animation_speed = 400
 auto_enter_terminal_on_focus = "all"
 scrollback_lines = 50000
 border_style = "glyphs"
-glyphs = "wide-focus"
+glyphs = "half-block"
 session_colors = false
 show_clock = false
 frame_panels = false
@@ -157,6 +157,7 @@ file_icon_colors = false
 header_case = "uppercase"
 header_style = "plain"
 density = "roomy"
+row_style = "pill"
 group_main = false
 peek = false
 
